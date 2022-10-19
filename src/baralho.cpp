@@ -38,29 +38,29 @@ void Baralho::inicializarMaoJogadores()
 {
     for (int i = 0; i < 3; i++)
     {
-        Carta _cartaSelecionada = sortearCarta();
-        _maoJogador1.push_back(_cartaSelecionada);
-        deletarCartaBaralho(_cartaSelecionada);
+        Carta _cartaSelecionada1 = sortearCarta();
+        _maoJogador1.push_back(_cartaSelecionada1);
+        deletarCartaBaralho(_cartaSelecionada1);
     }
 
     for (int i = 0; i < 3; i++)
     {
-        Carta _cartaSelecionada = sortearCarta();
-        _maoJogador2.push_back(_cartaSelecionada);
-        deletarCartaBaralho(_cartaSelecionada);
+        Carta _cartaSelecionada2 = sortearCarta();
+        _maoJogador2.push_back(_cartaSelecionada2);
+        deletarCartaBaralho(_cartaSelecionada2);
     }
 
     for (int i = 0; i < 3; i++)
     {
-        Carta _cartaSelecionada = sortearCarta();
-        _maoJogador3.push_back(_cartaSelecionada);
-        deletarCartaBaralho(_cartaSelecionada);
+        Carta _cartaSelecionada3 = sortearCarta();
+        _maoJogador3.push_back(_cartaSelecionada3);
+        deletarCartaBaralho(_cartaSelecionada3);
     }
 
     for (int i = 0; i < 3; i++)
     {
-        Carta _cartaSelecionada = sortearCarta();
-        _maoJogador4.push_back(_cartaSelecionada);
-        deletarCartaBaralho(_cartaSelecionada);
+        Carta _cartaSelecionada4 = sortearCarta();
+        _maoJogador4.push_back(_cartaSelecionada4);
+        deletarCartaBaralho(_cartaSelecionada4);
     }
 }
