@@ -9,7 +9,6 @@
 #include <vector>
 #include <list>
 
-
 Jogador::Jogador(std::string nome, std::vector<Carta> mao, int idDupla)
 {
     _nome = nome;
