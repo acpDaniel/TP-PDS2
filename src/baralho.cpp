@@ -9,11 +9,67 @@
 #include <vector>
 #include <list>
 
-
 int Baralho::sortearCarta()
 {
     int indiceCarta = rand() % _baralho.size();
     return indiceCarta;
+}
+
+void Baralho::inicializarBaralhoCompleto()
+{
+    _baralho.push_back(Carta("4 de ouros", 1, 0));
+    _baralho.push_back(Carta("4 de espadas", 1, 1));
+    _baralho.push_back(Carta("4 de copas", 1, 2));
+
+    _baralho.push_back(Carta("5 de paus", 2, 3));
+    _baralho.push_back(Carta("5 de espadas", 2, 4));
+    _baralho.push_back(Carta("5 de copas", 2, 5));
+    _baralho.push_back(Carta("5 de ouros", 2, 6));
+
+    _baralho.push_back(Carta("6 de paus", 3, 7));
+    _baralho.push_back(Carta("6 de espadas", 3, 8));
+    _baralho.push_back(Carta("6 de copas", 3, 9));
+    _baralho.push_back(Carta("6 de ouros", 3, 10));
+
+    _baralho.push_back(Carta("7 de paus", 4, 11));
+    _baralho.push_back(Carta("7 de espadas", 4, 12));
+
+    _baralho.push_back(Carta("Dama de ouros", 5, 13));
+    _baralho.push_back(Carta("Dama de espadas", 5, 14));
+    _baralho.push_back(Carta("Dama de copas", 5, 15));
+    _baralho.push_back(Carta("Dama de paus", 5, 16));
+
+    _baralho.push_back(Carta("Valete de ouros", 6, 17));
+    _baralho.push_back(Carta("Valete de espadas", 6, 18));
+    _baralho.push_back(Carta("Valete de copas", 6, 19));
+    _baralho.push_back(Carta("Valete de paus", 6, 20));
+
+    _baralho.push_back(Carta("Rei de ouros", 7, 21));
+    _baralho.push_back(Carta("Rei de espadas", 7, 22));
+    _baralho.push_back(Carta("Rei de copas", 7, 23));
+    _baralho.push_back(Carta("Rei de paus", 7, 24));
+
+    _baralho.push_back(Carta("As de paus", 8, 25));
+    _baralho.push_back(Carta("As de ouros", 8, 26));
+    _baralho.push_back(Carta("As de copas", 8, 27));
+
+    _baralho.push_back(Carta("2 de paus", 9, 28));
+    _baralho.push_back(Carta("2 de espadas", 9, 29));
+    _baralho.push_back(Carta("2 de copas", 9, 30));
+    _baralho.push_back(Carta("2 de ouros", 9, 31));
+
+    _baralho.push_back(Carta("3 de paus", 10, 32));
+    _baralho.push_back(Carta("3 de espadas", 10, 33));
+    _baralho.push_back(Carta("3 de copas", 10, 34));
+    _baralho.push_back(Carta("3 de ouros", 10, 35));
+
+    _baralho.push_back(Carta("7 de ouros", 11, 36));
+
+    _baralho.push_back(Carta("Espadilha", 12, 37));
+
+    _baralho.push_back(Carta("7 de copas", 13, 38));
+
+    _baralho.push_back(Carta("Zap", 14, 39));
 }
 
 void Baralho::inserirCartaBaralho(Carta carta)
@@ -62,7 +118,7 @@ void Baralho::inicializarMaoJogadores()
     }
 }
 
-//BARALHO FUNCIONANDO
+// BARALHO FUNCIONANDO
 
 /** DEBUG
     int main(){

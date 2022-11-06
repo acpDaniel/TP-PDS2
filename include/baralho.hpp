@@ -21,6 +21,7 @@ private:
 public:
     // DEBUG std::vector<Carta> _baralho;
     int sortearCarta();
+    void inicializarBaralhoCompleto();
     void inserirCartaBaralho(Carta carta);
     void deletarCartaBaralho(int indice);
     void inicializarMaoJogadores();
