@@ -14,7 +14,7 @@ class Jogador
 {
 protected:
     std::string _nome;
-    std::list<Carta> _mao;
+    std::vector<Carta> _mao;
     int _pontos = 0;
     int _idDupla;
     bool _pedindoTruco = false;
@@ -23,7 +23,7 @@ protected:
 public:
     // std::list<Carta> _mao;
 
-    Jogador(std::string nome, std::list<Carta> mao, int idDupla);
+    Jogador(std::string nome, std::vector<Carta> mao, int idDupla);
     void pedirTruco();
     void aceitarTruco();
     bool aumentarTruco();

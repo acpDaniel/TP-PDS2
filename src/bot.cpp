@@ -12,7 +12,6 @@
 
 bool Bot::pedirTruco()
 {
-    srand(time(NULL));
     // numero aleatorio de 1 a 10
     int numAleatorio = rand() % 10 + 1;
     // se o numeroAleatorio for maior igual a 7, vai pedir truco
@@ -26,7 +25,6 @@ bool Bot::pedirTruco()
 
 bool Bot::aceitarTruco()
 {
-    srand(time(NULL));
     // numero aleatorio de 1 a 10
     int numAleatorio = rand() % 10 + 1;
     // se o numeroAleatorio for maior igual a 7, vai aceitar o truco
@@ -40,7 +38,6 @@ bool Bot::aceitarTruco()
 
 bool Bot::aumentarTruco()
 {
-    srand(time(NULL));
     // numero aleatorio de 1 a 10
     int numAleatorio = rand() % 10 + 1;
     // se o numeroAleatorio for maior igual a 9, vai aumentar o truco
@@ -54,7 +51,6 @@ bool Bot::aumentarTruco()
 
 Carta Bot::jogarCarta()
 {
-    srand(time(NULL));
     // numero aleatorio entre 0 e o tamanho do vetor de cartas
     int numAleatorio = (rand() % _mao.size());
     // se o numAleatorio nao for 0, temos que diminuir 1 para ser a posiçao 0 ou 1 ou 2 do vetor de cartas

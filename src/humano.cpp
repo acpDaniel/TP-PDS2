@@ -39,7 +39,7 @@ bool Humano::aumentarTruco(bool aumentarTruco)
 Carta Humano::jogarCarta(int indice)
 {
     // logica para selecionar uma das 3 cartas, ja que o iterator begin retorna o endereço para primeira posicao
-    std::list<Carta>::iterator it = _mao.begin();
+    std::vector<Carta>::iterator it = _mao.begin();
     if (indice == 1)
     {
         ++it;
