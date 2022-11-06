@@ -22,7 +22,10 @@ protected:
 
 public:
     // std::list<Carta> _mao;
-
+    /** DEBUG std::vector<Carta> _mao;
+    int _idDupla;
+    bool _pedindoTruco = false;
+    bool _aceitandoTruco = false;**/
     Jogador(std::string nome, std::vector<Carta> mao, int idDupla);
     void pedirTruco();
     void aceitarTruco();

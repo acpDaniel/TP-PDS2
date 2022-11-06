@@ -19,6 +19,7 @@ private:
     std::vector<Carta> _maoJogador4;
 
 public:
+    // DEBUG std::vector<Carta> _baralho;
     int sortearCarta();
     void inserirCartaBaralho(Carta carta);
     void deletarCartaBaralho(int indice);

@@ -9,7 +9,8 @@
 #include <vector>
 #include <list>
 
-Jogador::Jogador(std::string nome, std::list<Carta> mao, int idDupla)
+
+Jogador::Jogador(std::string nome, std::vector<Carta> mao, int idDupla)
 {
     _nome = nome;
     _mao = mao;
@@ -49,7 +50,7 @@ std::string Jogador::getNome()
 Carta Jogador::jogarCarta(int indice)
 {
     // logica para selecionar uma das 3 cartas, ja que o iterator begin retorna o endereço para primeira posicao
-    std::list<Carta>::iterator it = _mao.begin();
+    std::vector<Carta>::iterator it = _mao.begin();
     if (indice == 1)
     {
         ++it;
@@ -63,3 +64,7 @@ Carta Jogador::jogarCarta(int indice)
     _mao.erase(it);
     return cartaSelecionada;
 }
+
+/**void main(){
+
+}**/
