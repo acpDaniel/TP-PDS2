@@ -32,5 +32,4 @@ public:
     std::string getNome();
     Carta jogarCarta(int indice);
 };
-
 #endif
