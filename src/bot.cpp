@@ -58,7 +58,7 @@ Carta Bot::jogarCarta()
     {
         numAleatorio = numAleatorio - 1;
     }
-    std::list<Carta>::iterator it = _mao.begin();
+    std::vector<Carta>::iterator it = _mao.begin();
     if (numAleatorio == 1)
     {
         ++it;
