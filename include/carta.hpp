@@ -16,7 +16,7 @@ private:
     int _id;
 
 public:
-    Carta(int nome, int peso, int id);
+    Carta(std::string nome, int peso, int id);
     std::string getNome();
     int getPeso();
     int getId();

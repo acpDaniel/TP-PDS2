@@ -7,7 +7,7 @@
 #include <vector>
 #include <list>
 
-Carta::Carta(int nome, int peso, int id)
+Carta::Carta(std::string nome, int peso, int id)
 {
     _nome = nome;
     _peso = peso;
