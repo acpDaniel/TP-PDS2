@@ -13,6 +13,7 @@
 
 class Bot : public Jogador
 {
+    public:
     bool pedirTruco();
     bool aceitarTruco();
     bool aumentarTruco();
