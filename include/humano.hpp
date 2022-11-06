@@ -13,6 +13,7 @@
 
 class Humano : public Jogador
 {
+    public:
     bool pedirTruco();
     bool aceitarTruco(bool aceitarTruco);
     bool aumentarTruco(bool aumentarTruco);
