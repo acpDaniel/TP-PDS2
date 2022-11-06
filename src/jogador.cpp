@@ -63,3 +63,7 @@ Carta Jogador::jogarCarta(int indice)
     _mao.erase(it);
     return cartaSelecionada;
 }
+
+/**void main(){
+
+}**/

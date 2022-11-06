@@ -2,6 +2,9 @@
 #include "../include/baralho.hpp"
 #include "../include/jogador.hpp"
 #include "../include/humano.hpp"
+/** DEBUG
+#include "jogador.cpp"
+#include "baralho.cpp"*/
 
 #include <iomanip>
 #include <iostream>
@@ -9,6 +12,7 @@
 #include <map>
 #include <vector>
 #include <list>
+
 
 bool Humano::pedirTruco()
 {
@@ -53,3 +57,57 @@ Carta Humano::jogarCarta(int indice)
     _mao.erase(it);
     return cartaSelecionada;
 }
+
+/** DEBUG
+int main(){
+    Carta SeteCopas("Sete de Copas", 1, 1);
+    Carta Zap("Quatro de Paus", 0, 0);
+    Carta Aspadilhas("As de Espadas", 2, 2);
+    Carta SeteOuros("Sete de Ouros", 3, 3);
+
+    Baralho baralhoteste;
+
+    baralhoteste.inserirCartaBaralho(Zap);
+    baralhoteste.inserirCartaBaralho(SeteCopas);
+    baralhoteste.inserirCartaBaralho(Aspadilhas);
+    baralhoteste.inserirCartaBaralho(SeteOuros);
+
+
+    Jogador teste1("Syrus", baralhoteste._baralho, 1);
+    Humano::Jogador teste2("Danilo", baralhoteste._baralho, 2);
+
+    std::cout << teste1._aceitandoTruco << std::endl;
+    teste1.aceitarTruco();
+    std::cout << teste1._aceitandoTruco << std::endl;
+    std::cout << teste1.getPontos() << std::endl;
+    teste1.adicionaPontos(2);
+    std::cout << teste1.getPontos() << std::endl;
+    std::cout << teste1.aumentarTruco() << std::endl;
+    std::cout << teste1._pedindoTruco << std::endl;
+    teste1.pedirTruco();
+    std::cout << teste1._pedindoTruco << std::endl;
+    std::cout << teste1.getNome() << std::endl;
+    std::cout << teste1._mao.size() << std::endl;
+    teste1.jogarCarta(1);
+    std::cout << teste1._mao.size() << std::endl;
+
+    std::cout << "Humano" << std::endl << std::endl;
+    
+    /**std::cout << teste2._aceitandoTruco << std::endl;
+    std::cout << teste2.aceitarTruco(true) << std::endl;
+    std::cout << teste2._aceitandoTruco << std::endl;
+    std::cout << teste2.getPontos() << std::endl;
+    teste2.adicionaPontos(2);
+    std::cout << teste2.getPontos() << std::endl;
+    std::cout << teste2.aumentarTruco(true) << std::endl;
+    std::cout << teste2._pedindoTruco << std::endl;
+    teste2.pedirTruco();
+    std::cout << teste2._pedindoTruco << std::endl;
+    std::cout << teste2.getNome() << std::endl;
+    std::cout << teste2._mao.size() << std::endl;
+    teste2.jogarCarta(1);
+    std::cout << teste2._mao.size() << std::endl;
+
+    return 0;
+
+}**/

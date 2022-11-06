@@ -72,3 +72,5 @@ Carta Bot::jogarCarta()
     _mao.erase(it);
     return cartaSelecionada;
 }
+
+//ainda sujeito a testes

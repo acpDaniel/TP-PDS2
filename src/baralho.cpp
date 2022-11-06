@@ -1,5 +1,6 @@
 #include "../include/carta.hpp"
 #include "../include/baralho.hpp"
+// DEBUG #include "carta.cpp"
 
 #include <iomanip>
 #include <iostream>
@@ -7,6 +8,7 @@
 #include <map>
 #include <vector>
 #include <list>
+
 
 int Baralho::sortearCarta()
 {
@@ -59,3 +61,26 @@ void Baralho::inicializarMaoJogadores()
         deletarCartaBaralho(_cartaSelecionada4.getId());
     }
 }
+
+//BARALHO FUNCIONANDO
+
+/** DEBUG
+    int main(){
+
+    Carta SeteCopas("Sete de Copas", 1, 1);
+    Carta Zap("Quatro de Paus", 0, 0);
+    Carta Aspadilhas("As de Espadas", 2, 2);
+    Carta SeteOuros("Sete de Ouros", 3, 3);
+
+    Baralho teste1;
+
+    teste1.inserirCartaBaralho(Zap);
+    teste1.inserirCartaBaralho(SeteCopas);
+    teste1.inserirCartaBaralho(Aspadilhas);
+    teste1.inserirCartaBaralho(SeteOuros);
+
+    std::cout << teste1._baralho.size() << std::endl;
+
+    return 0;
+
+}**/
