@@ -1,6 +1,7 @@
 #include "../include/carta.hpp"
 #include "../include/baralho.hpp"
 #include "../include/jogador.hpp"
+#include "../include/humano.hpp"
 
 #include <iomanip>
 #include <iostream>
@@ -9,44 +10,33 @@
 #include <vector>
 #include <list>
 
-Jogador::Jogador(std::string nome, std::list<Carta> mao, int idDupla)
-{
-    _nome = nome;
-    _mao = mao;
-    _idDupla = idDupla;
-}
-
-void Jogador::pedirTruco()
+bool Humano::pedirTruco()
 {
     _pedindoTruco = true;
+    return 1;
 }
 
-void Jogador::aceitarTruco()
+bool Humano::aceitarTruco(bool aceitarTruco)
 {
-    _aceitandoTruco = true;
+    if (aceitarTruco == true)
+    {
+        return 1;
+    }
+    else
+        return 0;
 }
 
-bool Jogador::aumentarTruco()
+bool Humano::aumentarTruco(bool aumentarTruco)
 {
-    return true;
+    if (aumentarTruco == true)
+    {
+        return 1;
+    }
+    else
+        return 0;
 }
 
-int Jogador::getPontos()
-{
-    return _pontos;
-}
-
-void Jogador::adicionaPontos(int pontos)
-{
-    _pontos += pontos;
-}
-
-std::string Jogador::getNome()
-{
-    return _nome;
-}
-
-Carta Jogador::jogarCarta(int indice)
+Carta Humano::jogarCarta(int indice)
 {
     // logica para selecionar uma das 3 cartas, ja que o iterator begin retorna o endereço para primeira posicao
     std::list<Carta>::iterator it = _mao.begin();

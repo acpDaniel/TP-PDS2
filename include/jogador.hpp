@@ -12,7 +12,7 @@
 
 class Jogador
 {
-private:
+protected:
     std::string _nome;
     std::list<Carta> _mao;
     int _pontos = 0;
@@ -28,9 +28,9 @@ public:
     void aceitarTruco();
     bool aumentarTruco();
     int getPontos();
-    int adicionaPontos(int pontos);
+    void adicionaPontos(int pontos);
     std::string getNome();
-    Carta jogarCarta();
+    Carta jogarCarta(int indice);
 };
 
 #endif
