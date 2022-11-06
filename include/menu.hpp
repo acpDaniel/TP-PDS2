@@ -17,11 +17,12 @@
 
 class Menu
 {
-    std::string nomeUsuario;
+    std::string _nomeUsuario;
 
 public:
+    Menu();
     void ranking();
-    void cadastro();
+    void cadastroUsuario();
     void limparTela();
 };
 #endif
