@@ -118,6 +118,26 @@ void Baralho::inicializarMaoJogadores()
     }
 }
 
+std::vector<Carta> Baralho::getMaoJogador1()
+{
+    return _maoJogador1;
+}
+
+std::vector<Carta> Baralho::getMaoJogador2()
+{
+    return _maoJogador2;
+}
+
+std::vector<Carta> Baralho::getMaoJogador3()
+{
+    return _maoJogador3;
+}
+
+std::vector<Carta> Baralho::getMaoJogador4()
+{
+    return _maoJogador4;
+}
+
 // BARALHO FUNCIONANDO
 
 /** DEBUG

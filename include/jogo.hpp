@@ -1,5 +1,5 @@
-#ifndef MENU_HPP
-#define MENU_HPP
+#ifndef JOGO_HPP
+#define JOGO_HPP
 
 #include "carta.hpp"
 #include "baralho.hpp"
@@ -7,6 +7,7 @@
 #include "humano.hpp"
 #include "bot.hpp"
 #include "rodada.hpp"
+#include "menu.hpp"
 
 #include <iomanip>
 #include <iostream>
@@ -15,13 +16,9 @@
 #include <vector>
 #include <list>
 
-class Menu
+class Jogo
 {
 public:
-    std::string _nomeUsuario;
-    Menu();
-    void ranking();
-    void cadastroUsuario();
-    void limparTela();
+    void novoJogo();
 };
 #endif

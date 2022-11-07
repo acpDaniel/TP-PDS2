@@ -13,7 +13,6 @@
 #include <vector>
 #include <list>
 
-
 bool Humano::pedirTruco()
 {
     _pedindoTruco = true;
@@ -92,7 +91,7 @@ int main(){
     std::cout << teste1._mao.size() << std::endl;
 
     std::cout << "Humano" << std::endl << std::endl;
-    
+
     /**std::cout << teste2._aceitandoTruco << std::endl;
     std::cout << teste2.aceitarTruco(true) << std::endl;
     std::cout << teste2._aceitandoTruco << std::endl;

@@ -13,7 +13,8 @@
 
 class Bot : public Jogador
 {
-    public:
+public:
+    Bot(std::string nome, std::vector<Carta> mao, int idDupla);
     bool pedirTruco();
     bool aceitarTruco();
     bool aumentarTruco();
