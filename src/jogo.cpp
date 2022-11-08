@@ -7,6 +7,15 @@
 #include "../include/menu.hpp"
 #include "../include/jogo.hpp"
 
+/**DEBUG
+#include "baralho.cpp"
+#include "bot.cpp"
+#include "carta.cpp"
+#include "humano.cpp"
+#include "jogador.cpp"
+#include "menu.cpp"
+#include "rodada.cpp"**/
+
 #include <iomanip>
 #include <iostream>
 #include <string>
@@ -65,7 +74,85 @@ void Jogo::novoJogo()
         menuJogo.limparTela();
 
         // ter que fazer uma logica aqui pra controlar essas quedas
+        //feito
         int quemIniciaJogando = 0;
+
+        //metodo bobinho de decidir quem comeca, desnecessário mas tive a ideia, só tinha 10 minutos pra fazer
+        //só comentar ou deletar se achar muito desnecessário, eu crio outra assim que possível
+        char iop;
+        do{
+            std::cout << "Escolha entre par 'p' ou impar 'i' para disputar quem comeca a rodada" << std::endl;
+            std::cin >> iop;
+        }while(iop != 'p' && iop != 'i');
+
+        int botchoice = (rand() % 10) + 1;
+        int pnum = 0;
+
+        do{
+            std::cout << "Escolha um numero de 1 a 10" << std::endl;
+            std::cin >> pnum;
+        }while(pnum > 10 || pnum < 1);
+
+        switch (iop)
+        {
+        case 'p':
+            if ((pnum + botchoice) % 2 == 0){
+                std::cout << "Par ganhou, dia de sorte" << std::endl;
+                std::cout << "Voce e seu parceiro estao entrando em consenso pra ver quem comeca" << std::endl;
+                int rn = (rand() % 2);
+                if (rn == 0){
+                    std::cout << "Voce quem comeca" << std::endl;
+                    quemIniciaJogando = 0;
+                }else{
+                    std::cout << "bot2 comeca dessa vez" << std::endl;
+                    quemIniciaJogando = 2;
+                }
+
+            }else{
+                std::cout << "Impar ganhou, quem sabe na proxima" << std::endl;
+                std::cout << "Eles estao conversando pra ver quem comeca" << std::endl;
+                int rn = (rand() % 2);
+                if (rn == 0){
+                    std::cout << "bot1 da dupla adversaria quem comeca o jogo" << std::endl;
+                    quemIniciaJogando = 1;
+                }else{
+                    std::cout << "bot3 da dupla adversaria quem comeca o jogo" << std::endl;
+                    quemIniciaJogando = 3;
+                }
+            }
+            break;
+
+        case 'i':
+            if ((pnum + botchoice) % 2 != 0){
+                std::cout << "Impar ganhou, cheio de sorte" << std::endl;
+                std::cout << "Voce e seu parceiro estao entrando em consenso pra ver quem comeca" << std::endl;
+                int rn = (rand() % 2);
+                if (rn == 0){
+                    std::cout << "Voce quem vai comecar jogando" << std::endl;
+                    quemIniciaJogando = 0;
+                }else{
+                    std::cout << "bot2 comeca essa rodada" << std::endl;
+                    quemIniciaJogando = 2;
+                }
+
+            }else{
+                std::cout << "Par ganhou, boa sorte na proxima" << std::endl;
+                std::cout << "Eles estao conversando pra ver quem comeca" << std::endl;
+                int rn = (rand() % 2);
+                if (rn == 0){
+                    std::cout << "bot1 da dupla adversaria quem comeca o jogo" << std::endl;
+                    quemIniciaJogando = 1;
+                }else{
+                    std::cout << "bot3 da dupla adversaria quem comeca o jogo" << std::endl;
+                    quemIniciaJogando = 3;
+                }
+            }
+            break;
+
+        default:
+            break;
+        }
+
         // 0 usuario inicia, 1 bot2 incia, 2 bot1 incia, 3 bot3 incia
         if (quemIniciaJogando == 0)
         {
