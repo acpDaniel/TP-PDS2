@@ -25,6 +25,7 @@ public:
     void inserirCartaBaralho(Carta carta);
     void deletarCartaBaralho(int indice);
     void inicializarMaoJogadores();
+    void resetarBaralhoEMaoJogadores();
     std::vector<Carta> getMaoJogador1();
     std::vector<Carta> getMaoJogador2();
     std::vector<Carta> getMaoJogador3();

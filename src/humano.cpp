@@ -39,6 +39,15 @@ bool Humano::aumentarTruco(bool aumentarTruco)
         return 0;
 }
 
+void Humano::imprimeCartasJogador()
+{
+    std::cout << "Cartas disponiveis para escolha:" << std::endl;
+    for (int i = 0; i < _mao.size(); i++)
+    {
+        std::cout << _mao[i].getNome() << " ";
+    }
+}
+
 Carta Humano::jogarCarta(int indice)
 {
     // logica para selecionar uma das 3 cartas, ja que o iterator begin retorna o endereço para primeira posicao

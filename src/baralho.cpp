@@ -118,6 +118,17 @@ void Baralho::inicializarMaoJogadores()
     }
 }
 
+void Baralho::resetarBaralhoEMaoJogadores()
+{
+    _baralho.clear();
+    _maoJogador1.clear();
+    _maoJogador2.clear();
+    _maoJogador3.clear();
+    _maoJogador4.clear();
+    inicializarBaralhoCompleto();
+    inicializarMaoJogadores();
+}
+
 std::vector<Carta> Baralho::getMaoJogador1()
 {
     return _maoJogador1;
