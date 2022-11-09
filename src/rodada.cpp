@@ -75,3 +75,13 @@ void Rodada::imprimeCartas()
         std::cout << _cartasDupla2Mesa[i].getNome() << " ";
     }
 }
+
+int Rodada::getVitoriasParciaisDupla1()
+{
+    return _vitoriasParciaisDupla1;
+}
+
+int Rodada::getVitoriasParciaisDupla2()
+{
+    return _vitoriasParciaisDupla2;
+}

@@ -26,6 +26,8 @@ public:
     void inserirCartaDupla1(Carta carta);
     void inserirCartaDupla2(Carta carta);
     int checagemDuplaVencedora();
+    int getVitoriasParciaisDupla1();
+    int getVitoriasParciaisDupla2();
     void checagemVitoriaParcial();
     void imprimeCartas();
 };
