@@ -34,5 +34,6 @@ public:
     void adicionaPontos(int pontos);
     std::string getNome();
     Carta jogarCarta(int indice);
+    void setMao(std::vector<Carta> mao);
 };
 #endif

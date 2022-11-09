@@ -64,6 +64,11 @@ Carta Jogador::jogarCarta(int indice)
     return cartaSelecionada;
 }
 
+void Jogador::setMao(std::vector<Carta> mao)
+{
+    _mao = mao;
+}
+
 /**void main(){
 
 }**/

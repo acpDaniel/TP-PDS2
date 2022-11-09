@@ -206,6 +206,7 @@ void Jogo::novoJogo()
         }
         else if (quemIniciaJogando == 1)
         {
+            // aqui no inicio vamo ter que chamar as funcoes setMao de cada jogador para dar as cartas novas para eles
             std::cout << "Bot2 (dupla adversaria) vai jogar..." << std::endl;
             rodadaAtual.inserirCartaDupla2(bot2.jogarCarta());
 
