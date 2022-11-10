@@ -85,3 +85,19 @@ int Rodada::getVitoriasParciaisDupla2()
 {
     return _vitoriasParciaisDupla2;
 }
+
+int Rodada::getPontuacaoRodadaAtual()
+{
+    return _pontuacaoRodadaAtual;
+}
+
+void Rodada::resetPontuacaoRodadaAtual()
+{
+    _pontuacaoRodadaAtual = 2;
+}
+
+void Rodada::resetVitoriasParciaisDuplas()
+{
+    _vitoriasParciaisDupla1 = 0;
+    _vitoriasParciaisDupla2 = 0;
+}

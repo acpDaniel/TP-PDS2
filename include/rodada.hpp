@@ -28,6 +28,9 @@ public:
     int checagemDuplaVencedora();
     int getVitoriasParciaisDupla1();
     int getVitoriasParciaisDupla2();
+    int getPontuacaoRodadaAtual();
+    void resetPontuacaoRodadaAtual();
+    void resetVitoriasParciaisDuplas();
     void checagemVitoriaParcial();
     void imprimeCartas();
 };

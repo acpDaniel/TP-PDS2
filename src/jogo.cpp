@@ -106,24 +106,131 @@ void Jogo::novoJogo()
             // continua a rodada enquanto nenhuma dupla tiver ganhado a md3
             while (rodadaAtual.getVitoriasParciaisDupla1() != 2 && rodadaAtual.getVitoriasParciaisDupla2() != 2)
             {
-                // fazer logica para começar jogando agr quem tacou a maior carta
+                // começar jogando agr quem tacou a maior carta
                 if (idJogadorMaiorCarta == 0)
                 {
                     // aqui teria a logica inicial do quemIniciaJogando = 0
+
+                    int indiceCartaEscolhida;
+                    std::cout << "Escolha a primeira carta para jogar:" << std::endl;
+                    std::cout << "Digite 0 para escolher a primeira carta, 1 para escolher a segunda ou 2 para a terceira" << std::endl;
+                    // imprime as opcoes de carta do jogador
+                    usuario.imprimeCartasJogador();
+                    std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
+
+                    // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
+                    rodadaAtual.inserirCartaDupla1(usuario.jogarCarta(indiceCartaEscolhida));
+
+                    std::cout << "Bot2 (dupla adversaria) vai jogar..." << std::endl;
+                    rodadaAtual.inserirCartaDupla2(bot2.jogarCarta());
+
+                    std::cout << "Bot1 (minha dupla) vai jogar..." << std::endl;
+                    rodadaAtual.inserirCartaDupla1(bot1.jogarCarta());
+
+                    std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
+                    rodadaAtual.inserirCartaDupla2(bot3.jogarCarta());
+
+                    // checagem de qual dupla ganhou a queda
+                    rodadaAtual.checagemVitoriaParcial();
+
+                    // colocar funçao para mudar o idJogadorMaiorCarta
                 }
                 else if (idJogadorMaiorCarta == 1)
                 {
                     // aqui teria a logica inicial do quemIniciaJogando = 1
+
+                    std::cout << "Bot2 (dupla adversaria) vai jogar..." << std::endl;
+                    rodadaAtual.inserirCartaDupla2(bot2.jogarCarta());
+
+                    std::cout << "Bot1 (minha dupla) vai jogar..." << std::endl;
+                    rodadaAtual.inserirCartaDupla1(bot1.jogarCarta());
+
+                    std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
+                    rodadaAtual.inserirCartaDupla2(bot3.jogarCarta());
+
+                    int indiceCartaEscolhida;
+                    std::cout << "Escolha a primeira carta para jogar:" << std::endl;
+                    std::cout << "Digite 0 para escolher a primeira carta, 1 para escolher a segunda ou 2 para a terceira" << std::endl;
+                    // imprime as opcoes de carta do jogador
+                    usuario.imprimeCartasJogador();
+                    std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
+                    // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
+                    rodadaAtual.inserirCartaDupla1(usuario.jogarCarta(indiceCartaEscolhida));
+
+                    // checagem de qual dupla ganhou a queda
+                    rodadaAtual.checagemVitoriaParcial();
+
+                    // colocar funçao para mudar o idJogadorMaiorCarta
                 }
                 else if (idJogadorMaiorCarta == 2)
                 {
                     // aqui teria a logica inicial do quemIniciaJogando = 2
+
+                    std::cout << "Bot1 (minha dupla) vai jogar..." << std::endl;
+                    rodadaAtual.inserirCartaDupla1(bot1.jogarCarta());
+
+                    std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
+                    rodadaAtual.inserirCartaDupla2(bot3.jogarCarta());
+
+                    int indiceCartaEscolhida;
+                    std::cout << "Escolha a primeira carta para jogar:" << std::endl;
+                    std::cout << "Digite 0 para escolher a primeira carta, 1 para escolher a segunda ou 2 para a terceira" << std::endl;
+                    // imprime as opcoes de carta do jogador
+                    usuario.imprimeCartasJogador();
+                    std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
+                    // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
+                    rodadaAtual.inserirCartaDupla1(usuario.jogarCarta(indiceCartaEscolhida));
+
+                    std::cout << "Bot2 (dupla adversaria) vai jogar..." << std::endl;
+                    rodadaAtual.inserirCartaDupla2(bot2.jogarCarta());
+
+                    // checagem de qual dupla ganhou a queda
+                    rodadaAtual.checagemVitoriaParcial();
+
+                    // colocar funçao para mudar o idJogadorMaiorCarta
                 }
                 else if (idJogadorMaiorCarta == 3)
                 {
                     // aqui teria a logica inicial do quemIniciaJogando = 3
+
+                    std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
+                    rodadaAtual.inserirCartaDupla2(bot3.jogarCarta());
+
+                    int indiceCartaEscolhida;
+                    std::cout << "Escolha a primeira carta para jogar:" << std::endl;
+                    std::cout << "Digite 0 para escolher a primeira carta, 1 para escolher a segunda ou 2 para a terceira" << std::endl;
+                    // imprime as opcoes de carta do jogador
+                    usuario.imprimeCartasJogador();
+                    std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
+                    // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
+                    rodadaAtual.inserirCartaDupla1(usuario.jogarCarta(indiceCartaEscolhida));
+
+                    std::cout << "Bot2 (dupla adversaria) vai jogar..." << std::endl;
+                    rodadaAtual.inserirCartaDupla2(bot2.jogarCarta());
+
+                    std::cout << "Bot1 (minha dupla) vai jogar..." << std::endl;
+                    rodadaAtual.inserirCartaDupla1(bot1.jogarCarta());
+
+                    // checagem de qual dupla ganhou a queda
+                    rodadaAtual.checagemVitoriaParcial();
+
+                    // colocar funçao para mudar o idJogadorMaiorCarta
                 }
             }
+
+            // dar o ponto da md3 para quem ganhou ela, no caso so preenchi do usuario ou do bot2 (ja que sao pontos da dupla nao precisa preencher todo mundo)
+            if (rodadaAtual.checagemDuplaVencedora() == 1)
+            {
+                usuario.adicionaPontos(rodadaAtual.getPontuacaoRodadaAtual());
+            }
+            else if (rodadaAtual.checagemDuplaVencedora() == 2)
+            {
+                bot2.adicionaPontos(rodadaAtual.getPontuacaoRodadaAtual());
+            }
+            // reseta o valor da md3 para 2
+            rodadaAtual.resetPontuacaoRodadaAtual();
+            // reseta as vitorias parciais pois vai ter nova md3
+            rodadaAtual.resetVitoriasParciaisDuplas();
             quemIniciaJogando = 1;
             // reseta o baralho adicionando novamente todas as cartas e prepara a mao de cada jogador
             baralhoDaQueda.resetarBaralhoEMaoJogadores();
@@ -131,6 +238,11 @@ void Jogo::novoJogo()
         else if (quemIniciaJogando == 1)
         {
             // aqui no inicio vamo ter que chamar as funcoes setMao de cada jogador para dar as cartas novas para eles
+            usuario.setMao(baralhoDaQueda.getMaoJogador1());
+            bot1.setMao(baralhoDaQueda.getMaoJogador2());
+            bot1.setMao(baralhoDaQueda.getMaoJogador3());
+            bot1.setMao(baralhoDaQueda.getMaoJogador4());
+
             std::cout << "Bot2 (dupla adversaria) vai jogar..." << std::endl;
             rodadaAtual.inserirCartaDupla2(bot2.jogarCarta());
 
@@ -159,6 +271,12 @@ void Jogo::novoJogo()
         }
         else if (quemIniciaJogando == 2)
         {
+            // aqui no inicio vamo ter que chamar as funcoes setMao de cada jogador para dar as cartas novas para eles
+            usuario.setMao(baralhoDaQueda.getMaoJogador1());
+            bot1.setMao(baralhoDaQueda.getMaoJogador2());
+            bot1.setMao(baralhoDaQueda.getMaoJogador3());
+            bot1.setMao(baralhoDaQueda.getMaoJogador4());
+
             std::cout << "Bot1 (minha dupla) vai jogar..." << std::endl;
             rodadaAtual.inserirCartaDupla1(bot1.jogarCarta());
 
@@ -187,6 +305,12 @@ void Jogo::novoJogo()
         }
         else if (quemIniciaJogando == 3)
         {
+            // aqui no inicio vamo ter que chamar as funcoes setMao de cada jogador para dar as cartas novas para eles
+            usuario.setMao(baralhoDaQueda.getMaoJogador1());
+            bot1.setMao(baralhoDaQueda.getMaoJogador2());
+            bot1.setMao(baralhoDaQueda.getMaoJogador3());
+            bot1.setMao(baralhoDaQueda.getMaoJogador4());
+
             std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
             rodadaAtual.inserirCartaDupla2(bot3.jogarCarta());
 
