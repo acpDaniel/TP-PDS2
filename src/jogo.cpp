@@ -62,11 +62,13 @@ void Jogo::novoJogo()
         baralhoDaQueda.inicializarBaralhoCompleto();
         baralhoDaQueda.inicializarMaoJogadores();
 
-        // constroi os jogadores atribuindo nome, mao e id da dupla
-        Humano usuario = Humano(menuJogo._nomeUsuario, baralhoDaQueda.getMaoJogador1(), 1);
-        Bot bot1 = Bot("Bot1", baralhoDaQueda.getMaoJogador2(), 1);
-        Bot bot2 = Bot("Bot2", baralhoDaQueda.getMaoJogador3(), 2);
-        Bot bot3 = Bot("Bot3", baralhoDaQueda.getMaoJogador4(), 2);
+        // constroi os jogadores atribuindo nome, mao ,id da dupla , id jogador
+
+        // ----- CHECAR IMPLEMENTACAO CONSTRUTOR DE HUMANO E BOT -------
+        Humano usuario = Humano(menuJogo._nomeUsuario, baralhoDaQueda.getMaoJogador1(), 1, 0);
+        Bot bot1 = Bot("Bot1", baralhoDaQueda.getMaoJogador2(), 2, 1);
+        Bot bot2 = Bot("Bot2", baralhoDaQueda.getMaoJogador3(), 1, 2);
+        Bot bot3 = Bot("Bot3", baralhoDaQueda.getMaoJogador4(), 2, 3);
 
         // inicializacao da rodada
         Rodada rodadaAtual;

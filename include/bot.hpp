@@ -14,7 +14,7 @@
 class Bot : public Jogador
 {
 public:
-    Bot(std::string nome, std::vector<Carta> mao, int idDupla);
+    Bot(std::string nome, std::vector<Carta> mao, int idDupla, int idJogador);
     bool pedirTruco();
     bool aceitarTruco();
     bool aumentarTruco();

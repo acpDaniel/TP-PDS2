@@ -16,6 +16,7 @@ protected:
     std::string _nome;
     std::vector<Carta> _mao;
     int _pontos = 0;
+    int _idJogador;
     int _idDupla;
     bool _pedindoTruco = false;
     bool _aceitandoTruco = false;
@@ -26,11 +27,12 @@ public:
     int _idDupla;
     bool _pedindoTruco = false;
     bool _aceitandoTruco = false;**/
-    Jogador(std::string nome, std::vector<Carta> mao, int idDupla);
+    Jogador(std::string nome, std::vector<Carta> mao, int idDupla, int idJogador);
     void pedirTruco();
     void aceitarTruco();
     bool aumentarTruco();
     int getPontos();
+    int getIdJogador();
     void adicionaPontos(int pontos);
     std::string getNome();
     Carta jogarCarta(int indice);

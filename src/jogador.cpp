@@ -9,11 +9,12 @@
 #include <vector>
 #include <list>
 
-Jogador::Jogador(std::string nome, std::vector<Carta> mao, int idDupla)
+Jogador::Jogador(std::string nome, std::vector<Carta> mao, int idDupla, int idJogador)
 {
     _nome = nome;
     _mao = mao;
     _idDupla = idDupla;
+    _idJogador = idJogador;
 }
 
 void Jogador::pedirTruco()
@@ -67,6 +68,11 @@ Carta Jogador::jogarCarta(int indice)
 void Jogador::setMao(std::vector<Carta> mao)
 {
     _mao = mao;
+}
+
+int Jogador::getIdJogador()
+{
+    return _idJogador;
 }
 
 /**void main(){
