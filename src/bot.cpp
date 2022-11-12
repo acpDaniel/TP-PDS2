@@ -74,7 +74,7 @@ Carta Bot::jogarCarta()
     }
     Carta cartaSelecionada = *(it);
     _mao.erase(it);
-    std::cout << "A carta selecionada foi" << cartaSelecionada.getNome() << std::endl;
+    std::cout << "A carta selecionada foi " << cartaSelecionada.getNome() << std::endl;
     return cartaSelecionada;
 }
 

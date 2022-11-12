@@ -48,14 +48,14 @@ void Jogo::inicializaBaralho()
     baralhoDaQueda.inicializarMaoJogadores();
 }
 
-void Jogo::inicializaJogadores()
-{
-    // constroi os jogadores atribuindo nome,id da dupla , id jogador
-    usuario = Humano(menuJogo._nomeUsuario, 1, 0);
-    bot1 = Bot("Bot1", 2, 1);
-    bot2 = Bot("Bot2", 1, 2);
-    bot3 = Bot("Bot3", 2, 3);
-}
+// void Jogo::inicializaJogadores()
+// {
+//     // constroi os jogadores atribuindo nome,id da dupla , id jogador
+//     usuario = Humano(menuJogo._nomeUsuario, 1, 0);
+//     bot1 = Bot("Bot1", 2, 1);
+//     bot2 = Bot("Bot2", 1, 2);
+//     bot3 = Bot("Bot3", 2, 3);
+// }
 
 // sequencia de jogadas iniciando com o usuario
 void Jogo::sequenciaJogadasIniciandoUsuario()
@@ -216,7 +216,7 @@ void Jogo::novoJogo()
     std::cout << "Se quiser visualizar o ranking digite 1, se quiser iniciar a partida digite 2: ";
     std::cin >> proxPasso;
     // se o usuario digitar um valor invalido vai repetir a msg
-    while (proxPasso != 1 || proxPasso != 2)
+    while (proxPasso != 1 && proxPasso != 2)
     {
         std::cout << "Numero invalido! " << std::endl;
         std::cout << "Se quiser visualizar o ranking digite 1, se quiser iniciar a partida digite 2: ";
@@ -231,19 +231,19 @@ void Jogo::novoJogo()
     else
     {
         menuJogo.limparTela();
-        std::cout << "O jogo irá iniciar!";
+        std::cout << "O jogo ira iniciar!";
     }
 
     if (proxPasso == 2)
     {
         menuJogo.limparTela();
-        std::cout << "O jogo irá iniciar!";
+        std::cout << "O jogo ira iniciar!";
 
         // inicializa o baralho completo e prepara a mao de cada jogador
         inicializaBaralho();
 
-        // inicializa os jogadores
-        inicializaJogadores();
+        // // inicializa os jogadores
+        // inicializaJogadores();
 
         menuJogo.limparTela();
 
