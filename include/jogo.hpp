@@ -27,6 +27,7 @@ class Jogo
     Bot bot3;
 
 public:
+    Jogo();
     void novoJogo();
     void inicializaMenu();
     void inicializaBaralho();

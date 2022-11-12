@@ -10,6 +10,10 @@
 #include <vector>
 #include <list>
 
+Bot::Bot(){};
+
+Bot::Bot(std::string nome, int idDupla, int idJogador) : Jogador(nome, idDupla, idJogador){};
+
 bool Bot::pedirTruco()
 {
     // numero aleatorio de 1 a 10

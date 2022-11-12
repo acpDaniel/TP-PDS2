@@ -13,6 +13,12 @@
 #include <vector>
 #include <list>
 
+Humano::Humano(){};
+
+Humano::Humano(std::string nome, int idDupla, int idJogador) : Jogador(nome, idDupla, idJogador)
+{
+}
+
 bool Humano::pedirTruco()
 {
     _pedindoTruco = true;

@@ -12,6 +12,8 @@
 #include <vector>
 #include <list>
 
+Rodada::Rodada(){};
+
 void Rodada::inserirCartaDupla1(Carta carta)
 {
     _cartasDupla1Mesa.push_back(carta);
@@ -20,6 +22,16 @@ void Rodada::inserirCartaDupla1(Carta carta)
 void Rodada::inserirCartaDupla2(Carta carta)
 {
     _cartasDupla2Mesa.push_back(carta);
+}
+
+void Rodada::setMaiorIdMd3(int num)
+{
+    _maiorIdMd3 = num;
+}
+
+int Rodada::getMaiorIdMd3()
+{
+    return _maiorIdMd3;
 }
 
 int Rodada::idJogadorMaiorCarta(int peso0, int peso1, int peso2, int peso3)

@@ -9,6 +9,8 @@
 #include <vector>
 #include <list>
 
+Baralho::Baralho(){};
+
 int Baralho::sortearCarta()
 {
     int indiceCarta = rand() % _baralho.size();

@@ -9,6 +9,8 @@
 #include <vector>
 #include <list>
 
+Jogador::Jogador(){};
+
 Jogador::Jogador(std::string nome, int idDupla, int idJogador)
 {
     _nome = nome;

@@ -14,6 +14,7 @@
 class Bot : public Jogador
 {
 public:
+    Bot();
     Bot(std::string nome, int idDupla, int idJogador);
     bool pedirTruco();
     bool aceitarTruco();

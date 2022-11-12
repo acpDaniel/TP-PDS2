@@ -27,6 +27,7 @@ public:
     int _idDupla;
     bool _pedindoTruco = false;
     bool _aceitandoTruco = false;**/
+    Jogador();
     Jogador(std::string nome, int idDupla, int idJogador);
     void pedirTruco();
     void aceitarTruco();

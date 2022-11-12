@@ -14,6 +14,7 @@
 class Humano : public Jogador
 {
 public:
+    Humano();
     Humano(std::string nome, int idDupla, int idJogador);
     bool pedirTruco();
     bool aceitarTruco(bool aceitarTruco);

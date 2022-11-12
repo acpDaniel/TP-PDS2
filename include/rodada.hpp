@@ -24,6 +24,7 @@ class Rodada
     int _maiorIdMd3;
 
 public:
+    Rodada();
     void inserirCartaDupla1(Carta carta);
     void inserirCartaDupla2(Carta carta);
     int idJogadorMaiorCarta(int peso0, int peso1, int peso2, int peso3);
