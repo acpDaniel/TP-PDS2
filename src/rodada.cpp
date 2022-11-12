@@ -22,7 +22,27 @@ void Rodada::inserirCartaDupla2(Carta carta)
     _cartasDupla2Mesa.push_back(carta);
 }
 
-// checagem de vitoria de cada queda da md3 que compoe a rodada
+int Rodada::idJogadorMaiorCarta(int peso0, int peso1, int peso2, int peso3)
+{
+    std::vector<int> pesos;
+    pesos.push_back(peso0);
+    pesos.push_back(peso1);
+    pesos.push_back(peso2);
+    pesos.push_back(peso3);
+    int idMaiorPeso = 0;
+    int maiorPeso = peso0;
+    for (int i = 0; i < 4; i++)
+    {
+        if (pesos[i] > maiorPeso)
+        {
+            maiorPeso = pesos[i];
+            idMaiorPeso = i;
+        }
+    }
+    return idMaiorPeso;
+}
+
+// checagem de vitoria de cada queda da md3 que compoe a rodada e zera as cartas na mesa
 void Rodada::checagemVitoriaParcial()
 {
     int pesoMaiorCartaDupla1 = _cartasDupla1Mesa[0].getPeso();

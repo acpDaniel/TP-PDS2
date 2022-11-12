@@ -55,18 +55,23 @@ void Jogo::sequenciaJogadasIniciandoUsuario()
     // imprime as opcoes de carta do jogador
     usuario.imprimeCartasJogador();
     std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
-
     // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
-    rodadaAtual.inserirCartaDupla1(usuario.jogarCarta(indiceCartaEscolhida));
+    Carta cartaSelecionadaUsuario = usuario.jogarCarta(indiceCartaEscolhida);
+    rodadaAtual.inserirCartaDupla1(cartaSelecionadaUsuario);
 
     std::cout << "Bot1 (dupla adversaria) vai jogar..." << std::endl;
-    rodadaAtual.inserirCartaDupla2(bot1.jogarCarta());
+    Carta cartaSelecionadaBot1 = bot1.jogarCarta();
+    rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
 
     std::cout << "Bot2 (minha dupla) vai jogar..." << std::endl;
-    rodadaAtual.inserirCartaDupla1(bot2.jogarCarta());
+    Carta cartaSelecionadaBot2 = bot2.jogarCarta();
+    rodadaAtual.inserirCartaDupla1(cartaSelecionadaBot2);
 
     std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
-    rodadaAtual.inserirCartaDupla2(bot3.jogarCarta());
+    Carta cartaSelecionadaBot3 = bot3.jogarCarta();
+    rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
+
+    rodadaAtual.setMaiorIdMd3(rodadaAtual.idJogadorMaiorCarta(cartaSelecionadaUsuario.getPeso(), cartaSelecionadaBot1.getPeso(), cartaSelecionadaBot2.getPeso(), cartaSelecionadaBot3.getPeso()));
 
     // checagem de qual dupla ganhou a queda
     rodadaAtual.checagemVitoriaParcial();
@@ -75,13 +80,16 @@ void Jogo::sequenciaJogadasIniciandoUsuario()
 void Jogo::sequenciaJogadasIniciandoBot1()
 {
     std::cout << "Bot1 (dupla adversaria) vai jogar..." << std::endl;
-    rodadaAtual.inserirCartaDupla2(bot1.jogarCarta());
+    Carta cartaSelecionadaBot1 = bot1.jogarCarta();
+    rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
 
     std::cout << "Bot2 (minha dupla) vai jogar..." << std::endl;
-    rodadaAtual.inserirCartaDupla1(bot2.jogarCarta());
+    Carta cartaSelecionadaBot2 = bot2.jogarCarta();
+    rodadaAtual.inserirCartaDupla1(cartaSelecionadaBot2);
 
     std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
-    rodadaAtual.inserirCartaDupla2(bot3.jogarCarta());
+    Carta cartaSelecionadaBot3 = bot3.jogarCarta();
+    rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
 
     int indiceCartaEscolhida;
     std::cout << "Escolha a primeira carta para jogar:" << std::endl;
@@ -90,7 +98,10 @@ void Jogo::sequenciaJogadasIniciandoBot1()
     usuario.imprimeCartasJogador();
     std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
     // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
-    rodadaAtual.inserirCartaDupla1(usuario.jogarCarta(indiceCartaEscolhida));
+    Carta cartaSelecionadaUsuario = usuario.jogarCarta(indiceCartaEscolhida);
+    rodadaAtual.inserirCartaDupla1(cartaSelecionadaUsuario);
+
+    rodadaAtual.setMaiorIdMd3(rodadaAtual.idJogadorMaiorCarta(cartaSelecionadaUsuario.getPeso(), cartaSelecionadaBot1.getPeso(), cartaSelecionadaBot2.getPeso(), cartaSelecionadaBot3.getPeso()));
 
     // checagem de qual dupla ganhou a queda
     rodadaAtual.checagemVitoriaParcial();
@@ -99,10 +110,12 @@ void Jogo::sequenciaJogadasIniciandoBot1()
 void Jogo::sequenciaJogadasIniciandoBot2()
 {
     std::cout << "Bot2 (minha dupla) vai jogar..." << std::endl;
-    rodadaAtual.inserirCartaDupla1(bot2.jogarCarta());
+    Carta cartaSelecionadaBot2 = bot2.jogarCarta();
+    rodadaAtual.inserirCartaDupla1(cartaSelecionadaBot2);
 
     std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
-    rodadaAtual.inserirCartaDupla2(bot3.jogarCarta());
+    Carta cartaSelecionadaBot3 = bot3.jogarCarta();
+    rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
 
     int indiceCartaEscolhida;
     std::cout << "Escolha a primeira carta para jogar:" << std::endl;
@@ -111,10 +124,14 @@ void Jogo::sequenciaJogadasIniciandoBot2()
     usuario.imprimeCartasJogador();
     std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
     // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
-    rodadaAtual.inserirCartaDupla1(usuario.jogarCarta(indiceCartaEscolhida));
+    Carta cartaSelecionadaUsuario = usuario.jogarCarta(indiceCartaEscolhida);
+    rodadaAtual.inserirCartaDupla1(cartaSelecionadaUsuario);
 
     std::cout << "Bot1 (dupla adversaria) vai jogar..." << std::endl;
-    rodadaAtual.inserirCartaDupla1(bot1.jogarCarta());
+    Carta cartaSelecionadaBot1 = bot1.jogarCarta();
+    rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
+
+    rodadaAtual.setMaiorIdMd3(rodadaAtual.idJogadorMaiorCarta(cartaSelecionadaUsuario.getPeso(), cartaSelecionadaBot1.getPeso(), cartaSelecionadaBot2.getPeso(), cartaSelecionadaBot3.getPeso()));
 
     // checagem de qual dupla ganhou a queda
     rodadaAtual.checagemVitoriaParcial();
@@ -123,7 +140,8 @@ void Jogo::sequenciaJogadasIniciandoBot2()
 void Jogo::sequenciaJogadasIniciandoBot3()
 {
     std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
-    rodadaAtual.inserirCartaDupla2(bot3.jogarCarta());
+    Carta cartaSelecionadaBot3 = bot3.jogarCarta();
+    rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
 
     int indiceCartaEscolhida;
     std::cout << "Escolha a primeira carta para jogar:" << std::endl;
@@ -132,13 +150,18 @@ void Jogo::sequenciaJogadasIniciandoBot3()
     usuario.imprimeCartasJogador();
     std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
     // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
-    rodadaAtual.inserirCartaDupla1(usuario.jogarCarta(indiceCartaEscolhida));
+    Carta cartaSelecionadaUsuario = usuario.jogarCarta(indiceCartaEscolhida);
+    rodadaAtual.inserirCartaDupla1(cartaSelecionadaUsuario);
 
     std::cout << "Bot2 (dupla adversaria) vai jogar..." << std::endl;
-    rodadaAtual.inserirCartaDupla2(bot2.jogarCarta());
+    Carta cartaSelecionadaBot2 = bot2.jogarCarta();
+    rodadaAtual.inserirCartaDupla1(cartaSelecionadaBot2);
 
     std::cout << "Bot1 (minha dupla) vai jogar..." << std::endl;
-    rodadaAtual.inserirCartaDupla1(bot1.jogarCarta());
+    Carta cartaSelecionadaBot1 = bot1.jogarCarta();
+    rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
+
+    rodadaAtual.setMaiorIdMd3(rodadaAtual.idJogadorMaiorCarta(cartaSelecionadaUsuario.getPeso(), cartaSelecionadaBot1.getPeso(), cartaSelecionadaBot2.getPeso(), cartaSelecionadaBot3.getPeso()));
 
     // checagem de qual dupla ganhou a queda
     rodadaAtual.checagemVitoriaParcial();
@@ -165,6 +188,10 @@ void Jogo::procedimentosFinalRodada()
 }
 
 // ---- FIM DOS METODOS DA CLASSE JOGO ----
+
+//
+
+//
 
 // **** FUNCAO PRINCIPAL DO JOGO ****
 
@@ -227,7 +254,7 @@ void Jogo::novoJogo()
                 Jogo::sequenciaJogadasIniciandoUsuario();
 
                 // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
 
                 // continua a rodada enquanto nenhuma dupla tiver ganhado a md3
                 while (rodadaAtual.getVitoriasParciaisDupla1() != 2 && rodadaAtual.getVitoriasParciaisDupla2() != 2)
@@ -238,28 +265,28 @@ void Jogo::novoJogo()
                         Jogo::sequenciaJogadasIniciandoUsuario();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                     }
                     else if (idJogadorMaiorCarta == 1)
                     {
                         Jogo::sequenciaJogadasIniciandoBot1();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                     }
                     else if (idJogadorMaiorCarta == 2)
                     {
                         Jogo::sequenciaJogadasIniciandoBot2();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                     }
                     else if (idJogadorMaiorCarta == 3)
                     {
                         Jogo::sequenciaJogadasIniciandoBot3();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                     }
                 }
 
@@ -277,7 +304,7 @@ void Jogo::novoJogo()
                 Jogo::sequenciaJogadasIniciandoBot1();
 
                 // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
 
                 // continua a rodada enquanto nenhuma dupla tiver ganhado a md3
                 while (rodadaAtual.getVitoriasParciaisDupla1() != 2 && rodadaAtual.getVitoriasParciaisDupla2() != 2)
@@ -288,28 +315,28 @@ void Jogo::novoJogo()
                         Jogo::sequenciaJogadasIniciandoUsuario();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                     }
                     else if (idJogadorMaiorCarta == 1)
                     {
                         Jogo::sequenciaJogadasIniciandoBot1();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                     }
                     else if (idJogadorMaiorCarta == 2)
                     {
                         Jogo::sequenciaJogadasIniciandoBot2();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                     }
                     else if (idJogadorMaiorCarta == 3)
                     {
                         Jogo::sequenciaJogadasIniciandoBot3();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                     }
                 }
 
@@ -327,7 +354,7 @@ void Jogo::novoJogo()
                 Jogo::sequenciaJogadasIniciandoBot2();
 
                 // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
 
                 // continua a rodada enquanto nenhuma dupla tiver ganhado a md3
                 while (rodadaAtual.getVitoriasParciaisDupla1() != 2 && rodadaAtual.getVitoriasParciaisDupla2() != 2)
@@ -338,28 +365,28 @@ void Jogo::novoJogo()
                         Jogo::sequenciaJogadasIniciandoUsuario();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                     }
                     else if (idJogadorMaiorCarta == 1)
                     {
                         Jogo::sequenciaJogadasIniciandoBot1();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                     }
                     else if (idJogadorMaiorCarta == 2)
                     {
                         Jogo::sequenciaJogadasIniciandoBot2();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                     }
                     else if (idJogadorMaiorCarta == 3)
                     {
                         Jogo::sequenciaJogadasIniciandoBot3();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                     }
                 }
 
@@ -377,7 +404,7 @@ void Jogo::novoJogo()
                 Jogo::sequenciaJogadasIniciandoBot3();
 
                 // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
 
                 // continua a rodada enquanto nenhuma dupla tiver ganhado a md3
                 while (rodadaAtual.getVitoriasParciaisDupla1() != 2 && rodadaAtual.getVitoriasParciaisDupla2() != 2)
@@ -388,28 +415,28 @@ void Jogo::novoJogo()
                         Jogo::sequenciaJogadasIniciandoUsuario();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                     }
                     else if (idJogadorMaiorCarta == 1)
                     {
                         Jogo::sequenciaJogadasIniciandoBot1();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                     }
                     else if (idJogadorMaiorCarta == 2)
                     {
                         Jogo::sequenciaJogadasIniciandoBot2();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                     }
                     else if (idJogadorMaiorCarta == 3)
                     {
                         Jogo::sequenciaJogadasIniciandoBot3();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        // idJogadorMaiorCarta = rodadaAtual.getIdQuemTacouMaiorCarta();
+                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                     }
                 }
 

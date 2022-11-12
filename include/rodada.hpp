@@ -21,10 +21,14 @@ class Rodada
     std::vector<Carta> _cartasDupla2Mesa;
     int _vitoriasParciaisDupla2 = 0;
     int _pontuacaoRodadaAtual = 2;
+    int _maiorIdMd3;
 
 public:
     void inserirCartaDupla1(Carta carta);
     void inserirCartaDupla2(Carta carta);
+    int idJogadorMaiorCarta(int peso0, int peso1, int peso2, int peso3);
+    int getMaiorIdMd3();
+    void setMaiorIdMd3(int num);
     int checagemDuplaVencedora();
     int getVitoriasParciaisDupla1();
     int getVitoriasParciaisDupla2();
