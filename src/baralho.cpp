@@ -92,28 +92,28 @@ void Baralho::inicializarMaoJogadores()
     for (int i = 0; i < 3; i++)
     {
         Carta _cartaSelecionada1 = _baralho[sortearCarta()];
-        _maoJogador1.push_back(_cartaSelecionada1);
+        _maoJogador0.push_back(_cartaSelecionada1);
         deletarCartaBaralho(_cartaSelecionada1.getId());
     }
 
     for (int i = 0; i < 3; i++)
     {
         Carta _cartaSelecionada2 = _baralho[sortearCarta()];
-        _maoJogador2.push_back(_cartaSelecionada2);
+        _maoJogador1.push_back(_cartaSelecionada2);
         deletarCartaBaralho(_cartaSelecionada2.getId());
     }
 
     for (int i = 0; i < 3; i++)
     {
         Carta _cartaSelecionada3 = _baralho[sortearCarta()];
-        _maoJogador3.push_back(_cartaSelecionada3);
+        _maoJogador2.push_back(_cartaSelecionada3);
         deletarCartaBaralho(_cartaSelecionada3.getId());
     }
 
     for (int i = 0; i < 3; i++)
     {
         Carta _cartaSelecionada4 = _baralho[sortearCarta()];
-        _maoJogador4.push_back(_cartaSelecionada4);
+        _maoJogador3.push_back(_cartaSelecionada4);
         deletarCartaBaralho(_cartaSelecionada4.getId());
     }
 }
@@ -121,12 +121,17 @@ void Baralho::inicializarMaoJogadores()
 void Baralho::resetarBaralhoEMaoJogadores()
 {
     _baralho.clear();
+    _maoJogador0.clear();
     _maoJogador1.clear();
     _maoJogador2.clear();
     _maoJogador3.clear();
-    _maoJogador4.clear();
     inicializarBaralhoCompleto();
     inicializarMaoJogadores();
+}
+
+std::vector<Carta> Baralho::getMaoJogador0()
+{
+    return _maoJogador0;
 }
 
 std::vector<Carta> Baralho::getMaoJogador1()
@@ -142,11 +147,6 @@ std::vector<Carta> Baralho::getMaoJogador2()
 std::vector<Carta> Baralho::getMaoJogador3()
 {
     return _maoJogador3;
-}
-
-std::vector<Carta> Baralho::getMaoJogador4()
-{
-    return _maoJogador4;
 }
 
 // BARALHO FUNCIONANDO

@@ -18,7 +18,23 @@
 
 class Jogo
 {
+    Menu menuJogo;
+    Baralho baralhoDaQueda;
+    Rodada rodadaAtual;
+    Humano usuario;
+    Bot bot1;
+    Bot bot2;
+    Bot bot3;
+
 public:
     void novoJogo();
+    void inicializaMenu();
+    void inicializaBaralho();
+    void inicializaJogadores();
+    void sequenciaJogadasIniciandoUsuario();
+    void sequenciaJogadasIniciandoBot1();
+    void sequenciaJogadasIniciandoBot2();
+    void sequenciaJogadasIniciandoBot3();
+    void procedimentosFinalRodada();
 };
 #endif

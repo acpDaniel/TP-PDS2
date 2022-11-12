@@ -9,10 +9,9 @@
 #include <vector>
 #include <list>
 
-Jogador::Jogador(std::string nome, std::vector<Carta> mao, int idDupla, int idJogador)
+Jogador::Jogador(std::string nome, int idDupla, int idJogador)
 {
     _nome = nome;
-    _mao = mao;
     _idDupla = idDupla;
     _idJogador = idJogador;
 }

@@ -14,7 +14,7 @@
 class Humano : public Jogador
 {
 public:
-    Humano(std::string nome, std::vector<Carta> mao, int idDupla, int idJogador);
+    Humano(std::string nome, int idDupla, int idJogador);
     bool pedirTruco();
     bool aceitarTruco(bool aceitarTruco);
     bool aumentarTruco(bool aumentarTruco);
