@@ -20,6 +20,7 @@ public:
     std::string getNome();
     int getPeso();
     int getId();
+    void setId(int num);
     void imprimeCarta();
 };
 

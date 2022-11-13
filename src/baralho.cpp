@@ -17,6 +17,7 @@ Baralho::Baralho()
     _maoJogador2 = std::vector<Carta>();
     _maoJogador3 = std::vector<Carta>();
 
+    _baralho.reserve(40);
     _maoJogador0.reserve(3);
     _maoJogador1.reserve(3);
     _maoJogador2.reserve(3);
@@ -31,7 +32,6 @@ int Baralho::sortearCarta()
 
 void Baralho::inicializarBaralhoCompleto()
 {
-    _baralho.reserve(40);
     _baralho.push_back(Carta("4 de ouros", 1, 0));
     _baralho.push_back(Carta("4 de espadas", 1, 1));
     _baralho.push_back(Carta("4 de copas", 1, 2));
@@ -101,6 +101,10 @@ void Baralho::deletarCartaBaralho(int indice)
     {
         ++it;
     }
+    for (int j = indice + 1; j < _baralho.size(); j++)
+    {
+        _baralho[j].setId(_baralho[j].getId() - 1);
+    }
     _baralho.erase(it);
 }
 
@@ -142,8 +146,6 @@ void Baralho::resetarBaralhoEMaoJogadores()
     _maoJogador1.clear();
     _maoJogador2.clear();
     _maoJogador3.clear();
-    inicializarBaralhoCompleto();
-    inicializarMaoJogadores();
 }
 
 std::vector<Carta> Baralho::getMaoJogador0()

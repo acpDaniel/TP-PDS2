@@ -27,6 +27,12 @@ int Carta::getPeso()
 int Carta::getId()
 {
     return _id;
+    _id = 2;
+}
+
+void Carta::setId(int num)
+{
+    _id = num;
 }
 
 void Carta::imprimeCarta()
@@ -34,7 +40,7 @@ void Carta::imprimeCarta()
     std::cout << "A carta selecionada e o(a) " << _nome << std::endl;
 }
 
-//CARTAS FUNCIONANDO 
+// CARTAS FUNCIONANDO
 
 /** DEBUG
     int main(){
