@@ -70,13 +70,19 @@ void Jogo::sequenciaJogadasIniciandoUsuario()
     Carta cartaSelecionadaUsuario = usuario.jogarCarta(indiceCartaEscolhida);
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaUsuario);
 
+    std::cout << std::endl;
+
     std::cout << "Bot1 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot1 = bot1.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
 
+    std::cout << std::endl;
+
     std::cout << "Bot2 (minha dupla) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot2 = bot2.jogarCarta();
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaBot2);
+
+    std::cout << std::endl;
 
     std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot3 = bot3.jogarCarta();
@@ -94,13 +100,19 @@ void Jogo::sequenciaJogadasIniciandoBot1()
     Carta cartaSelecionadaBot1 = bot1.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
 
+    std::cout << std::endl;
+
     std::cout << "Bot2 (minha dupla) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot2 = bot2.jogarCarta();
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaBot2);
 
+    std::cout << std::endl;
+
     std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot3 = bot3.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
+
+    std::cout << std::endl;
 
     int indiceCartaEscolhida;
     std::cout << "Escolha a primeira carta para jogar:" << std::endl;
@@ -124,9 +136,13 @@ void Jogo::sequenciaJogadasIniciandoBot2()
     Carta cartaSelecionadaBot2 = bot2.jogarCarta();
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaBot2);
 
+    std::cout << std::endl;
+
     std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot3 = bot3.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
+
+    std::cout << std::endl;
 
     int indiceCartaEscolhida;
     std::cout << "Escolha a primeira carta para jogar:" << std::endl;
@@ -137,6 +153,8 @@ void Jogo::sequenciaJogadasIniciandoBot2()
     // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
     Carta cartaSelecionadaUsuario = usuario.jogarCarta(indiceCartaEscolhida);
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaUsuario);
+
+    std::cout << std::endl;
 
     std::cout << "Bot1 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot1 = bot1.jogarCarta();
@@ -154,8 +172,10 @@ void Jogo::sequenciaJogadasIniciandoBot3()
     Carta cartaSelecionadaBot3 = bot3.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
 
+    std::cout << std::endl;
+
     int indiceCartaEscolhida;
-    std::cout << "Escolha a primeira carta para jogar:" << std::endl;
+    std::cout << "Escolha a carta para jogar:" << std::endl;
     std::cout << "Digite 0 para escolher a primeira carta, 1 para escolher a segunda ou 2 para a terceira" << std::endl;
     // imprime as opcoes de carta do jogador
     usuario.imprimeCartasJogador();
@@ -164,9 +184,13 @@ void Jogo::sequenciaJogadasIniciandoBot3()
     Carta cartaSelecionadaUsuario = usuario.jogarCarta(indiceCartaEscolhida);
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaUsuario);
 
+    std::cout << std::endl;
+
     std::cout << "Bot2 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot2 = bot2.jogarCarta();
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaBot2);
+
+    std::cout << std::endl;
 
     std::cout << "Bot1 (minha dupla) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot1 = bot1.jogarCarta();
@@ -210,7 +234,6 @@ void Jogo::novoJogo()
 {
     // inicializa o menu do jogo e cadastra o usuario
     inicializaMenu();
-
     // se quiser visualizar o ranking digita 1, se quiser iniciar a partida digite 2
     int proxPasso;
     std::cout << "Se quiser visualizar o ranking digite 1, se quiser iniciar a partida digite 2: ";
@@ -256,6 +279,8 @@ void Jogo::novoJogo()
 
             if (quemIniciaJogandoRodada == 0)
             {
+                menuJogo.limparTela();
+                std::cout << "Nova rodada esta iniciando..." << std::endl;
                 // distribui as cartas pros jogadores
                 usuario.setMao(baralhoDaQueda.getMaoJogador0());
                 bot1.setMao(baralhoDaQueda.getMaoJogador1());
@@ -311,6 +336,7 @@ void Jogo::novoJogo()
             else if (quemIniciaJogandoRodada == 1)
             {
                 menuJogo.limparTela();
+                std::cout << "Nova rodada esta iniciando..." << std::endl;
                 // aqui no inicio vamo ter que chamar as funcoes setMao de cada jogador para dar as cartas novas para eles
                 usuario.setMao(baralhoDaQueda.getMaoJogador0());
                 bot1.setMao(baralhoDaQueda.getMaoJogador1());
@@ -366,6 +392,7 @@ void Jogo::novoJogo()
             else if (quemIniciaJogandoRodada == 2)
             {
                 menuJogo.limparTela();
+                std::cout << "Nova rodada esta iniciando..." << std::endl;
                 // aqui no inicio vamo ter que chamar as funcoes setMao de cada jogador para dar as cartas novas para eles
                 usuario.setMao(baralhoDaQueda.getMaoJogador0());
                 bot1.setMao(baralhoDaQueda.getMaoJogador1());
@@ -421,6 +448,7 @@ void Jogo::novoJogo()
             else if (quemIniciaJogandoRodada == 3)
             {
                 menuJogo.limparTela();
+                std::cout << "Nova rodada esta iniciando..." << std::endl;
                 // aqui no inicio vamo ter que chamar as funcoes setMao de cada jogador para dar as cartas novas para eles
                 usuario.setMao(baralhoDaQueda.getMaoJogador0());
                 bot1.setMao(baralhoDaQueda.getMaoJogador1());
@@ -474,6 +502,17 @@ void Jogo::novoJogo()
 
                 quemIniciaJogandoRodada = 0;
             }
+        }
+
+        std::cout << usuario.getPontos() << std::endl;
+        std::cout << bot1.getPontos();
+        if (usuario.getPontos() >= 12)
+        {
+            std::cout << "usuario ganhou";
+        }
+        else if (bot1.getPontos() >= 12)
+        {
+            std::cout << "usuario perdeu";
         }
     }
 }

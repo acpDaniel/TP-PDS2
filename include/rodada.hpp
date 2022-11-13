@@ -17,9 +17,9 @@
 class Rodada
 {
     std::vector<Carta> _cartasDupla1Mesa;
-    int _vitoriasParciaisDupla1 = 0;
+    int _vitoriasParciaisDupla1;
     std::vector<Carta> _cartasDupla2Mesa;
-    int _vitoriasParciaisDupla2 = 0;
+    int _vitoriasParciaisDupla2;
     int _pontuacaoRodadaAtual = 2;
     int _maiorIdMd3;
 

@@ -12,7 +12,11 @@
 #include <vector>
 #include <list>
 
-Rodada::Rodada(){};
+Rodada::Rodada()
+{
+    _vitoriasParciaisDupla1 = 0;
+    _vitoriasParciaisDupla2 = 0;
+};
 
 void Rodada::inserirCartaDupla1(Carta carta)
 {
