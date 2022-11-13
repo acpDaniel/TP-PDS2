@@ -18,11 +18,11 @@
 
 Menu::Menu()
 {
-    std::cout << "Bem vindo ao jogo de truco desenvolvido para a disciplina de PDS2" << std::endl;
 }
 
 void Menu::cadastroUsuario()
 {
+    std::cout << "Bem vindo ao jogo de truco desenvolvido para a disciplina de PDS2" << std::endl;
     std::cout << "Digite um nome de usuario para voce se identificar no ranking do jogo (sem espacos): ";
     std::string nomeUsuario;
     std::cin >> nomeUsuario;

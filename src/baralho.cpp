@@ -9,7 +9,19 @@
 #include <vector>
 #include <list>
 
-Baralho::Baralho(){};
+Baralho::Baralho()
+{
+    _baralho = std::vector<Carta>();
+    _maoJogador0 = std::vector<Carta>();
+    _maoJogador1 = std::vector<Carta>();
+    _maoJogador2 = std::vector<Carta>();
+    _maoJogador3 = std::vector<Carta>();
+
+    _maoJogador0.reserve(3);
+    _maoJogador1.reserve(3);
+    _maoJogador2.reserve(3);
+    _maoJogador3.reserve(3);
+};
 
 int Baralho::sortearCarta()
 {
@@ -19,6 +31,7 @@ int Baralho::sortearCarta()
 
 void Baralho::inicializarBaralhoCompleto()
 {
+    _baralho.reserve(40);
     _baralho.push_back(Carta("4 de ouros", 1, 0));
     _baralho.push_back(Carta("4 de espadas", 1, 1));
     _baralho.push_back(Carta("4 de copas", 1, 2));
@@ -72,6 +85,8 @@ void Baralho::inicializarBaralhoCompleto()
     _baralho.push_back(Carta("7 de copas", 13, 38));
 
     _baralho.push_back(Carta("Zap", 14, 39));
+
+    Carta &ultimaCarta = _baralho[39];
 }
 
 void Baralho::inserirCartaBaralho(Carta carta)
@@ -93,28 +108,28 @@ void Baralho::inicializarMaoJogadores()
 {
     for (int i = 0; i < 3; i++)
     {
-        Carta _cartaSelecionada1 = _baralho[sortearCarta()];
+        Carta &_cartaSelecionada1 = _baralho[sortearCarta()];
         _maoJogador0.push_back(_cartaSelecionada1);
         deletarCartaBaralho(_cartaSelecionada1.getId());
     }
 
     for (int i = 0; i < 3; i++)
     {
-        Carta _cartaSelecionada2 = _baralho[sortearCarta()];
+        Carta &_cartaSelecionada2 = _baralho[sortearCarta()];
         _maoJogador1.push_back(_cartaSelecionada2);
         deletarCartaBaralho(_cartaSelecionada2.getId());
     }
 
     for (int i = 0; i < 3; i++)
     {
-        Carta _cartaSelecionada3 = _baralho[sortearCarta()];
+        Carta &_cartaSelecionada3 = _baralho[sortearCarta()];
         _maoJogador2.push_back(_cartaSelecionada3);
         deletarCartaBaralho(_cartaSelecionada3.getId());
     }
 
     for (int i = 0; i < 3; i++)
     {
-        Carta _cartaSelecionada4 = _baralho[sortearCarta()];
+        Carta &_cartaSelecionada4 = _baralho[sortearCarta()];
         _maoJogador3.push_back(_cartaSelecionada4);
         deletarCartaBaralho(_cartaSelecionada4.getId());
     }

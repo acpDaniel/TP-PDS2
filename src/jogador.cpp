@@ -68,7 +68,7 @@ Carta Jogador::jogarCarta(int indice)
 
 void Jogador::setMao(std::vector<Carta> mao)
 {
-    _mao = mao;
+    _mao = std::vector<Carta>(mao);
 }
 
 int Jogador::getIdJogador()

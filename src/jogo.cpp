@@ -259,8 +259,8 @@ void Jogo::novoJogo()
                 // distribui as cartas pros jogadores
                 usuario.setMao(baralhoDaQueda.getMaoJogador0());
                 bot1.setMao(baralhoDaQueda.getMaoJogador1());
-                bot1.setMao(baralhoDaQueda.getMaoJogador2());
-                bot1.setMao(baralhoDaQueda.getMaoJogador3());
+                bot2.setMao(baralhoDaQueda.getMaoJogador2());
+                bot3.setMao(baralhoDaQueda.getMaoJogador3());
 
                 sequenciaJogadasIniciandoUsuario();
 
@@ -273,6 +273,7 @@ void Jogo::novoJogo()
                     // começar jogando agr quem tacou a maior carta
                     if (idJogadorMaiorCarta == 0)
                     {
+                        menuJogo.limparTela();
                         sequenciaJogadasIniciandoUsuario();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -280,6 +281,7 @@ void Jogo::novoJogo()
                     }
                     else if (idJogadorMaiorCarta == 1)
                     {
+                        menuJogo.limparTela();
                         sequenciaJogadasIniciandoBot1();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -287,6 +289,7 @@ void Jogo::novoJogo()
                     }
                     else if (idJogadorMaiorCarta == 2)
                     {
+                        menuJogo.limparTela();
                         sequenciaJogadasIniciandoBot2();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -294,6 +297,7 @@ void Jogo::novoJogo()
                     }
                     else if (idJogadorMaiorCarta == 3)
                     {
+                        menuJogo.limparTela();
                         sequenciaJogadasIniciandoBot3();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -306,11 +310,12 @@ void Jogo::novoJogo()
             }
             else if (quemIniciaJogandoRodada == 1)
             {
+                menuJogo.limparTela();
                 // aqui no inicio vamo ter que chamar as funcoes setMao de cada jogador para dar as cartas novas para eles
                 usuario.setMao(baralhoDaQueda.getMaoJogador0());
                 bot1.setMao(baralhoDaQueda.getMaoJogador1());
-                bot1.setMao(baralhoDaQueda.getMaoJogador2());
-                bot1.setMao(baralhoDaQueda.getMaoJogador3());
+                bot2.setMao(baralhoDaQueda.getMaoJogador2());
+                bot3.setMao(baralhoDaQueda.getMaoJogador3());
 
                 sequenciaJogadasIniciandoBot1();
 
@@ -323,6 +328,7 @@ void Jogo::novoJogo()
                     // começar jogando agr quem tacou a maior carta
                     if (idJogadorMaiorCarta == 0)
                     {
+                        menuJogo.limparTela();
                         sequenciaJogadasIniciandoUsuario();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -330,6 +336,7 @@ void Jogo::novoJogo()
                     }
                     else if (idJogadorMaiorCarta == 1)
                     {
+                        menuJogo.limparTela();
                         sequenciaJogadasIniciandoBot1();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -337,6 +344,7 @@ void Jogo::novoJogo()
                     }
                     else if (idJogadorMaiorCarta == 2)
                     {
+                        menuJogo.limparTela();
                         sequenciaJogadasIniciandoBot2();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -344,6 +352,7 @@ void Jogo::novoJogo()
                     }
                     else if (idJogadorMaiorCarta == 3)
                     {
+                        menuJogo.limparTela();
                         sequenciaJogadasIniciandoBot3();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -356,11 +365,12 @@ void Jogo::novoJogo()
             }
             else if (quemIniciaJogandoRodada == 2)
             {
+                menuJogo.limparTela();
                 // aqui no inicio vamo ter que chamar as funcoes setMao de cada jogador para dar as cartas novas para eles
                 usuario.setMao(baralhoDaQueda.getMaoJogador0());
                 bot1.setMao(baralhoDaQueda.getMaoJogador1());
-                bot1.setMao(baralhoDaQueda.getMaoJogador2());
-                bot1.setMao(baralhoDaQueda.getMaoJogador3());
+                bot2.setMao(baralhoDaQueda.getMaoJogador2());
+                bot3.setMao(baralhoDaQueda.getMaoJogador3());
 
                 sequenciaJogadasIniciandoBot2();
 
@@ -373,6 +383,7 @@ void Jogo::novoJogo()
                     // começar jogando agr quem tacou a maior carta
                     if (idJogadorMaiorCarta == 0)
                     {
+                        menuJogo.limparTela();
                         sequenciaJogadasIniciandoUsuario();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -380,6 +391,7 @@ void Jogo::novoJogo()
                     }
                     else if (idJogadorMaiorCarta == 1)
                     {
+                        menuJogo.limparTela();
                         sequenciaJogadasIniciandoBot1();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -387,6 +399,7 @@ void Jogo::novoJogo()
                     }
                     else if (idJogadorMaiorCarta == 2)
                     {
+                        menuJogo.limparTela();
                         sequenciaJogadasIniciandoBot2();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -394,6 +407,7 @@ void Jogo::novoJogo()
                     }
                     else if (idJogadorMaiorCarta == 3)
                     {
+                        menuJogo.limparTela();
                         sequenciaJogadasIniciandoBot3();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -406,11 +420,12 @@ void Jogo::novoJogo()
             }
             else if (quemIniciaJogandoRodada == 3)
             {
+                menuJogo.limparTela();
                 // aqui no inicio vamo ter que chamar as funcoes setMao de cada jogador para dar as cartas novas para eles
                 usuario.setMao(baralhoDaQueda.getMaoJogador0());
                 bot1.setMao(baralhoDaQueda.getMaoJogador1());
-                bot1.setMao(baralhoDaQueda.getMaoJogador2());
-                bot1.setMao(baralhoDaQueda.getMaoJogador3());
+                bot2.setMao(baralhoDaQueda.getMaoJogador2());
+                bot3.setMao(baralhoDaQueda.getMaoJogador3());
 
                 sequenciaJogadasIniciandoBot3();
 
@@ -423,6 +438,7 @@ void Jogo::novoJogo()
                     // começar jogando agr quem tacou a maior carta
                     if (idJogadorMaiorCarta == 0)
                     {
+                        menuJogo.limparTela();
                         sequenciaJogadasIniciandoUsuario();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -430,6 +446,7 @@ void Jogo::novoJogo()
                     }
                     else if (idJogadorMaiorCarta == 1)
                     {
+                        menuJogo.limparTela();
                         sequenciaJogadasIniciandoBot1();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -437,6 +454,7 @@ void Jogo::novoJogo()
                     }
                     else if (idJogadorMaiorCarta == 2)
                     {
+                        menuJogo.limparTela();
                         sequenciaJogadasIniciandoBot2();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -444,6 +462,7 @@ void Jogo::novoJogo()
                     }
                     else if (idJogadorMaiorCarta == 3)
                     {
+                        menuJogo.limparTela();
                         sequenciaJogadasIniciandoBot3();
 
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
