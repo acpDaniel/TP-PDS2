@@ -74,18 +74,21 @@ void Jogo::sequenciaJogadasIniciandoUsuario()
 
     std::cout << std::endl;
 
+    checaPedidoTrucoBot1();
     std::cout << "Bot1 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot1 = bot1.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
 
     std::cout << std::endl;
 
+    checaPedidoTrucoBot2();
     std::cout << "Bot2 (minha dupla) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot2 = bot2.jogarCarta();
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaBot2);
 
     std::cout << std::endl;
 
+    checaPedidoTrucoBot3();
     std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot3 = bot3.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
@@ -98,18 +101,21 @@ void Jogo::sequenciaJogadasIniciandoUsuario()
 
 void Jogo::sequenciaJogadasIniciandoBot1()
 {
+    checaPedidoTrucoBot1();
     std::cout << "Bot1 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot1 = bot1.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
 
     std::cout << std::endl;
 
+    checaPedidoTrucoBot2();
     std::cout << "Bot2 (minha dupla) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot2 = bot2.jogarCarta();
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaBot2);
 
     std::cout << std::endl;
 
+    checaPedidoTrucoBot3();
     std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot3 = bot3.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
@@ -135,12 +141,14 @@ void Jogo::sequenciaJogadasIniciandoBot1()
 
 void Jogo::sequenciaJogadasIniciandoBot2()
 {
+    checaPedidoTrucoBot2();
     std::cout << "Bot2 (minha dupla) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot2 = bot2.jogarCarta();
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaBot2);
 
     std::cout << std::endl;
 
+    checaPedidoTrucoBot3();
     std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot3 = bot3.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
@@ -160,6 +168,7 @@ void Jogo::sequenciaJogadasIniciandoBot2()
 
     std::cout << std::endl;
 
+    checaPedidoTrucoBot1();
     std::cout << "Bot1 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot1 = bot1.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
@@ -172,6 +181,7 @@ void Jogo::sequenciaJogadasIniciandoBot2()
 
 void Jogo::sequenciaJogadasIniciandoBot3()
 {
+    checaPedidoTrucoBot3();
     std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot3 = bot3.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
@@ -191,12 +201,14 @@ void Jogo::sequenciaJogadasIniciandoBot3()
 
     std::cout << std::endl;
 
+    checaPedidoTrucoBot1();
     std::cout << "Bot1 (minha dupla) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot1 = bot1.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
 
     std::cout << std::endl;
 
+    checaPedidoTrucoBot2();
     std::cout << "Bot2 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot2 = bot2.jogarCarta();
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaBot2);
@@ -224,6 +236,53 @@ void Jogo::checaPedidoTrucoJogador()
         else
         {
             std::cout << "Pedido de truco nao foi aceito" << std::endl;
+        }
+    }
+}
+
+void Jogo::checaPedidoTrucoBot1()
+{
+    bool pedindoTruco = bot1.pedirTruco();
+    bool resposta;
+    if (pedindoTruco == true)
+    {
+        std::cout << "Se deseja aceitar o truco digite 1, se nao digite 0";
+        std::cin >> resposta;
+        if (resposta == true)
+        {
+            rodadaAtual.aumentaPontuacaoRodadaAtual();
+            std::cout << "Pedido de truco foi aceito" << std::endl;
+        }
+    }
+}
+
+void Jogo::checaPedidoTrucoBot2()
+{
+    bool pedindoTruco = bot2.pedirTruco();
+    bool resposta;
+    if (pedindoTruco == true)
+    {
+        resposta = bot1.aceitarTruco();
+        if (resposta == true)
+        {
+            rodadaAtual.aumentaPontuacaoRodadaAtual();
+            std::cout << "Pedido de truco foi aceito" << std::endl;
+        }
+    }
+}
+
+void Jogo::checaPedidoTrucoBot3()
+{
+    bool pedindoTruco = bot3.pedirTruco();
+    bool resposta;
+    if (pedindoTruco == true)
+    {
+        std::cout << "Se deseja aceitar o truco digite 1, se nao digite 0";
+        std::cin >> resposta;
+        if (resposta == true)
+        {
+            rodadaAtual.aumentaPontuacaoRodadaAtual();
+            std::cout << "Pedido de truco foi aceito" << std::endl;
         }
     }
 }

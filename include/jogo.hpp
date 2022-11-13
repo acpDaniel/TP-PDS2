@@ -37,7 +37,9 @@ public:
     void sequenciaJogadasIniciandoBot2();
     void sequenciaJogadasIniciandoBot3();
     void checaPedidoTrucoJogador();
-    void checaPedidoTrucoBot0();
+    void checaPedidoTrucoBot1();
+    void checaPedidoTrucoBot2();
+    void checaPedidoTrucoBot3();
     void procedimentosFinalRodada();
 };
 #endif
