@@ -62,6 +62,7 @@ void Jogo::inicializaBaralho()
 void Jogo::sequenciaJogadasIniciandoUsuario()
 {
     int indiceCartaEscolhida;
+    checaPedidoTrucoJogador();
     std::cout << "Escolha a carta para jogar:" << std::endl;
     std::cout << "Digite 0 para escolher a primeira carta, 1 para escolher a segunda ou 2 para a terceira" << std::endl;
     // imprime as opcoes de carta do jogador
@@ -116,6 +117,7 @@ void Jogo::sequenciaJogadasIniciandoBot1()
     std::cout << std::endl;
 
     int indiceCartaEscolhida;
+    checaPedidoTrucoJogador();
     std::cout << "Escolha a carta para jogar:" << std::endl;
     std::cout << "Digite 0 para escolher a primeira carta, 1 para escolher a segunda ou 2 para a terceira" << std::endl;
     // imprime as opcoes de carta do jogador
@@ -146,6 +148,7 @@ void Jogo::sequenciaJogadasIniciandoBot2()
     std::cout << std::endl;
 
     int indiceCartaEscolhida;
+    checaPedidoTrucoJogador();
     std::cout << "Escolha a carta para jogar:" << std::endl;
     std::cout << "Digite 0 para escolher a primeira carta, 1 para escolher a segunda ou 2 para a terceira" << std::endl;
     // imprime as opcoes de carta do jogador
@@ -176,6 +179,7 @@ void Jogo::sequenciaJogadasIniciandoBot3()
     std::cout << std::endl;
 
     int indiceCartaEscolhida;
+    checaPedidoTrucoJogador();
     std::cout << "Escolha a carta para jogar:" << std::endl;
     std::cout << "Digite 0 para escolher a primeira carta, 1 para escolher a segunda ou 2 para a terceira" << std::endl;
     // imprime as opcoes de carta do jogador
@@ -187,20 +191,41 @@ void Jogo::sequenciaJogadasIniciandoBot3()
 
     std::cout << std::endl;
 
-    std::cout << "Bot2 (dupla adversaria) vai jogar..." << std::endl;
-    Carta cartaSelecionadaBot2 = bot2.jogarCarta();
-    rodadaAtual.inserirCartaDupla1(cartaSelecionadaBot2);
-
-    std::cout << std::endl;
-
     std::cout << "Bot1 (minha dupla) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot1 = bot1.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
+
+    std::cout << std::endl;
+
+    std::cout << "Bot2 (dupla adversaria) vai jogar..." << std::endl;
+    Carta cartaSelecionadaBot2 = bot2.jogarCarta();
+    rodadaAtual.inserirCartaDupla1(cartaSelecionadaBot2);
 
     rodadaAtual.setMaiorIdMd3(rodadaAtual.idJogadorMaiorCarta(cartaSelecionadaUsuario.getPeso(), cartaSelecionadaBot1.getPeso(), cartaSelecionadaBot2.getPeso(), cartaSelecionadaBot3.getPeso()));
 
     // checagem de qual dupla ganhou a queda
     rodadaAtual.checagemVitoriaParcial();
+}
+
+void Jogo::checaPedidoTrucoJogador()
+{
+    bool pedindoTruco;
+    bool resposta;
+    std::cout << "Se deseja pedir truco digite 1, se nao digite 0";
+    std::cin >> pedindoTruco;
+    if (pedindoTruco == true)
+    {
+        resposta = bot1.aceitarTruco();
+        if (resposta == true)
+        {
+            rodadaAtual.aumentaPontuacaoRodadaAtual();
+            std::cout << "Pedido de truco foi aceito" << std::endl;
+        }
+        else
+        {
+            std::cout << "Pedido de truco nao foi aceito" << std::endl;
+        }
+    }
 }
 
 // procedimentos do final de uma rodada
@@ -373,6 +398,10 @@ void Jogo::novoJogo()
                     // começar jogando agr quem tacou a maior carta
                     if (idJogadorMaiorCarta == 0)
                     {
+                        std::cout << "-------- FIM DA QUEDA --------" << std::endl;
+                        std::cout << std::endl;
+                        std::cout << std::endl;
+                        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
                         // menuJogo.limparTela();
                         sequenciaJogadasIniciandoUsuario();
 

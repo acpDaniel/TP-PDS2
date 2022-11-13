@@ -127,6 +127,11 @@ int Rodada::getPontuacaoRodadaAtual()
     return _pontuacaoRodadaAtual;
 }
 
+void Rodada::aumentaPontuacaoRodadaAtual()
+{
+    _pontuacaoRodadaAtual += 2;
+}
+
 void Rodada::resetPontuacaoRodadaAtual()
 {
     _pontuacaoRodadaAtual = 2;

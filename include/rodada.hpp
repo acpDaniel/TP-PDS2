@@ -34,6 +34,7 @@ public:
     int getVitoriasParciaisDupla1();
     int getVitoriasParciaisDupla2();
     int getPontuacaoRodadaAtual();
+    void aumentaPontuacaoRodadaAtual();
     void resetPontuacaoRodadaAtual();
     void resetVitoriasParciaisDuplas();
     void checagemVitoriaParcial();

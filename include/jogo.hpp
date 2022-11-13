@@ -36,6 +36,8 @@ public:
     void sequenciaJogadasIniciandoBot1();
     void sequenciaJogadasIniciandoBot2();
     void sequenciaJogadasIniciandoBot3();
+    void checaPedidoTrucoJogador();
+    void checaPedidoTrucoBot0();
     void procedimentosFinalRodada();
 };
 #endif
