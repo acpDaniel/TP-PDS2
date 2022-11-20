@@ -16,8 +16,18 @@
 #include <vector>
 #include <list>
 
+class ErroNumeroInvalidoPedidoTruco : public std::exception
+{
+public:
+    const char *what() const noexcept override
+    {
+        return "Entrada invalida, os numeros permitidos sao 0 ou 1";
+    }
+};
+
 class Jogo
 {
+public:
     Menu menuJogo;
     Baralho baralhoDaQueda;
     Rodada rodadaAtual;
@@ -26,9 +36,7 @@ class Jogo
     Bot bot2;
     Bot bot3;
 
-public:
     Jogo();
-    void novoJogo();
     void inicializaMenu();
     void inicializaBaralho();
     void inicializaJogadores();
