@@ -18,8 +18,8 @@ bool Bot::pedirTruco()
 {
     // numero aleatorio de 1 a 10
     int numAleatorio = rand() % 10 + 1;
-    // se o numeroAleatorio for maior igual a 7, vai pedir truco
-    if (numAleatorio >= 7)
+    // se o numeroAleatorio for maior igual a 8, vai pedir truco
+    if (numAleatorio >= 8)
     {
         return 1;
     }

@@ -36,6 +36,7 @@ public:
     void sequenciaJogadasIniciandoBot1();
     void sequenciaJogadasIniciandoBot2();
     void sequenciaJogadasIniciandoBot3();
+    void sequenciaJogadasMd3(int idMaior);
     void checaPedidoTrucoJogador();
     void checaPedidoTrucoBot1();
     void checaPedidoTrucoBot2();

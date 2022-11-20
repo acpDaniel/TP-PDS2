@@ -49,15 +49,6 @@ void Jogo::inicializaBaralho()
     baralhoDaQueda.inicializarMaoJogadores();
 }
 
-// void Jogo::inicializaJogadores()
-// {
-//     // constroi os jogadores atribuindo nome,id da dupla , id jogador
-//     usuario = Humano(menuJogo._nomeUsuario, 1, 0);
-//     bot1 = Bot("Bot1", 2, 1);
-//     bot2 = Bot("Bot2", 1, 2);
-//     bot3 = Bot("Bot3", 2, 3);
-// }
-
 // sequencia de jogadas iniciando com o usuario
 void Jogo::sequenciaJogadasIniciandoUsuario()
 {
@@ -217,6 +208,48 @@ void Jogo::sequenciaJogadasIniciandoBot3()
 
     // checagem de qual dupla ganhou a queda
     rodadaAtual.checagemVitoriaParcial();
+}
+
+void Jogo::sequenciaJogadasMd3(int idMaior)
+{
+    int idJogadorMaiorCarta = idMaior;
+    // começar jogando agr quem tacou a maior carta
+    if (idJogadorMaiorCarta == 0)
+    {
+        std::cout << "-------- FIM DA QUEDA --------" << std::endl;
+        std::cout << std::endl;
+        std::cout << std::endl;
+        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
+        // menuJogo.limparTela();
+        sequenciaJogadasIniciandoUsuario();
+    }
+    else if (idJogadorMaiorCarta == 1)
+    {
+        std::cout << "-------- FIM DA QUEDA --------";
+        std::cout << std::endl;
+        std::cout << std::endl;
+        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
+        // menuJogo.limparTela();
+        sequenciaJogadasIniciandoBot1();
+    }
+    else if (idJogadorMaiorCarta == 2)
+    {
+        std::cout << "-------- FIM DA QUEDA --------";
+        std::cout << std::endl;
+        std::cout << std::endl;
+        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
+        // menuJogo.limparTela();
+        sequenciaJogadasIniciandoBot2();
+    }
+    else if (idJogadorMaiorCarta == 3)
+    {
+        std::cout << "-------- FIM DA QUEDA --------";
+        std::cout << std::endl;
+        std::cout << std::endl;
+        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
+        // menuJogo.limparTela();
+        sequenciaJogadasIniciandoBot3();
+    }
 }
 
 void Jogo::checaPedidoTrucoJogador()
@@ -382,55 +415,9 @@ void Jogo::novoJogo()
                 // continua a rodada enquanto nenhuma dupla tiver ganhado a md3
                 while (rodadaAtual.getVitoriasParciaisDupla1() != 2 && rodadaAtual.getVitoriasParciaisDupla2() != 2)
                 {
-                    // começar jogando agr quem tacou a maior carta
-                    if (idJogadorMaiorCarta == 0)
-                    {
-                        std::cout << "-------- FIM DA QUEDA --------" << std::endl;
-                        std::cout << std::endl;
-                        std::cout << std::endl;
-                        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
-                        // menuJogo.limparTela();
-                        sequenciaJogadasIniciandoUsuario();
-
-                        // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
-                    }
-                    else if (idJogadorMaiorCarta == 1)
-                    {
-                        std::cout << "-------- FIM DA QUEDA --------";
-                        std::cout << std::endl;
-                        std::cout << std::endl;
-                        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
-                        // menuJogo.limparTela();
-                        sequenciaJogadasIniciandoBot1();
-
-                        // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
-                    }
-                    else if (idJogadorMaiorCarta == 2)
-                    {
-                        std::cout << "-------- FIM DA QUEDA --------";
-                        std::cout << std::endl;
-                        std::cout << std::endl;
-                        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
-                        // menuJogo.limparTela();
-                        sequenciaJogadasIniciandoBot2();
-
-                        // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
-                    }
-                    else if (idJogadorMaiorCarta == 3)
-                    {
-                        std::cout << "-------- FIM DA QUEDA --------";
-                        std::cout << std::endl;
-                        std::cout << std::endl;
-                        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
-                        // menuJogo.limparTela();
-                        sequenciaJogadasIniciandoBot3();
-
-                        // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
-                    }
+                    sequenciaJogadasMd3(idJogadorMaiorCarta);
+                    // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
+                    idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                 }
 
                 procedimentosFinalRodada();
@@ -454,55 +441,9 @@ void Jogo::novoJogo()
                 // continua a rodada enquanto nenhuma dupla tiver ganhado a md3
                 while (rodadaAtual.getVitoriasParciaisDupla1() != 2 && rodadaAtual.getVitoriasParciaisDupla2() != 2)
                 {
-                    // começar jogando agr quem tacou a maior carta
-                    if (idJogadorMaiorCarta == 0)
-                    {
-                        std::cout << "-------- FIM DA QUEDA --------" << std::endl;
-                        std::cout << std::endl;
-                        std::cout << std::endl;
-                        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
-                        // menuJogo.limparTela();
-                        sequenciaJogadasIniciandoUsuario();
-
-                        // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
-                    }
-                    else if (idJogadorMaiorCarta == 1)
-                    {
-                        std::cout << "-------- FIM DA QUEDA --------" << std::endl;
-                        std::cout << std::endl;
-                        std::cout << std::endl;
-                        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
-                        // menuJogo.limparTela();
-                        sequenciaJogadasIniciandoBot1();
-
-                        // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
-                    }
-                    else if (idJogadorMaiorCarta == 2)
-                    {
-                        std::cout << "-------- FIM DA QUEDA --------" << std::endl;
-                        std::cout << std::endl;
-                        std::cout << std::endl;
-                        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
-                        // menuJogo.limparTela();
-                        sequenciaJogadasIniciandoBot2();
-
-                        // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
-                    }
-                    else if (idJogadorMaiorCarta == 3)
-                    {
-                        std::cout << "-------- FIM DA QUEDA --------" << std::endl;
-                        std::cout << std::endl;
-                        std::cout << std::endl;
-                        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
-                        // menuJogo.limparTela();
-                        sequenciaJogadasIniciandoBot3();
-
-                        // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
-                    }
+                    sequenciaJogadasMd3(idJogadorMaiorCarta);
+                    // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
+                    idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                 }
 
                 procedimentosFinalRodada();
@@ -526,55 +467,9 @@ void Jogo::novoJogo()
                 // continua a rodada enquanto nenhuma dupla tiver ganhado a md3
                 while (rodadaAtual.getVitoriasParciaisDupla1() != 2 && rodadaAtual.getVitoriasParciaisDupla2() != 2)
                 {
-                    // começar jogando agr quem tacou a maior carta
-                    if (idJogadorMaiorCarta == 0)
-                    {
-                        std::cout << "-------- FIM DA QUEDA --------" << std::endl;
-                        std::cout << std::endl;
-                        std::cout << std::endl;
-                        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
-                        // menuJogo.limparTela();
-                        sequenciaJogadasIniciandoUsuario();
-
-                        // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
-                    }
-                    else if (idJogadorMaiorCarta == 1)
-                    {
-                        std::cout << "-------- FIM DA QUEDA --------" << std::endl;
-                        std::cout << std::endl;
-                        std::cout << std::endl;
-                        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
-                        // menuJogo.limparTela();
-                        sequenciaJogadasIniciandoBot1();
-
-                        // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
-                    }
-                    else if (idJogadorMaiorCarta == 2)
-                    {
-                        std::cout << "-------- FIM DA QUEDA --------" << std::endl;
-                        std::cout << std::endl;
-                        std::cout << std::endl;
-                        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
-                        // menuJogo.limparTela();
-                        sequenciaJogadasIniciandoBot2();
-
-                        // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
-                    }
-                    else if (idJogadorMaiorCarta == 3)
-                    {
-                        std::cout << "-------- FIM DA QUEDA --------" << std::endl;
-                        std::cout << std::endl;
-                        std::cout << std::endl;
-                        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
-                        // menuJogo.limparTela();
-                        sequenciaJogadasIniciandoBot3();
-
-                        // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
-                    }
+                    sequenciaJogadasMd3(idJogadorMaiorCarta);
+                    // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
+                    idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                 }
 
                 procedimentosFinalRodada();
@@ -598,55 +493,9 @@ void Jogo::novoJogo()
                 // continua a rodada enquanto nenhuma dupla tiver ganhado a md3
                 while (rodadaAtual.getVitoriasParciaisDupla1() != 2 && rodadaAtual.getVitoriasParciaisDupla2() != 2)
                 {
-                    // começar jogando agr quem tacou a maior carta
-                    if (idJogadorMaiorCarta == 0)
-                    {
-                        std::cout << "-------- FIM DA QUEDA --------" << std::endl;
-                        std::cout << std::endl;
-                        std::cout << std::endl;
-                        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
-                        // menuJogo.limparTela();
-                        sequenciaJogadasIniciandoUsuario();
-
-                        // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
-                    }
-                    else if (idJogadorMaiorCarta == 1)
-                    {
-                        std::cout << "-------- FIM DA QUEDA --------" << std::endl;
-                        std::cout << std::endl;
-                        std::cout << std::endl;
-                        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
-                        // menuJogo.limparTela();
-                        sequenciaJogadasIniciandoBot1();
-
-                        // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
-                    }
-                    else if (idJogadorMaiorCarta == 2)
-                    {
-                        std::cout << "-------- FIM DA QUEDA --------" << std::endl;
-                        std::cout << std::endl;
-                        std::cout << std::endl;
-                        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
-                        // menuJogo.limparTela();
-                        sequenciaJogadasIniciandoBot2();
-
-                        // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
-                    }
-                    else if (idJogadorMaiorCarta == 3)
-                    {
-                        std::cout << "-------- FIM DA QUEDA --------" << std::endl;
-                        std::cout << std::endl;
-                        std::cout << std::endl;
-                        std::cout << "-------- Nova queda esta comecando --------" << std::endl;
-                        // menuJogo.limparTela();
-                        sequenciaJogadasIniciandoBot3();
-
-                        // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
-                        idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
-                    }
+                    sequenciaJogadasMd3(idJogadorMaiorCarta);
+                    // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
+                    idJogadorMaiorCarta = rodadaAtual.getMaiorIdMd3();
                 }
 
                 procedimentosFinalRodada();
