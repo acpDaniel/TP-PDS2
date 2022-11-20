@@ -70,6 +70,7 @@ void Jogo::sequenciaJogadasIniciandoUsuario()
             break;
         }
     }
+
     std::cout << "Escolha a carta para jogar:" << std::endl;
     usuario.msgSelecionarCartas();
     // imprime as opcoes de carta do jogador
@@ -460,10 +461,12 @@ void Jogo::sequenciaJogadasMd3(int idMaior)
     }
 }
 
-int Jogo::verificachar(int variavel){
-    if (!isalpha( (unsigned char)variavel)){
-        if (variavel != 1 && variavel != 2){
-            std::cout << "Sim" << std::endl;
+int Jogo::verificachar(int variavel)
+{
+    if (!isalpha((unsigned char)variavel))
+    {
+        if (variavel != 1 && variavel != 2)
+        {
             variavel = 3;
             std::cin.clear();
         }
@@ -478,8 +481,6 @@ void Jogo::checaPedidoTrucoJogador()
     std::cout << "Se deseja pedir truco digite 1, se nao digite 2 ";
     std::cin >> pedindoTruco;
     verificachar(pedindoTruco);
-
-    std::cout << "Value Pedindo truco " << pedindoTruco << std::endl;
 
     if ((pedindoTruco != 1 && pedindoTruco != 2))
     {
@@ -506,7 +507,7 @@ void Jogo::checaPedidoTrucoBot1(int jaPediu)
 {
     bool pedindoTruco = bot1.pedirTruco();
     int resposta;
-    //std::cin.clear();
+    // std::cin.clear();
     if ((pedindoTruco == true) || (jaPediu == true))
     {
         std::cout << "Se deseja aceitar o truco digite 1, se nao digite 2 ";
@@ -552,7 +553,7 @@ void Jogo::checaPedidoTrucoBot3(int jaPediu)
         std::cin >> resposta;
         verificachar(resposta);
 
-        //abort();
+        // abort();
         /**if (!isdigit( (unsigned char)resposta)){
             if (resposta != 1 && resposta != 2){
                 std::cin.clear();

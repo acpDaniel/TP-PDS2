@@ -11,6 +11,15 @@
 #include <vector>
 #include <list>
 
+class ErroEscolhaCartaInvalida : public std::exception
+{
+public:
+    virtual const char *what() const noexcept
+    {
+        return "Numero para selecionar cartas invalido";
+    }
+};
+
 class Humano : public Jogador
 {
 public:
