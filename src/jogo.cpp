@@ -71,14 +71,32 @@ void Jogo::sequenciaJogadasIniciandoUsuario()
         }
     }
 
-    std::cout << "Escolha a carta para jogar:" << std::endl;
-    usuario.msgSelecionarCartas();
-    // imprime as opcoes de carta do jogador
-    usuario.imprimeCartasJogador();
-    std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
-    // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
-    Carta cartaSelecionadaUsuario = usuario.jogarCarta(indiceCartaEscolhida);
-    rodadaAtual.inserirCartaDupla1(cartaSelecionadaUsuario);
+    bool exception_caughtPlayer = true;
+    while (true)
+    {
+        try
+        {
+            std::cout << "Escolha a carta para jogar:" << std::endl;
+            usuario.msgSelecionarCartas();
+            // imprime as opcoes de carta do jogador
+            usuario.imprimeCartasJogador();
+            std::cin >> indiceCartaEscolhida; // ** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI **
+            // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
+            Carta cartaSelecionadaUsuario = usuario.jogarCarta(indiceCartaEscolhida);
+            rodadaAtual.inserirCartaDupla1(cartaSelecionadaUsuario);
+            // checagem de qual dupla ganhou a queda
+            rodadaAtual.checagemVitoriaParcial();
+            exception_caughtPlayer = false;
+        }
+        catch (ErroEscolhaCartaInvalida &e)
+        {
+            std::cout << e.what() << std::endl;
+        }
+        if (!exception_caughtPlayer)
+        {
+            break;
+        }
+    }
 
     std::cout << std::endl;
 
@@ -137,7 +155,7 @@ void Jogo::sequenciaJogadasIniciandoUsuario()
     Carta cartaSelecionadaBot3 = bot3.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
 
-    rodadaAtual.setMaiorIdMd3(rodadaAtual.idJogadorMaiorCarta(cartaSelecionadaUsuario.getPeso(), cartaSelecionadaBot1.getPeso(), cartaSelecionadaBot2.getPeso(), cartaSelecionadaBot3.getPeso()));
+    rodadaAtual.setMaiorIdMd3(rodadaAtual.idJogadorMaiorCarta(4, cartaSelecionadaBot1.getPeso(), cartaSelecionadaBot2.getPeso(), cartaSelecionadaBot3.getPeso()));
 
     // checagem de qual dupla ganhou a queda
     rodadaAtual.checagemVitoriaParcial();
@@ -220,6 +238,7 @@ void Jogo::sequenciaJogadasIniciandoBot1()
             break;
         }
     }
+
     std::cout << "Escolha a carta para jogar:" << std::endl;
     usuario.msgSelecionarCartas();
     // imprime as opcoes de carta do jogador

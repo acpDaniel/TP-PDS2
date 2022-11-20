@@ -56,35 +56,19 @@ void Humano::imprimeCartasJogador()
 
 Carta Humano::jogarCarta(int indice)
 {
-    if (indice > 3 || indice < 0)
+    if (indice > _mao.size() || indice < 1)
     {
-        fflush(stdin);
-        throw ErroEscolhaCartaInvalida();
-    }
-    else if ((_mao.size() == 1) && (indice != 0))
-    {
-        fflush(stdin);
-        throw ErroEscolhaCartaInvalida();
-    }
-    else if ((_mao.size() == 2) && (indice != 0 && indice != 1))
-    {
-        fflush(stdin);
-        throw ErroEscolhaCartaInvalida();
-    }
-    else if ((_mao.size() == 3) && (indice != 0 && indice != 1 && indice != 2))
-    {
-        fflush(stdin);
         throw ErroEscolhaCartaInvalida();
     }
 
     // logica para selecionar uma das 3 cartas, ja que o iterator begin retorna o endereço para primeira posicao
     // se vier um indice invalido vai jogar a carta na posicao 0
     std::vector<Carta>::iterator it = _mao.begin();
-    if (indice == 1)
+    if (indice == 2)
     {
         ++it;
     }
-    else if (indice == 2)
+    else if (indice == 3)
     {
         ++it;
         ++it;
