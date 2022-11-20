@@ -71,32 +71,37 @@ void Jogo::sequenciaJogadasIniciandoUsuario()
         }
     }
 
+    std::cout << "Escolha a carta para jogar:" << std::endl;
+    usuario.msgSelecionarCartas();
+    // imprime as opcoes de carta do jogador
+    usuario.imprimeCartasJogador();
+
     bool exception_caughtPlayer = true;
     while (true)
     {
         try
         {
-            std::cout << "Escolha a carta para jogar:" << std::endl;
-            usuario.msgSelecionarCartas();
-            // imprime as opcoes de carta do jogador
-            usuario.imprimeCartasJogador();
-            std::cin >> indiceCartaEscolhida; // ** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI **
-            // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
-            Carta cartaSelecionadaUsuario = usuario.jogarCarta(indiceCartaEscolhida);
-            rodadaAtual.inserirCartaDupla1(cartaSelecionadaUsuario);
-            // checagem de qual dupla ganhou a queda
-            rodadaAtual.checagemVitoriaParcial();
+            std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
+            usuario.checaIndice(indiceCartaEscolhida);
             exception_caughtPlayer = false;
         }
         catch (ErroEscolhaCartaInvalida &e)
         {
+            std::cout << std::endl;
+            std::cout << std::endl;
             std::cout << e.what() << std::endl;
+            std::cout << std::endl;
+            usuario.msgSelecionarCartas();
+            usuario.imprimeCartasJogador();
         }
         if (!exception_caughtPlayer)
         {
             break;
         }
     }
+    // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
+    Carta cartaSelecionadaUsuario = usuario.jogarCarta(indiceCartaEscolhida);
+    rodadaAtual.inserirCartaDupla1(cartaSelecionadaUsuario);
 
     std::cout << std::endl;
 
@@ -155,7 +160,7 @@ void Jogo::sequenciaJogadasIniciandoUsuario()
     Carta cartaSelecionadaBot3 = bot3.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
 
-    rodadaAtual.setMaiorIdMd3(rodadaAtual.idJogadorMaiorCarta(4, cartaSelecionadaBot1.getPeso(), cartaSelecionadaBot2.getPeso(), cartaSelecionadaBot3.getPeso()));
+    rodadaAtual.setMaiorIdMd3(rodadaAtual.idJogadorMaiorCarta(cartaSelecionadaUsuario.getPeso(), cartaSelecionadaBot1.getPeso(), cartaSelecionadaBot2.getPeso(), cartaSelecionadaBot3.getPeso()));
 
     // checagem de qual dupla ganhou a queda
     rodadaAtual.checagemVitoriaParcial();
@@ -243,7 +248,30 @@ void Jogo::sequenciaJogadasIniciandoBot1()
     usuario.msgSelecionarCartas();
     // imprime as opcoes de carta do jogador
     usuario.imprimeCartasJogador();
-    std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
+
+    bool exception_caughtPlayer = true;
+    while (true)
+    {
+        try
+        {
+            std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
+            usuario.checaIndice(indiceCartaEscolhida);
+            exception_caughtPlayer = false;
+        }
+        catch (ErroEscolhaCartaInvalida &e)
+        {
+            std::cout << std::endl;
+            std::cout << std::endl;
+            std::cout << e.what() << std::endl;
+            std::cout << std::endl;
+            usuario.msgSelecionarCartas();
+            usuario.imprimeCartasJogador();
+        }
+        if (!exception_caughtPlayer)
+        {
+            break;
+        }
+    }
     // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
     Carta cartaSelecionadaUsuario = usuario.jogarCarta(indiceCartaEscolhida);
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaUsuario);
@@ -310,7 +338,30 @@ void Jogo::sequenciaJogadasIniciandoBot2()
     usuario.msgSelecionarCartas();
     // imprime as opcoes de carta do jogador
     usuario.imprimeCartasJogador();
-    std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
+
+    bool exception_caughtPlayer = true;
+    while (true)
+    {
+        try
+        {
+            std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
+            usuario.checaIndice(indiceCartaEscolhida);
+            exception_caughtPlayer = false;
+        }
+        catch (ErroEscolhaCartaInvalida &e)
+        {
+            std::cout << std::endl;
+            std::cout << std::endl;
+            std::cout << e.what() << std::endl;
+            std::cout << std::endl;
+            usuario.msgSelecionarCartas();
+            usuario.imprimeCartasJogador();
+        }
+        if (!exception_caughtPlayer)
+        {
+            break;
+        }
+    }
     // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
     Carta cartaSelecionadaUsuario = usuario.jogarCarta(indiceCartaEscolhida);
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaUsuario);
@@ -391,15 +442,38 @@ void Jogo::sequenciaJogadasIniciandoBot3()
             break;
         }
     }
+
     std::cout << "Escolha a carta para jogar:" << std::endl;
     usuario.msgSelecionarCartas();
     // imprime as opcoes de carta do jogador
     usuario.imprimeCartasJogador();
-    std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
+
+    bool exception_caughtPlayer = true;
+    while (true)
+    {
+        try
+        {
+            std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
+            usuario.checaIndice(indiceCartaEscolhida);
+            exception_caughtPlayer = false;
+        }
+        catch (ErroEscolhaCartaInvalida &e)
+        {
+            std::cout << std::endl;
+            std::cout << std::endl;
+            std::cout << e.what() << std::endl;
+            std::cout << std::endl;
+            usuario.msgSelecionarCartas();
+            usuario.imprimeCartasJogador();
+        }
+        if (!exception_caughtPlayer)
+        {
+            break;
+        }
+    }
     // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
     Carta cartaSelecionadaUsuario = usuario.jogarCarta(indiceCartaEscolhida);
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaUsuario);
-
     std::cout << std::endl;
 
     bool exception_caught1 = true;
