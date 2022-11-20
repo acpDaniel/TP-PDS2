@@ -66,7 +66,7 @@ int main()
             if (quemIniciaJogandoRodada == 0)
             {
                 jogo.menuJogo.limparTela();
-                std::cout << "Nova rodada esta iniciando..." << std::endl;
+                std::cout << "Nova rodada esta iniciando...       Pontuacao atual: (minha dupla)" << jogo.usuario.getPontos() << "  vs  " << jogo.bot1.getPontos() << "(dupla adversaria)" << std::endl;
                 // distribui as cartas pros jogadores
                 jogo.usuario.setMao(jogo.baralhoDaQueda.getMaoJogador0());
                 jogo.bot1.setMao(jogo.baralhoDaQueda.getMaoJogador1());
@@ -94,7 +94,7 @@ int main()
             else if (quemIniciaJogandoRodada == 1)
             {
                 jogo.menuJogo.limparTela();
-                std::cout << "Nova rodada esta iniciando..." << std::endl;
+                std::cout << "Nova rodada esta iniciando...       Pontuacao atual: (minha dupla)" << jogo.usuario.getPontos() << "  vs  " << jogo.bot1.getPontos() << "(dupla adversaria)" << std::endl;
                 // aqui no inicio vamo ter que chamar as funcoes setMao de cada jogador para dar as cartas novas para eles
                 jogo.usuario.setMao(jogo.baralhoDaQueda.getMaoJogador0());
                 jogo.bot1.setMao(jogo.baralhoDaQueda.getMaoJogador1());
@@ -120,7 +120,7 @@ int main()
             else if (quemIniciaJogandoRodada == 2)
             {
                 jogo.menuJogo.limparTela();
-                std::cout << "Nova rodada esta iniciando..." << std::endl;
+                std::cout << "Nova rodada esta iniciando...       Pontuacao atual: (minha dupla)" << jogo.usuario.getPontos() << "  vs  " << jogo.bot1.getPontos() << "(dupla adversaria)" << std::endl;
                 // aqui no inicio vamo ter que chamar as funcoes setMao de cada jogador para dar as cartas novas para eles
                 jogo.usuario.setMao(jogo.baralhoDaQueda.getMaoJogador0());
                 jogo.bot1.setMao(jogo.baralhoDaQueda.getMaoJogador1());
@@ -146,7 +146,7 @@ int main()
             else if (quemIniciaJogandoRodada == 3)
             {
                 jogo.menuJogo.limparTela();
-                std::cout << "Nova rodada esta iniciando..." << std::endl;
+                std::cout << "Nova rodada esta iniciando...       Pontuacao atual: (minha dupla)" << jogo.usuario.getPontos() << "  vs  " << jogo.bot1.getPontos() << "(dupla adversaria)" << std::endl;
                 // aqui no inicio vamo ter que chamar as funcoes setMao de cada jogador para dar as cartas novas para eles
                 jogo.usuario.setMao(jogo.baralhoDaQueda.getMaoJogador0());
                 jogo.bot1.setMao(jogo.baralhoDaQueda.getMaoJogador1());
