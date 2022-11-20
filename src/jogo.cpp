@@ -460,14 +460,30 @@ void Jogo::sequenciaJogadasMd3(int idMaior)
     }
 }
 
+int Jogo::verificachar(int variavel){
+    if (!isalpha( (unsigned char)variavel)){
+        if (variavel != 1 && variavel != 2){
+            std::cout << "Sim" << std::endl;
+            variavel = 3;
+            std::cin.clear();
+        }
+    }
+    return variavel;
+}
+
 void Jogo::checaPedidoTrucoJogador()
 {
     int pedindoTruco;
     bool resposta;
-    std::cout << "Se deseja pedir truco digite 1, se nao digite 0";
+    std::cout << "Se deseja pedir truco digite 1, se nao digite 2 ";
     std::cin >> pedindoTruco;
-    if (pedindoTruco != 0 && pedindoTruco != 1)
+    verificachar(pedindoTruco);
+
+    std::cout << "Value Pedindo truco " << pedindoTruco << std::endl;
+
+    if ((pedindoTruco != 1 && pedindoTruco != 2))
     {
+        fflush(stdin);
         throw ErroNumeroInvalidoPedidoTruco();
     }
 
@@ -490,15 +506,19 @@ void Jogo::checaPedidoTrucoBot1(int jaPediu)
 {
     bool pedindoTruco = bot1.pedirTruco();
     int resposta;
+    //std::cin.clear();
     if ((pedindoTruco == true) || (jaPediu == true))
     {
-        std::cout << "Se deseja aceitar o truco digite 1, se nao digite 0";
+        std::cout << "Se deseja aceitar o truco digite 1, se nao digite 2 ";
         std::cin >> resposta;
-        if (resposta != 0 && resposta != 1)
+        verificachar(resposta);
+
+        if (resposta != 1 && resposta != 2)
         {
+            fflush(stdin);
             throw ErroNumeroInvalidoPedidoTruco();
         }
-        if (resposta == 1)
+        else if (resposta == 1)
         {
             rodadaAtual.aumentaPontuacaoRodadaAtual();
             std::cout << "Pedido de truco foi aceito" << std::endl;
@@ -525,15 +545,27 @@ void Jogo::checaPedidoTrucoBot3(int jaPediu)
 {
     bool pedindoTruco = bot3.pedirTruco();
     int resposta;
+    std::cin.clear();
     if ((pedindoTruco == true) || (jaPediu == true))
     {
-        std::cout << "Se deseja aceitar o truco digite 1, se nao digite 0";
+        std::cout << "Se deseja aceitar o truco digite 1, se nao digite 2 ";
         std::cin >> resposta;
-        if (resposta != 0 && resposta != 1)
+        verificachar(resposta);
+
+        //abort();
+        /**if (!isdigit( (unsigned char)resposta)){
+            if (resposta != 1 && resposta != 2){
+                std::cin.clear();
+                resposta = 3;
+                std::cout << "Sim" << std::endl;
+            }
+        }**/
+        if (resposta != 1 && resposta != 2)
         {
+            fflush(stdin);
             throw ErroNumeroInvalidoPedidoTruco();
         }
-        if (resposta == 1)
+        else if (resposta == 1)
         {
             rodadaAtual.aumentaPontuacaoRodadaAtual();
             std::cout << "Pedido de truco foi aceito" << std::endl;

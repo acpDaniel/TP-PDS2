@@ -21,7 +21,7 @@ class ErroNumeroInvalidoPedidoTruco : public std::exception
 public:
     virtual const char *what() const noexcept
     {
-        return "Entrada invalida, os numeros permitidos sao 0 ou 1";
+        return "Entrada invalida, os numeros permitidos sao 1 ou 2";
     }
 };
 
@@ -46,6 +46,7 @@ public:
     void sequenciaJogadasIniciandoBot3();
     void sequenciaJogadasMd3(int idMaior);
     void checaPedidoTrucoJogador();
+    int verificachar(int variavel);
     void checaPedidoTrucoBot1(int jaPediu);
     void checaPedidoTrucoBot2();
     void checaPedidoTrucoBot3(int jaPediu);
