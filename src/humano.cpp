@@ -57,6 +57,7 @@ void Humano::imprimeCartasJogador()
 Carta Humano::jogarCarta(int indice)
 {
     // logica para selecionar uma das 3 cartas, ja que o iterator begin retorna o endereço para primeira posicao
+    // se vier um indice invalido vai jogar a carta na posicao 0
     std::vector<Carta>::iterator it = _mao.begin();
     if (indice == 1)
     {
@@ -70,6 +71,22 @@ Carta Humano::jogarCarta(int indice)
     Carta cartaSelecionada = *(it);
     _mao.erase(it);
     return cartaSelecionada;
+}
+
+void Humano::msgSelecionarCartas()
+{
+    if (_mao.size() == 1)
+    {
+        std::cout << "Digite 0 para escolher a primeira carta" << std::endl;
+    }
+    else if (_mao.size() == 2)
+    {
+        std::cout << "Digite 0 para escolher a primeira carta, 1 para escolher a segunda" << std::endl;
+    }
+    else if (_mao.size() == 3)
+    {
+        std::cout << "Digite 0 para escolher a primeira carta, 1 para escolher a segunda ou 2 para a terceira" << std::endl;
+    }
 }
 
 /** DEBUG

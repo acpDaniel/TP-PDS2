@@ -20,6 +20,7 @@ public:
     bool aceitarTruco(bool aceitarTruco);
     bool aumentarTruco(bool aumentarTruco);
     void imprimeCartasJogador();
+    void msgSelecionarCartas();
     Carta jogarCarta(int indice);
 };
 

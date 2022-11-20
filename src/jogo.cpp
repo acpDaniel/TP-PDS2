@@ -64,7 +64,7 @@ void Jogo::sequenciaJogadasIniciandoUsuario()
     int indiceCartaEscolhida;
     checaPedidoTrucoJogador();
     std::cout << "Escolha a carta para jogar:" << std::endl;
-    std::cout << "Digite 0 para escolher a primeira carta, 1 para escolher a segunda ou 2 para a terceira" << std::endl;
+    usuario.msgSelecionarCartas();
     // imprime as opcoes de carta do jogador
     usuario.imprimeCartasJogador();
     std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
@@ -125,7 +125,7 @@ void Jogo::sequenciaJogadasIniciandoBot1()
     int indiceCartaEscolhida;
     checaPedidoTrucoJogador();
     std::cout << "Escolha a carta para jogar:" << std::endl;
-    std::cout << "Digite 0 para escolher a primeira carta, 1 para escolher a segunda ou 2 para a terceira" << std::endl;
+    usuario.msgSelecionarCartas();
     // imprime as opcoes de carta do jogador
     usuario.imprimeCartasJogador();
     std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
@@ -158,7 +158,7 @@ void Jogo::sequenciaJogadasIniciandoBot2()
     int indiceCartaEscolhida;
     checaPedidoTrucoJogador();
     std::cout << "Escolha a carta para jogar:" << std::endl;
-    std::cout << "Digite 0 para escolher a primeira carta, 1 para escolher a segunda ou 2 para a terceira" << std::endl;
+    usuario.msgSelecionarCartas();
     // imprime as opcoes de carta do jogador
     usuario.imprimeCartasJogador();
     std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
@@ -191,7 +191,7 @@ void Jogo::sequenciaJogadasIniciandoBot3()
     int indiceCartaEscolhida;
     checaPedidoTrucoJogador();
     std::cout << "Escolha a carta para jogar:" << std::endl;
-    std::cout << "Digite 0 para escolher a primeira carta, 1 para escolher a segunda ou 2 para a terceira" << std::endl;
+    usuario.msgSelecionarCartas();
     // imprime as opcoes de carta do jogador
     usuario.imprimeCartasJogador();
     std::cin >> indiceCartaEscolhida; // ****** TEM QUE TRATAR OS ERROS POSSIVEIS DAQUI ******
