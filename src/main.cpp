@@ -63,7 +63,6 @@ int main()
         // while que controla a partida em si, ela so termina se uma das duplas fizer 12 pontos
         while (jogo.usuario.getPontos() < 12 && jogo.bot1.getPontos() < 12)
         {
-
             if (quemIniciaJogandoRodada == 0)
             {
                 jogo.menuJogo.limparTela();
@@ -82,7 +81,9 @@ int main()
                 // continua a rodada enquanto nenhuma dupla tiver ganhado a md3
                 while (jogo.rodadaAtual.getVitoriasParciaisDupla1() != 2 && jogo.rodadaAtual.getVitoriasParciaisDupla2() != 2)
                 {
+
                     jogo.sequenciaJogadasMd3(idJogadorMaiorCarta);
+
                     // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
                     idJogadorMaiorCarta = jogo.rodadaAtual.getMaiorIdMd3();
                 }

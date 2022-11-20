@@ -53,7 +53,23 @@ void Jogo::inicializaBaralho()
 void Jogo::sequenciaJogadasIniciandoUsuario()
 {
     int indiceCartaEscolhida;
-    checaPedidoTrucoJogador();
+    bool exception_caught = true;
+    while (true)
+    {
+        try
+        {
+            checaPedidoTrucoJogador();
+            exception_caught = false;
+        }
+        catch (ErroNumeroInvalidoPedidoTruco &e)
+        {
+            std::cout << e.what() << std::endl;
+        }
+        if (!exception_caught)
+        {
+            break;
+        }
+    }
     std::cout << "Escolha a carta para jogar:" << std::endl;
     usuario.msgSelecionarCartas();
     // imprime as opcoes de carta do jogador
@@ -65,7 +81,25 @@ void Jogo::sequenciaJogadasIniciandoUsuario()
 
     std::cout << std::endl;
 
-    checaPedidoTrucoBot1();
+    bool exception_caught1 = true;
+    bool jaPediu1 = false;
+    while (true)
+    {
+        try
+        {
+            checaPedidoTrucoBot1(jaPediu1);
+            exception_caught1 = false;
+        }
+        catch (ErroNumeroInvalidoPedidoTruco &e)
+        {
+            std::cout << e.what() << std::endl;
+            jaPediu1 = true;
+        }
+        if (!exception_caught1)
+        {
+            break;
+        }
+    }
     std::cout << "Bot1 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot1 = bot1.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
@@ -79,7 +113,25 @@ void Jogo::sequenciaJogadasIniciandoUsuario()
 
     std::cout << std::endl;
 
-    checaPedidoTrucoBot3();
+    bool exception_caught3 = true;
+    bool jaPediu3 = false;
+    while (true)
+    {
+        try
+        {
+            checaPedidoTrucoBot3(jaPediu3);
+            exception_caught3 = false;
+        }
+        catch (ErroNumeroInvalidoPedidoTruco &e)
+        {
+            std::cout << e.what() << std::endl;
+            jaPediu3 = true;
+        }
+        if (!exception_caught3)
+        {
+            break;
+        }
+    }
     std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot3 = bot3.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
@@ -92,7 +144,25 @@ void Jogo::sequenciaJogadasIniciandoUsuario()
 
 void Jogo::sequenciaJogadasIniciandoBot1()
 {
-    checaPedidoTrucoBot1();
+    bool exception_caught1 = true;
+    bool jaPediu1 = false;
+    while (true)
+    {
+        try
+        {
+            checaPedidoTrucoBot1(jaPediu1);
+            exception_caught1 = false;
+        }
+        catch (ErroNumeroInvalidoPedidoTruco &e)
+        {
+            std::cout << e.what() << std::endl;
+            jaPediu1 = true;
+        }
+        if (!exception_caught1)
+        {
+            break;
+        }
+    }
     std::cout << "Bot1 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot1 = bot1.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
@@ -106,7 +176,25 @@ void Jogo::sequenciaJogadasIniciandoBot1()
 
     std::cout << std::endl;
 
-    checaPedidoTrucoBot3();
+    bool exception_caught3 = true;
+    bool jaPediu3 = false;
+    while (true)
+    {
+        try
+        {
+            checaPedidoTrucoBot3(jaPediu3);
+            exception_caught3 = false;
+        }
+        catch (ErroNumeroInvalidoPedidoTruco &e)
+        {
+            std::cout << e.what() << std::endl;
+            jaPediu3 = true;
+        }
+        if (!exception_caught3)
+        {
+            break;
+        }
+    }
     std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot3 = bot3.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
@@ -114,7 +202,23 @@ void Jogo::sequenciaJogadasIniciandoBot1()
     std::cout << std::endl;
 
     int indiceCartaEscolhida;
-    checaPedidoTrucoJogador();
+    bool exception_caught = true;
+    while (true)
+    {
+        try
+        {
+            checaPedidoTrucoJogador();
+            exception_caught = false;
+        }
+        catch (ErroNumeroInvalidoPedidoTruco &e)
+        {
+            std::cout << e.what() << std::endl;
+        }
+        if (!exception_caught)
+        {
+            break;
+        }
+    }
     std::cout << "Escolha a carta para jogar:" << std::endl;
     usuario.msgSelecionarCartas();
     // imprime as opcoes de carta do jogador
@@ -139,7 +243,25 @@ void Jogo::sequenciaJogadasIniciandoBot2()
 
     std::cout << std::endl;
 
-    checaPedidoTrucoBot3();
+    bool exception_caught3 = true;
+    bool jaPediu3 = false;
+    while (true)
+    {
+        try
+        {
+            checaPedidoTrucoBot3(jaPediu3);
+            exception_caught3 = false;
+        }
+        catch (ErroNumeroInvalidoPedidoTruco &e)
+        {
+            std::cout << e.what() << std::endl;
+            jaPediu3 = true;
+        }
+        if (!exception_caught3)
+        {
+            break;
+        }
+    }
     std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot3 = bot3.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
@@ -147,7 +269,23 @@ void Jogo::sequenciaJogadasIniciandoBot2()
     std::cout << std::endl;
 
     int indiceCartaEscolhida;
-    checaPedidoTrucoJogador();
+    bool exception_caught = true;
+    while (true)
+    {
+        try
+        {
+            checaPedidoTrucoJogador();
+            exception_caught = false;
+        }
+        catch (ErroNumeroInvalidoPedidoTruco &e)
+        {
+            std::cout << e.what() << std::endl;
+        }
+        if (!exception_caught)
+        {
+            break;
+        }
+    }
     std::cout << "Escolha a carta para jogar:" << std::endl;
     usuario.msgSelecionarCartas();
     // imprime as opcoes de carta do jogador
@@ -159,7 +297,25 @@ void Jogo::sequenciaJogadasIniciandoBot2()
 
     std::cout << std::endl;
 
-    checaPedidoTrucoBot1();
+    bool exception_caught1 = true;
+    bool jaPediu1 = false;
+    while (true)
+    {
+        try
+        {
+            checaPedidoTrucoBot1(jaPediu1);
+            exception_caught1 = false;
+        }
+        catch (ErroNumeroInvalidoPedidoTruco &e)
+        {
+            std::cout << e.what() << std::endl;
+            jaPediu1 = true;
+        }
+        if (!exception_caught1)
+        {
+            break;
+        }
+    }
     std::cout << "Bot1 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot1 = bot1.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
@@ -172,7 +328,25 @@ void Jogo::sequenciaJogadasIniciandoBot2()
 
 void Jogo::sequenciaJogadasIniciandoBot3()
 {
-    checaPedidoTrucoBot3();
+    bool exception_caught3 = true;
+    bool jaPediu3 = false;
+    while (true)
+    {
+        try
+        {
+            checaPedidoTrucoBot3(jaPediu3);
+            exception_caught3 = false;
+        }
+        catch (ErroNumeroInvalidoPedidoTruco &e)
+        {
+            std::cout << e.what() << std::endl;
+            jaPediu3 = true;
+        }
+        if (!exception_caught3)
+        {
+            break;
+        }
+    }
     std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot3 = bot3.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
@@ -180,7 +354,23 @@ void Jogo::sequenciaJogadasIniciandoBot3()
     std::cout << std::endl;
 
     int indiceCartaEscolhida;
-    checaPedidoTrucoJogador();
+    bool exception_caught = true;
+    while (true)
+    {
+        try
+        {
+            checaPedidoTrucoJogador();
+            exception_caught = false;
+        }
+        catch (ErroNumeroInvalidoPedidoTruco &e)
+        {
+            std::cout << e.what() << std::endl;
+        }
+        if (!exception_caught)
+        {
+            break;
+        }
+    }
     std::cout << "Escolha a carta para jogar:" << std::endl;
     usuario.msgSelecionarCartas();
     // imprime as opcoes de carta do jogador
@@ -192,7 +382,25 @@ void Jogo::sequenciaJogadasIniciandoBot3()
 
     std::cout << std::endl;
 
-    checaPedidoTrucoBot1();
+    bool exception_caught1 = true;
+    bool jaPediu1 = false;
+    while (true)
+    {
+        try
+        {
+            checaPedidoTrucoBot1(jaPediu1);
+            exception_caught1 = false;
+        }
+        catch (ErroNumeroInvalidoPedidoTruco &e)
+        {
+            std::cout << e.what() << std::endl;
+            jaPediu1 = true;
+        }
+        if (!exception_caught1)
+        {
+            break;
+        }
+    }
     std::cout << "Bot1 (minha dupla) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot1 = bot1.jogarCarta();
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
@@ -257,8 +465,12 @@ void Jogo::checaPedidoTrucoJogador()
     int pedindoTruco;
     bool resposta;
     std::cout << "Se deseja pedir truco digite 1, se nao digite 0";
-    // std::cin >> pedindoTruco;
     std::cin >> pedindoTruco;
+    if (pedindoTruco != 0 && pedindoTruco != 1)
+    {
+        throw ErroNumeroInvalidoPedidoTruco();
+    }
+
     if (pedindoTruco == 1)
     {
         resposta = bot1.aceitarTruco();
@@ -274,15 +486,19 @@ void Jogo::checaPedidoTrucoJogador()
     }
 }
 
-void Jogo::checaPedidoTrucoBot1()
+void Jogo::checaPedidoTrucoBot1(int jaPediu)
 {
     bool pedindoTruco = bot1.pedirTruco();
-    bool resposta;
-    if (pedindoTruco == true)
+    int resposta;
+    if ((pedindoTruco == true) || (jaPediu == true))
     {
         std::cout << "Se deseja aceitar o truco digite 1, se nao digite 0";
         std::cin >> resposta;
-        if (resposta == true)
+        if (resposta != 0 && resposta != 1)
+        {
+            throw ErroNumeroInvalidoPedidoTruco();
+        }
+        if (resposta == 1)
         {
             rodadaAtual.aumentaPontuacaoRodadaAtual();
             std::cout << "Pedido de truco foi aceito" << std::endl;
@@ -305,15 +521,19 @@ void Jogo::checaPedidoTrucoBot2()
     }
 }
 
-void Jogo::checaPedidoTrucoBot3()
+void Jogo::checaPedidoTrucoBot3(int jaPediu)
 {
     bool pedindoTruco = bot3.pedirTruco();
-    bool resposta;
-    if (pedindoTruco == true)
+    int resposta;
+    if ((pedindoTruco == true) || (jaPediu == true))
     {
         std::cout << "Se deseja aceitar o truco digite 1, se nao digite 0";
         std::cin >> resposta;
-        if (resposta == true)
+        if (resposta != 0 && resposta != 1)
+        {
+            throw ErroNumeroInvalidoPedidoTruco();
+        }
+        if (resposta == 1)
         {
             rodadaAtual.aumentaPontuacaoRodadaAtual();
             std::cout << "Pedido de truco foi aceito" << std::endl;
