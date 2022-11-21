@@ -15,4 +15,6 @@ std::string playerLogin();
 
 void uptadeRanking(std::string player, int win);
 
+std::set<float> pvs();
+
 #endif

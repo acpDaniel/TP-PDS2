@@ -228,3 +228,22 @@ void uptadeRanking(std::string player, int win) {
     remove("base.txt");
     rename("aux.txt", "base.txt");
 }
+
+std::set<float> pvs() {
+    std::string name;
+    std::string password;
+    float games;
+    float victorys;
+    float pv;
+
+    std::set<float> s;
+
+    std::ifstream base("base.txt", std::ios::in);
+
+    while(base >> name >> password >> games >> victorys >> pv) {
+        s.insert(pv);
+    }
+    base.close();
+
+    return s;
+}
