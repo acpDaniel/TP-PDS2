@@ -19,4 +19,6 @@
 
 std::string strMaiuscula(std::string str);
 
+bool strMaxTamChecker(std::string str, int size);
+
 #endif

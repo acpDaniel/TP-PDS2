@@ -7,3 +7,9 @@ std::string strMaiuscula(std::string str) {
     }
     return aux;
 }
+
+bool strMaxTamChecker(std::string str, int size) {
+    if(int(str.size()) >= size)
+        return 1;
+    return 0;
+}
