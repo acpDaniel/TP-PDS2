@@ -45,3 +45,87 @@ void playerCreate(std::string name, std::string password) {
     base << name << " " << password << " 0 0 0";
     base.close();
 }
+
+std::string playerRegister() {
+
+    system("cls");
+
+    std::string name;
+    std::cout << "REGISTRO\n\n";
+    std::cout << "Crie um nick:\n";
+    std::getline(std::cin, name);
+    while(1) {
+        if(strMaxTamChecker(name, MAXTAM_NAME)) {
+            system("cls");
+            std::cout << "REGISTRO\n\n";
+            std::cout << "Nick com mais de " << MAXTAM_NAME << " caracteres, tente outro:\n";
+            std::getline(std::cin, name);
+        }
+
+        else if(strMinTamChecker(name, MINTAM_NAME)) {
+            system("cls");
+            std::cout << "REGISTRO\n\n";
+            std::cout << "Nick com menos de " << MINTAM_NAME << " caracteres, tente outro:\n";
+            std::getline(std::cin, name);
+        }
+
+        else if(strSpaceChecker(name)) {
+            system("cls");
+            std::cout << "REGISTRO\n\n";
+            std::cout << "Nick com espaco, tente outro:\n";
+            std::getline(std::cin, name);
+        }
+
+        else if(findName(name)) {
+            system("cls");
+            std::cout << "REGISTRO\n\n";
+            std::cout << "Nick ja utilizado, tente outro:\n";
+            std::getline(std::cin, name);
+        }
+
+        else {
+            break;
+        }
+    }
+
+    std::string password;
+    system("cls");
+    std::cout << "REGISTRO\n\n";
+    std::cout << "Nick: " << name << "\n";
+    std::cout << "Crie uma senha:\n";
+    std::getline(std::cin, password);
+    while(1) {
+        if(strMaxTamChecker(name, MAXTAM_PASSWORD)) {
+            system("cls");
+            std::cout << "REGISTRO\n\n";
+            std::cout << "Nick: " << name << "\n";
+            std::cout << "Senha com mais de " << MAXTAM_PASSWORD << " caracteres, tente outra:\n";
+            std::getline(std::cin, password);
+        }
+
+        else if(strMinTamChecker(name, MINTAM_PASSWORD)) {
+            system("cls");
+            std::cout << "REGISTRO\n\n";
+            std::cout << "Senha com menos de " << MINTAM_PASSWORD << " caracteres, tente outra:\n";
+            std::getline(std::cin, name);
+        }
+
+        else if(strSpaceChecker(password)) {
+            system("cls");
+            std::cout << "REGISTRO\n\n";
+            std::cout << "Nick: " << name << "\n";
+            std::cout << "Senha com espaco, tente outra:\n";
+            std::getline(std::cin, password);
+        }
+
+        else {
+            break;
+        }
+    }
+    playerCreate(name, password);
+    system("cls");
+    std::cout << "REGISTRO\n\n";
+    std::cout << "Jogador registrado\n";
+    system("pause");
+    return name;
+}

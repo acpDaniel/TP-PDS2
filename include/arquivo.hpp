@@ -9,4 +9,6 @@ bool passwordChecker(std::string name, std::string password);
 
 void playerCreate(std::string name, std::string password);
 
+std::string playerRegister();
+
 #endif
