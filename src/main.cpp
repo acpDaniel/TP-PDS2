@@ -6,6 +6,8 @@
 #include "../include/rodada.hpp"
 #include "../include/menu.hpp"
 #include "../include/jogo.hpp"
+#include "../include/tpstring.hpp"
+#include "../include/arquivo.hpp"
 
 #include <iomanip>
 #include <iostream>
@@ -18,35 +20,36 @@ int main()
 {
     srand(time(NULL));
     Jogo jogo;
+    Menu menuJogo;
 
-    // inicializa o menu do jogo e cadastra o usuario
-    jogo.inicializaMenu();
     // se quiser visualizar o ranking digita 1, se quiser iniciar a partida digite 2
     int proxPasso;
-    std::cout << "Se quiser visualizar o ranking digite 1, se quiser iniciar a partida digite 2: ";
+    std::cout << "Escolha a opção que desejar:\n0 - Cadastrar novo usuario\n1 - Exibir ranking\n2 - Iniciar partida";
     std::cin >> proxPasso;
     // se o usuario digitar um valor invalido vai repetir a msg
-    while (proxPasso != 1 && proxPasso != 2)
+    
+    while (proxPasso != 1 && proxPasso != 2 && proxPasso != 0)
     {
         std::cout << "Numero invalido! " << std::endl;
         std::cout << "Se quiser visualizar o ranking digite 1, se quiser iniciar a partida digite 2: ";
         std::cin >> proxPasso;
     }
+
+    if (proxPasso == 0)
+    {
+        menuJogo.cadastroUsuario();
+    }
+
     if (proxPasso == 1)
     {
-        // menuJogo.ranking(); COMENTADO POR ENQT PQ PODE ESTAR ERRADA ********************************************************
-        std::cout << "Se quiser iniciar a partida digite 2: ";
-        std::cin >> proxPasso;
-    }
-    else
-    {
-        jogo.menuJogo.limparTela();
-        std::cout << "O jogo ira iniciar!";
+        menuJogo.ranking();
     }
 
     if (proxPasso == 2)
     {
         jogo.menuJogo.limparTela();
+        std::string name = jogo.menuJogo.loginUsuario();
+
         std::cout << "O jogo ira iniciar!";
 
         // inicializa o baralho completo e prepara a mao de cada jogador
@@ -177,10 +180,12 @@ int main()
         if (jogo.usuario.getPontos() >= 12)
         {
             std::cout << "usuario ganhou";
+            menuJogo.uptadeRanking(name, 1);
         }
         else if (jogo.bot1.getPontos() >= 12)
         {
             std::cout << "usuario perdeu";
+            menuJogo.uptadeRanking(name, 0);
         }
     }
 }
