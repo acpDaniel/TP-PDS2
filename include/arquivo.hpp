@@ -3,4 +3,6 @@
 
 #include "../include/tpstring.hpp"
 
+bool findName(std::string name);
+
 #endif
