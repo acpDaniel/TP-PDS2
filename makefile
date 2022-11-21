@@ -29,9 +29,12 @@ menu:
 	$(CC) $(FLAGS) -c $(SRC)/menu.cpp -o $(BUILD)/menu.o
 
 jogo:
-	$(CC) $(FLAGS) -c $(SRC)/jogo.cpp -o $(BUILD)/jogo.o	
+	$(CC) $(FLAGS) -c $(SRC)/jogo.cpp -o $(BUILD)/jogo.o
 
-main: carta baralho jogador humano bot rodada menu jogo
+tpstring:
+	$(CC) $(FLAGS) -c $(SRC)/tpstring.cpp -o $(BUILD)/tpstring.o	
+
+main: carta baralho jogador humano bot rodada menu jogo tpstring
 	$(CC) $(FLAGS) $(BUILD)/*.o $(SRC)/main.cpp -o $(TARGET)
 
 test: carta	
