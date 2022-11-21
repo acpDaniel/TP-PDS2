@@ -201,3 +201,30 @@ std::string playerLogin() {
 
     return name;
 }
+
+void uptadeRanking(std::string player, int win) {
+    std::string name;
+    std::string password;
+    float games;
+    float victorys;
+    float pv;
+
+    std::ifstream base("base.txt", std::ios::in);
+    std::ofstream aux("aux.txt", std::ios::out);
+
+    while(base >> name >> password >> games >> victorys >> pv) {
+        if(player == name) {
+            games++;
+            if(win)
+                victorys++;
+            pv = victorys / games;
+        }
+        aux << name << " " << password << " " << games << " "  << victorys << " "  << pv << "\n";
+    }
+
+    base.close();
+    aux.close();
+
+    remove("base.txt");
+    rename("aux.txt", "base.txt");
+}

@@ -13,4 +13,6 @@ std::string playerRegister();
 
 std::string playerLogin();
 
+void uptadeRanking(std::string player, int win);
+
 #endif
