@@ -129,3 +129,75 @@ std::string playerRegister() {
     system("pause");
     return name;
 }
+
+std::string playerLogin() {
+
+    system("cls");
+
+    std::string name;
+    std::cout << "LOGIN\n\n";
+    std::cout << "Digite o seu nick:\n";
+    std::getline(std::cin, name);
+
+    while(1) {
+        if(strMaxTamChecker(name, MAXTAM_NAME)) {
+            system("cls");
+            std::cout << "LOGIN\n\n";
+            std::cout << "Nick com mais de " << MAXTAM_NAME << ", tente outro:\n";
+            std::getline(std::cin, name);
+        }
+
+        else if(strMinTamChecker(name, MAXTAM_NAME)) {
+            system("cls");
+            std::cout << "LOGIN\n\n";
+            std::cout << "Nick com menos de " << MINTAM_NAME << " caracteres, tente outro:\n";
+            std::getline(std::cin, name);
+        }
+
+        else if(strSpaceChecker(name)) {
+            system("cls");
+            std::cout << "LOGIN\n\n";
+            std::cout << "Nick com espaco, tente outro:\n";
+            std::getline(std::cin, name);
+        }
+        else if(!findName(name)) {
+            system("cls");
+            std::cout << "LOGIN\n\n";
+            std::cout << "Nick nao encontrado, tente outro:\n";
+            std::getline(std::cin, name);
+        }
+        else {
+            break;
+        }
+    }
+
+    system("cls");
+
+    std::string password;
+    std::cout << "LOGIN\n\n";
+    std::cout << "Nick: " << name << "\n";
+    std::cout << "Digite o sua senha:\n";
+    std::getline(std::cin, password);
+
+    std::ifstream base("base.txt", std::ios::in);
+    while(1) {
+        if(passwordChecker(name, password))
+            break;
+        else {
+            system("cls");
+            std::cout << "LOGIN\n\n";
+            std::cout << "Nick: " << name << "\n";
+            std::cout << "Senha incorreta, tente outra:\n";
+            std::getline(std::cin, password);
+        }
+    }
+    base.close();
+
+    system("cls");
+    std::cout << "LOGIN\n\n";
+    std::cout << "Usuario " << name << " logado\n\n";
+    system("pause");
+    system("cls");
+
+    return name;
+}

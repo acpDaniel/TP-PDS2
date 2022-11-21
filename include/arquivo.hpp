@@ -11,4 +11,6 @@ void playerCreate(std::string name, std::string password);
 
 std::string playerRegister();
 
+std::string playerLogin();
+
 #endif
