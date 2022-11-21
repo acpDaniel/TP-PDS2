@@ -247,3 +247,22 @@ std::set<float> pvs() {
 
     return s;
 }
+
+std::set<std::string> nicks(float x) {
+    std::ifstream base("base.txt", std::ios::in);
+    std::string name;
+    std::string password;
+    float games;
+    float victorys;
+    float pv;
+
+    std::set<std::string> s;
+
+    while(base >> name >> password >> games >> victorys >> pv) {
+        if(pv == x)
+            s.insert(name);
+    }
+    base.close();
+
+    return s;
+}

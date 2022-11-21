@@ -17,4 +17,6 @@ void uptadeRanking(std::string player, int win);
 
 std::set<float> pvs();
 
+std::set<std::string> nicks(float x);
+
 #endif
