@@ -34,7 +34,10 @@ jogo:
 tpstring:
 	$(CC) $(FLAGS) -c $(SRC)/tpstring.cpp -o $(BUILD)/tpstring.o	
 
-main: carta baralho jogador humano bot rodada menu jogo tpstring
+arquivo:
+	$(CC) $(FLAGS) -c $(SRC)/arquivo.cpp -o $(BUILD)/arquivo.o	
+
+main: carta baralho jogador humano bot rodada menu jogo tpstring arquivo
 	$(CC) $(FLAGS) $(BUILD)/*.o $(SRC)/main.cpp -o $(TARGET)
 
 test: carta	
