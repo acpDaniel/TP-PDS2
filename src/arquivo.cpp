@@ -266,3 +266,32 @@ std::set<std::string> nicks(float x) {
 
     return s;
 }
+
+void printRanking() {
+
+    system("cls");
+    
+    std::set<float> p = pvs();
+    float x[int(p.size())];
+    int z = 0;
+
+    for(auto i = p.begin(); i != p.end(); ++i) {
+        x[z] = *i;
+        z++;
+    }
+
+    for(int i = int(p.size()); i >= 0; i--) {
+        std::set<std::string> n = nicks(x[i]);
+        for(auto j = n.begin(); j != n.end(); ++j) {
+            std::cout << p.size() - i << " - " << *j;
+            std::string b = *j;
+            for(int a = 0; a < 22 - b.size(); a++)
+                std::cout << " ";
+            std::cout << x[i] << "\n";
+        }
+    }
+
+    std::ifstream base("base.txt");
+    if(!base)
+        std::cout << "Nao ha jogadores cadastrados, impossivel exibir ranking";
+}

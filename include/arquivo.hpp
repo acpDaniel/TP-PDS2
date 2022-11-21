@@ -19,4 +19,6 @@ std::set<float> pvs();
 
 std::set<std::string> nicks(float x);
 
+void printRanking();
+
 #endif
