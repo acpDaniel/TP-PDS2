@@ -7,6 +7,8 @@
 #include "humano.hpp"
 #include "bot.hpp"
 #include "rodada.hpp"
+#include "arquivo.hpp"
+#include "tpstring.hpp"
 
 #include <iomanip>
 #include <iostream>
@@ -22,6 +24,8 @@ public:
     Menu();
     void ranking();
     void cadastroUsuario();
+    std::string loginUsuario();
+    void Menu::uptadeRanking(std::string player, int win);
     void limparTela();
 };
 #endif
