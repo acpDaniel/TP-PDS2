@@ -28,3 +28,20 @@ bool passwordChecker(std::string name, std::string password) {
     base.close();
     return 0;
 }
+
+void playerCreate(std::string name, std::string password) {
+
+    std::ifstream teste("base.txt");
+    int aux = 0;
+    if(teste) {
+        aux = 1;
+    }
+    teste.close();
+
+    std::ofstream base("base.txt", std::ios::app);
+    if(aux == 1){
+        base << "\n";
+    }
+    base << name << " " << password << " 0 0 0";
+    base.close();
+}
