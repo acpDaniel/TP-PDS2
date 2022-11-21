@@ -23,4 +23,6 @@ bool strMaxTamChecker(std::string str, int size);
 
 bool strMinTamChecker(std::string str, int size);
 
+bool strSpaceChecker(std::string str);
+
 #endif

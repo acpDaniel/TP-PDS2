@@ -19,3 +19,11 @@ bool strMinTamChecker(std::string str, int size) {
         return 1;
     return 0;
 }
+
+bool strSpaceChecker(std::string str) {
+    for(int i = 0; i < int(str.size()); i++) {
+        if(int(str[i]) == 32)
+            return 1;
+    }
+    return 0;
+}
