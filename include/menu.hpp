@@ -22,10 +22,10 @@ class Menu
 public:
     std::string _nomeUsuario;
     Menu();
-    void ranking();
     void cadastroUsuario();
+    void ranking();
     std::string loginUsuario();
-    void Menu::uptadeRanking(std::string player, int win);
+    void uptadeRanking(std::string player, int win);
     void limparTela();
 };
 #endif

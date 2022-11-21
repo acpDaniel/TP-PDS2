@@ -24,7 +24,7 @@ int main()
 
     // se quiser visualizar o ranking digita 1, se quiser iniciar a partida digite 2
     int proxPasso;
-    std::cout << "Escolha a opção que desejar:\n0 - Cadastrar novo usuario\n1 - Exibir ranking\n2 - Iniciar partida";
+    std::cout << "Escolha a opcao que desejar:\n0 - Cadastrar novo usuario\n1 - Exibir ranking\n2 - Iniciar partida\n";
     std::cin >> proxPasso;
     // se o usuario digitar um valor invalido vai repetir a msg
     

@@ -14,8 +14,8 @@
 #define MAXTAM_NAME 20
 #define MINTAM_NAME 3
 
-#define MAXTAM_PASSWORD 4
-#define MINTAM_PASSWORD 15
+#define MAXTAM_PASSWORD 15
+#define MINTAM_PASSWORD 4
 
 std::string strMaiuscula(std::string str);
 

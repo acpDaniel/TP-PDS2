@@ -36,32 +36,26 @@ void Menu::cadastroUsuario()
     std::string name;
     std::cout << "REGISTRO\n\n";
     std::cout << "Crie um nick:\n";
-    std::getline(std::cin, name);
+    std::cin >> name;
+    std::cout << "\n";
+
     while(1) {
         if(strMaxTamChecker(name, MAXTAM_NAME)) {
-            system("cls");
-            std::cout << "REGISTRO\n\n";
             std::cout << "Nick com mais de " << MAXTAM_NAME << " caracteres, tente outro:\n";
             std::getline(std::cin, name);
         }
 
         else if(strMinTamChecker(name, MINTAM_NAME)) {
-            system("cls");
-            std::cout << "REGISTRO\n\n";
             std::cout << "Nick com menos de " << MINTAM_NAME << " caracteres, tente outro:\n";
             std::getline(std::cin, name);
         }
 
         else if(strSpaceChecker(name)) {
-            system("cls");
-            std::cout << "REGISTRO\n\n";
             std::cout << "Nick com espaco, tente outro:\n";
             std::getline(std::cin, name);
         }
 
         else if(findName(name)) {
-            system("cls");
-            std::cout << "REGISTRO\n\n";
             std::cout << "Nick ja utilizado, tente outro:\n";
             std::getline(std::cin, name);
         }
@@ -72,30 +66,25 @@ void Menu::cadastroUsuario()
     }
 
     std::string password;
-    system("cls");
-    std::cout << "REGISTRO\n\n";
+    std::cout << "\n\n";
     std::cout << "Nick: " << name << "\n";
     std::cout << "Crie uma senha:\n";
-    std::getline(std::cin, password);
+    std::cin >> password;
+    std::cout << "\n";
+
     while(1) {
-        if(strMaxTamChecker(name, MAXTAM_PASSWORD)) {
-            system("cls");
-            std::cout << "REGISTRO\n\n";
+        if(strMaxTamChecker(password, MAXTAM_PASSWORD)) {
             std::cout << "Nick: " << name << "\n";
             std::cout << "Senha com mais de " << MAXTAM_PASSWORD << " caracteres, tente outra:\n";
             std::getline(std::cin, password);
         }
 
-        else if(strMinTamChecker(name, MINTAM_PASSWORD)) {
-            system("cls");
-            std::cout << "REGISTRO\n\n";
+        else if(strMinTamChecker(password, MINTAM_PASSWORD)) {
             std::cout << "Senha com menos de " << MINTAM_PASSWORD << " caracteres, tente outra:\n";
-            std::getline(std::cin, name);
+            std::getline(std::cin, password);
         }
 
         else if(strSpaceChecker(password)) {
-            system("cls");
-            std::cout << "REGISTRO\n\n";
             std::cout << "Nick: " << name << "\n";
             std::cout << "Senha com espaco, tente outra:\n";
             std::getline(std::cin, password);
@@ -106,7 +95,6 @@ void Menu::cadastroUsuario()
         }
     }
     playerCreate(name, password);
-    system("cls");
     std::cout << "REGISTRO\n\n";
     std::cout << "Jogador registrado\n";
     system("pause");
@@ -127,12 +115,14 @@ void Menu::ranking()
         z++;
     }
 
+    std::cout << "Pos.   Nick                  Pv\n";
+    std::cout << "------------------------------------\n";
     for(int i = int(p.size()); i >= 0; i--) {
         std::set<std::string> n = nicks(x[i]);
         for(auto j = n.begin(); j != n.end(); ++j) {
-            std::cout << p.size() - i << " - " << *j;
+            std::cout << " " << p.size() - i << "  -  " << *j;
             std::string b = *j;
-            for(int a = 0; a < 22 - b.size(); a++)
+            for(int a = 0; a < 22 - int(b.size()); a++)
                 std::cout << " ";
             std::cout << x[i] << "\n";
         }
@@ -151,32 +141,25 @@ std::string Menu::loginUsuario()
     std::string name;
     std::cout << "LOGIN\n\n";
     std::cout << "Digite o seu nick:\n";
-    std::getline(std::cin, name);
+    std::cin >> name;
+    std::cout << "\n";
 
     while(1) {
         if(strMaxTamChecker(name, MAXTAM_NAME)) {
-            system("cls");
-            std::cout << "LOGIN\n\n";
             std::cout << "Nick com mais de " << MAXTAM_NAME << ", tente outro:\n";
             std::getline(std::cin, name);
         }
 
-        else if(strMinTamChecker(name, MAXTAM_NAME)) {
-            system("cls");
-            std::cout << "LOGIN\n\n";
+        else if(strMinTamChecker(name, MINTAM_NAME)) {
             std::cout << "Nick com menos de " << MINTAM_NAME << " caracteres, tente outro:\n";
             std::getline(std::cin, name);
         }
 
         else if(strSpaceChecker(name)) {
-            system("cls");
-            std::cout << "LOGIN\n\n";
             std::cout << "Nick com espaco, tente outro:\n";
             std::getline(std::cin, name);
         }
         else if(!findName(name)) {
-            system("cls");
-            std::cout << "LOGIN\n\n";
             std::cout << "Nick nao encontrado, tente outro:\n";
             std::getline(std::cin, name);
         }
@@ -188,18 +171,17 @@ std::string Menu::loginUsuario()
     system("cls");
 
     std::string password;
-    std::cout << "LOGIN\n\n";
+    std::cout << "LOGIN\n";
     std::cout << "Nick: " << name << "\n";
     std::cout << "Digite o sua senha:\n";
-    std::getline(std::cin, password);
+    std::cin >> password;
+    std::cout << "\n";
 
     std::ifstream base("base.txt", std::ios::in);
     while(1) {
         if(passwordChecker(name, password))
             break;
         else {
-            system("cls");
-            std::cout << "LOGIN\n\n";
             std::cout << "Nick: " << name << "\n";
             std::cout << "Senha incorreta, tente outra:\n";
             std::getline(std::cin, password);
@@ -207,10 +189,7 @@ std::string Menu::loginUsuario()
     }
     base.close();
 
-    system("cls");
-    std::cout << "LOGIN\n\n";
     std::cout << "Usuario " << name << " logado\n\n";
-    system("pause");
     system("cls");
 
     return name;

@@ -9,13 +9,13 @@ std::string strMaiuscula(std::string str) {
 }
 
 bool strMaxTamChecker(std::string str, int size) {
-    if(int(str.size()) >= size)
+    if(int(str.size()) > size)
         return 1;
     return 0;
 }
 
 bool strMinTamChecker(std::string str, int size) {
-    if(int(str.size()) <= size)
+    if(int(str.size()) < size)
         return 1;
     return 0;
 }
