@@ -95,9 +95,10 @@ void Menu::cadastroUsuario()
         }
     }
     playerCreate(name, password);
-    std::cout << "REGISTRO\n\n";
-    std::cout << "Jogador registrado\n";
+    std::cout << "\n";
+    std::cout << "Jogador registrado\n\n";
     system("pause");
+    system("cls");
 }
 
 void Menu::ranking()
@@ -106,31 +107,39 @@ void Menu::ranking()
 
     system("cls");
     
-    std::set<float> p = pvs();
-    float x[int(p.size())];
-    int z = 0;
-
-    for(auto i = p.begin(); i != p.end(); ++i) {
-        x[z] = *i;
-        z++;
-    }
-
-    std::cout << "Pos.   Nick                  Pv\n";
-    std::cout << "------------------------------------\n";
-    for(int i = int(p.size()); i >= 0; i--) {
-        std::set<std::string> n = nicks(x[i]);
-        for(auto j = n.begin(); j != n.end(); ++j) {
-            std::cout << " " << p.size() - i << "  -  " << *j;
-            std::string b = *j;
-            for(int a = 0; a < 22 - int(b.size()); a++)
-                std::cout << " ";
-            std::cout << x[i] << "\n";
-        }
-    }
-
     std::ifstream base("base.txt");
     if(!base)
+    {
         std::cout << "Nao ha jogadores cadastrados, impossivel exibir ranking";
+    }
+
+    else 
+    {
+        std::set<float> p = pvs();
+        float x[int(p.size())];
+        int z = 0;
+
+        for(auto i = p.begin(); i != p.end(); ++i) {
+            x[z] = *i;
+            z++;
+        }
+
+        std::cout << "Pos.   Nick                  Pv\n";
+        std::cout << "------------------------------------\n";
+        for(int i = int(p.size()); i >= 0; i--) {
+            std::set<std::string> n = nicks(x[i]);
+            for(auto j = n.begin(); j != n.end(); ++j) {
+                std::cout << " " << p.size() - i << "  -  " << *j;
+                std::string b = *j;
+                for(int a = 0; a < 22 - int(b.size()); a++)
+                    std::cout << " ";
+                std::cout << x[i] << "\n";
+            }
+        }
+    }
+    std::cout << "\n";
+    system("pause");
+    system("cls");
 }
 
 // função retorna o nome do usuario logado para depois do jogo conseguir realizar o ranking uptade
@@ -190,6 +199,7 @@ std::string Menu::loginUsuario()
     base.close();
 
     std::cout << "Usuario " << name << " logado\n\n";
+    system("pause");
     system("cls");
 
     return name;
