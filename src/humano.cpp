@@ -56,8 +56,17 @@ void Humano::imprimeCartasJogador()
 
 void Humano::checaIndice(int indice)
 {
-    if (indice > _mao.size() || indice < 1)
+    if (!isalpha((unsigned char)indice))
     {
+        if (indice > _mao.size() || indice < 1){
+            indice = 5;
+            std::cin.clear();
+        }
+    }
+
+    if (indice > _mao.size() || indice < 1)
+    {   
+        fflush(stdin);
         throw ErroEscolhaCartaInvalida();
     }
 }
