@@ -19,32 +19,6 @@ Humano::Humano(std::string nome, int idDupla, int idJogador) : Jogador(nome, idD
 {
 }
 
-bool Humano::pedirTruco()
-{
-    _pedindoTruco = true;
-    return 1;
-}
-
-bool Humano::aceitarTruco(bool aceitarTruco)
-{
-    if (aceitarTruco == true)
-    {
-        return 1;
-    }
-    else
-        return 0;
-}
-
-bool Humano::aumentarTruco(bool aumentarTruco)
-{
-    if (aumentarTruco == true)
-    {
-        return 1;
-    }
-    else
-        return 0;
-}
-
 void Humano::imprimeCartasJogador()
 {
     std::cout << "Cartas disponiveis para escolha:" << std::endl;
@@ -58,14 +32,15 @@ void Humano::checaIndice(int indice)
 {
     if (!isalpha((unsigned char)indice))
     {
-        if (indice > _mao.size() || indice < 1){
+        if (indice > _mao.size() || indice < 1)
+        {
             indice = 5;
             std::cin.clear();
         }
     }
 
     if (indice > _mao.size() || indice < 1)
-    {   
+    {
         fflush(stdin);
         throw ErroEscolhaCartaInvalida();
     }

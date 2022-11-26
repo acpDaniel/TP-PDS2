@@ -89,11 +89,6 @@ void Baralho::inicializarBaralhoCompleto()
     Carta &ultimaCarta = _baralho[39];
 }
 
-void Baralho::inserirCartaBaralho(Carta carta)
-{
-    _baralho.push_back(carta);
-}
-
 void Baralho::deletarCartaBaralho(int indice)
 {
     auto it = _baralho.begin();
@@ -167,26 +162,3 @@ std::vector<Carta> Baralho::getMaoJogador3()
 {
     return _maoJogador3;
 }
-
-// BARALHO FUNCIONANDO
-
-/** DEBUG
-    int main(){
-
-    Carta SeteCopas("Sete de Copas", 1, 1);
-    Carta Zap("Quatro de Paus", 0, 0);
-    Carta Aspadilhas("As de Espadas", 2, 2);
-    Carta SeteOuros("Sete de Ouros", 3, 3);
-
-    Baralho teste1;
-
-    teste1.inserirCartaBaralho(Zap);
-    teste1.inserirCartaBaralho(SeteCopas);
-    teste1.inserirCartaBaralho(Aspadilhas);
-    teste1.inserirCartaBaralho(SeteOuros);
-
-    std::cout << teste1._baralho.size() << std::endl;
-
-    return 0;
-
-}**/

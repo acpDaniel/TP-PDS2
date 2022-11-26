@@ -77,9 +77,10 @@ void Rodada::checagemVitoriaParcial()
     {
         _vitoriasParciaisDupla1 = _vitoriasParciaisDupla1 + 1;
     }
-    else
+    else if (pesoMaiorCartaDupla2 > pesoMaiorCartaDupla1)
+    {
         _vitoriasParciaisDupla2 = _vitoriasParciaisDupla2 + 1;
-
+    }
     _cartasDupla1Mesa.clear();
     _cartasDupla2Mesa.clear();
 }
@@ -94,21 +95,6 @@ int Rodada::checagemDuplaVencedora()
     else if (_vitoriasParciaisDupla2 == 2)
     {
         return 2;
-    }
-}
-
-void Rodada::imprimeCartas()
-{
-    std::cout << "Cartas da dupla 1 :";
-    for (int i = 0; i < _cartasDupla1Mesa.size(); i++)
-    {
-        std::cout << _cartasDupla1Mesa[i].getNome() << " ";
-    }
-    std::cout << '\n';
-    std::cout << "Cartas da dupla 2 :";
-    for (int i = 0; i < _cartasDupla2Mesa.size(); i++)
-    {
-        std::cout << _cartasDupla2Mesa[i].getNome() << " ";
     }
 }
 

@@ -22,21 +22,14 @@ protected:
     bool _aceitandoTruco = false;
 
 public:
-    // std::list<Carta> _mao;
-    /** DEBUG std::vector<Carta> _mao;
-    int _idDupla;
-    bool _pedindoTruco = false;
-    bool _aceitandoTruco = false;**/
     Jogador();
     Jogador(std::string nome, int idDupla, int idJogador);
-    void pedirTruco();
-    void aceitarTruco();
-    bool aumentarTruco();
+    virtual bool pedirTruco();
+    virtual bool aceitarTruco();
     int getPontos();
-    int getIdJogador();
     void adicionaPontos(int pontos);
     std::string getNome();
-    Carta jogarCarta(int indice);
+    virtual Carta jogarCarta(int indice);
     void setMao(std::vector<Carta> mao);
 };
 #endif

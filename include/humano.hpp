@@ -25,13 +25,10 @@ class Humano : public Jogador
 public:
     Humano();
     Humano(std::string nome, int idDupla, int idJogador);
-    bool pedirTruco();
-    bool aceitarTruco(bool aceitarTruco);
-    bool aumentarTruco(bool aumentarTruco);
     void imprimeCartasJogador();
     void msgSelecionarCartas();
     void checaIndice(int indice);
-    Carta jogarCarta(int indice);
+    Carta jogarCarta(int indice) override;
 };
 
 #endif

@@ -38,17 +38,16 @@ public:
 
     Jogo();
     void inicializaBaralho();
-    void inicializaJogadores();
     void sequenciaJogadasIniciandoUsuario();
     void sequenciaJogadasIniciandoBot1();
     void sequenciaJogadasIniciandoBot2();
     void sequenciaJogadasIniciandoBot3();
     void sequenciaJogadasMd3(int idMaior);
     void checaPedidoTrucoJogador();
-    int verificachar(int variavel);
     void checaPedidoTrucoBot1(int jaPediu);
     void checaPedidoTrucoBot2();
     void checaPedidoTrucoBot3(int jaPediu);
+    int verificachar(int variavel);
     void procedimentosFinalRodada();
 };
 #endif

@@ -18,18 +18,15 @@ Jogador::Jogador(std::string nome, int idDupla, int idJogador)
     _idJogador = idJogador;
 }
 
-void Jogador::pedirTruco()
+bool Jogador::pedirTruco()
 {
     _pedindoTruco = true;
+    return true;
 }
 
-void Jogador::aceitarTruco()
+bool Jogador::aceitarTruco()
 {
     _aceitandoTruco = true;
-}
-
-bool Jogador::aumentarTruco()
-{
     return true;
 }
 
@@ -69,11 +66,6 @@ Carta Jogador::jogarCarta(int indice)
 void Jogador::setMao(std::vector<Carta> mao)
 {
     _mao = std::vector<Carta>(mao);
-}
-
-int Jogador::getIdJogador()
-{
-    return _idJogador;
 }
 
 /**void main(){

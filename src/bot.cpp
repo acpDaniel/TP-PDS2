@@ -40,19 +40,6 @@ bool Bot::aceitarTruco()
         return 0;
 }
 
-bool Bot::aumentarTruco()
-{
-    // numero aleatorio de 1 a 10
-    int numAleatorio = rand() % 10 + 1;
-    // se o numeroAleatorio for maior igual a 9, vai aumentar o truco
-    if (numAleatorio >= 9)
-    {
-        return 1;
-    }
-    else
-        return 0;
-}
-
 Carta Bot::jogarCarta()
 {
     // numero aleatorio entre 0 e o tamanho do vetor de cartas

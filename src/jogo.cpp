@@ -47,6 +47,10 @@ void Jogo::inicializaBaralho()
 // sequencia de jogadas iniciando com o usuario
 void Jogo::sequenciaJogadasIniciandoUsuario()
 {
+    // mostra as cartas pro jogador pra ele ver se quer pedir truco ou nao
+    usuario.imprimeCartasJogador();
+    std::cout << std::endl;
+
     int indiceCartaEscolhida;
     bool exception_caught = true;
     while (true)
@@ -66,6 +70,8 @@ void Jogo::sequenciaJogadasIniciandoUsuario()
         }
     }
 
+    std::cout << std::endl
+              << std::endl;
     std::cout << "Escolha a carta para jogar:" << std::endl;
     usuario.msgSelecionarCartas();
     // imprime as opcoes de carta do jogador
@@ -163,6 +169,12 @@ void Jogo::sequenciaJogadasIniciandoUsuario()
 
 void Jogo::sequenciaJogadasIniciandoBot1()
 {
+
+    // mostra as cartas pro jogador pra ele ver se quer pedir truco ou nao
+    usuario.imprimeCartasJogador();
+    std::cout << std::endl
+              << std::endl;
+
     bool exception_caught1 = true;
     bool jaPediu1 = false;
     while (true)
@@ -394,6 +406,11 @@ void Jogo::sequenciaJogadasIniciandoBot2()
 
 void Jogo::sequenciaJogadasIniciandoBot3()
 {
+    // mostra as cartas pro jogador pra ele ver se quer pedir truco ou nao
+    usuario.imprimeCartasJogador();
+    std::cout << std::endl
+              << std::endl;
+
     bool exception_caught3 = true;
     bool jaPediu3 = false;
     while (true)
