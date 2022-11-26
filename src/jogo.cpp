@@ -37,11 +37,6 @@ Jogo::Jogo()
     bot3 = Bot("Bot3", 2, 3);
 }
 
-void Jogo::inicializaMenu()
-{
-    menuJogo.cadastroUsuario();
-}
-
 void Jogo::inicializaBaralho()
 {
 

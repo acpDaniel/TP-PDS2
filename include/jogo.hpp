@@ -37,7 +37,6 @@ public:
     Bot bot3;
 
     Jogo();
-    void inicializaMenu();
     void inicializaBaralho();
     void inicializaJogadores();
     void sequenciaJogadasIniciandoUsuario();

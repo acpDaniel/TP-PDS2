@@ -7,6 +7,8 @@
 #include "humano.hpp"
 #include "bot.hpp"
 #include "rodada.hpp"
+#include "arquivo.hpp"
+#include "tpstring.hpp"
 
 #include <iomanip>
 #include <iostream>
@@ -20,8 +22,10 @@ class Menu
 public:
     std::string _nomeUsuario;
     Menu();
-    void ranking();
     void cadastroUsuario();
+    void ranking();
+    std::string loginUsuario();
+    void uptadeRanking(std::string player, int win);
     void limparTela();
 };
 #endif

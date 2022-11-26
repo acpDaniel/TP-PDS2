@@ -25,13 +25,19 @@ bot:
 rodada:
 	$(CC) $(FLAGS) -c $(SRC)/rodada.cpp -o $(BUILD)/rodada.o
 
-menu:
+jogo:
+	$(CC) $(FLAGS) -c $(SRC)/jogo.cpp -o $(BUILD)/jogo.o
+
+tpstring:
+	$(CC) $(FLAGS) -c $(SRC)/tpstring.cpp -o $(BUILD)/tpstring.o	
+
+arquivo:
+	$(CC) $(FLAGS) -c $(SRC)/arquivo.cpp -o $(BUILD)/arquivo.o	
+
+menu: tpstring arquivo
 	$(CC) $(FLAGS) -c $(SRC)/menu.cpp -o $(BUILD)/menu.o
 
-jogo:
-	$(CC) $(FLAGS) -c $(SRC)/jogo.cpp -o $(BUILD)/jogo.o	
-
-main: carta baralho jogador humano bot rodada menu jogo
+main: carta baralho jogador humano bot rodada menu jogo tpstring arquivo
 	$(CC) $(FLAGS) $(BUILD)/*.o $(SRC)/main.cpp -o $(TARGET)
 
 test: carta	
