@@ -31,5 +31,7 @@ public:
     std::string getNome();
     virtual Carta jogarCarta(int indice);
     void setMao(std::vector<Carta> mao);
+
+    int getMaoSize();
 };
 #endif

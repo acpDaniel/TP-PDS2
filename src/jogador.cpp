@@ -49,11 +49,11 @@ Carta Jogador::jogarCarta(int indice)
 {
     // logica para selecionar uma das 3 cartas, ja que o iterator begin retorna o endereço para primeira posicao
     std::vector<Carta>::iterator it = _mao.begin();
-    if (indice == 1)
+    if (indice == 2)
     {
         ++it;
     }
-    else if (indice == 2)
+    else if (indice == 3)
     {
         ++it;
         ++it;
@@ -68,6 +68,9 @@ void Jogador::setMao(std::vector<Carta> mao)
     _mao = std::vector<Carta>(mao);
 }
 
-/**void main(){
+// metodos auxiliares testes
 
-}**/
+int Jogador::getMaoSize()
+{
+    return _mao.size();
+}

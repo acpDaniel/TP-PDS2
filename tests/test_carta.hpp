@@ -20,7 +20,6 @@
 #include <vector>
 #include <list>
 
-// FUNCOES CLASSE CARTA
 TEST_CASE("TESTANDO CARTA GET NOME")
 {
     Carta c1("Zap", 14, 39);
