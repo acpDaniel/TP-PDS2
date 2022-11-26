@@ -29,6 +29,12 @@ public:
     std::vector<Carta> getMaoJogador1();
     std::vector<Carta> getMaoJogador2();
     std::vector<Carta> getMaoJogador3();
+
+    int getBaralhoSize();
+    int getMaoJogador0Size();
+    int getMaoJogador1Size();
+    int getMaoJogador2Size();
+    int getMaoJogador3Size();
 };
 
 #endif

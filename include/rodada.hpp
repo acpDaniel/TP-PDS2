@@ -38,6 +38,5 @@ public:
     void resetPontuacaoRodadaAtual();
     void resetVitoriasParciaisDuplas();
     void checagemVitoriaParcial();
-    void imprimeCartas();
 };
 #endif

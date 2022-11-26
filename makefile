@@ -40,7 +40,7 @@ menu: tpstring arquivo
 main: carta baralho jogador humano bot rodada menu jogo tpstring arquivo
 	$(CC) $(FLAGS) $(BUILD)/*.o $(SRC)/main.cpp -o $(TARGET)
 
-test: carta	
+test: carta	baralho jogador humano bot rodada menu jogo tpstring arquivo
 	$(CC) $(FLAGS) $(TESTEDIR)/truco_test.cpp $(BUILD)/*.o -o test.exe
 
 clean: 
