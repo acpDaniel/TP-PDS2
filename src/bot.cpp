@@ -21,10 +21,10 @@ bool Bot::pedirTruco()
     // se o numeroAleatorio for maior igual a 8, vai pedir truco
     if (numAleatorio >= 8)
     {
-        return 1;
+        return true;
     }
     else
-        return 0;
+        return false;
 }
 
 bool Bot::aceitarTruco()
@@ -34,10 +34,10 @@ bool Bot::aceitarTruco()
     // se o numeroAleatorio for maior igual a 7, vai aceitar o truco
     if (numAleatorio >= 7)
     {
-        return 1;
+        return true;
     }
     else
-        return 0;
+        return false;
 }
 
 Carta Bot::jogarCarta()
