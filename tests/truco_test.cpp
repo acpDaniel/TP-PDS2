@@ -7,3 +7,4 @@
 #include "test_baralho.hpp"
 #include "test_jogador.hpp"
 #include "test_bot.hpp"
+#include "test_humano.hpp"
