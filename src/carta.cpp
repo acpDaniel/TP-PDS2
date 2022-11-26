@@ -39,21 +39,3 @@ void Carta::imprimeCarta()
 {
     std::cout << "A carta selecionada e o(a) " << _nome << std::endl;
 }
-
-// CARTAS FUNCIONANDO
-
-/** DEBUG
-    int main(){
-
-    Carta SeteCopas("Sete de Copas", 1, 1);
-    Carta Zap("Quatro de Paus", 0, 0);
-    Carta Aspadilhas("As de Espadas", 2, 2);
-    Carta SeteOuros("Sete de Ouros", 3, 3);
-
-    std::cout << SeteCopas.getId() << std::endl;
-    std::cout << Zap.getNome() << std::endl;
-    std::cout << Aspadilhas.getId() << std::endl;
-    SeteOuros.imprimeCarta();
-
-    return 0;
-}**/

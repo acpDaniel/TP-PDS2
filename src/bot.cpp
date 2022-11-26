@@ -66,5 +66,3 @@ Carta Bot::jogarCarta()
     std::cout << "A carta selecionada foi " << cartaSelecionada.getNome() << " -peso:" << cartaSelecionada.getPeso() << std::endl;
     return cartaSelecionada;
 }
-
-// ainda sujeito a testes

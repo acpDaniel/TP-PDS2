@@ -10,3 +10,4 @@
 #include "test_humano.hpp"
 #include "test_rodada.hpp"
 #include "test_menu.hpp"
+#include "test_jogo.hpp"
