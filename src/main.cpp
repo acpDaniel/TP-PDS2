@@ -26,10 +26,10 @@ int main()
     std::string proxPasso;
     std::string exit;
     // se o usuario digitar um valor invalido vai repetir a msg
-    while(1) 
+    while (1)
     {
         proxPasso = "4";
-        if(proxPasso == "4")
+        if (proxPasso == "4")
         {
             while (proxPasso != "0" && proxPasso != "1" && proxPasso != "2" && proxPasso != "3")
             {
@@ -84,8 +84,11 @@ int main()
                     // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
                     idJogadorMaiorCarta = jogo.rodadaAtual.getMaiorIdMd3();
 
+                    // declarar que finalizou mais uma queda
+                    jogo.rodadaAtual.aumentaQtdQuedasRodadaAtual();
+
                     // continua a rodada enquanto nenhuma dupla tiver ganhado a md3
-                    while (jogo.rodadaAtual.getVitoriasParciaisDupla1() != 2 && jogo.rodadaAtual.getVitoriasParciaisDupla2() != 2)
+                    while (jogo.rodadaAtual.getQtdQuedasRodadaAtual() != 3)
                     {
 
                         jogo.sequenciaJogadasMd3(idJogadorMaiorCarta);
@@ -112,8 +115,11 @@ int main()
                     // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
                     idJogadorMaiorCarta = jogo.rodadaAtual.getMaiorIdMd3();
 
+                    // declarar que finalizou mais uma queda
+                    jogo.rodadaAtual.aumentaQtdQuedasRodadaAtual();
+
                     // continua a rodada enquanto nenhuma dupla tiver ganhado a md3
-                    while (jogo.rodadaAtual.getVitoriasParciaisDupla1() != 2 && jogo.rodadaAtual.getVitoriasParciaisDupla2() != 2)
+                    while (jogo.rodadaAtual.getQtdQuedasRodadaAtual() != 3)
                     {
                         jogo.sequenciaJogadasMd3(idJogadorMaiorCarta);
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -138,8 +144,11 @@ int main()
                     // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
                     idJogadorMaiorCarta = jogo.rodadaAtual.getMaiorIdMd3();
 
+                    // declarar que finalizou mais uma queda
+                    jogo.rodadaAtual.aumentaQtdQuedasRodadaAtual();
+
                     // continua a rodada enquanto nenhuma dupla tiver ganhado a md3
-                    while (jogo.rodadaAtual.getVitoriasParciaisDupla1() != 2 && jogo.rodadaAtual.getVitoriasParciaisDupla2() != 2)
+                    while (jogo.rodadaAtual.getQtdQuedasRodadaAtual() != 3)
                     {
                         jogo.sequenciaJogadasMd3(idJogadorMaiorCarta);
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -164,8 +173,11 @@ int main()
                     // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
                     idJogadorMaiorCarta = jogo.rodadaAtual.getMaiorIdMd3();
 
+                    // declarar que finalizou mais uma queda
+                    jogo.rodadaAtual.aumentaQtdQuedasRodadaAtual();
+
                     // continua a rodada enquanto nenhuma dupla tiver ganhado a md3
-                    while (jogo.rodadaAtual.getVitoriasParciaisDupla1() != 2 && jogo.rodadaAtual.getVitoriasParciaisDupla2() != 2)
+                    while (jogo.rodadaAtual.getQtdQuedasRodadaAtual() != 3)
                     {
                         jogo.sequenciaJogadasMd3(idJogadorMaiorCarta);
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -191,17 +203,17 @@ int main()
                 menuJogo.uptadeRanking(name, 0);
             }
         }
-    
-        if (proxPasso == "3") 
+
+        if (proxPasso == "3")
         {
             std::cout << "Tem certeza que deseja sair do jogo? (s/n):\n";
             std::cin >> exit;
-            while(exit != "s" && exit != "n")
+            while (exit != "s" && exit != "n")
             {
                 std::cout << "Opcao invalida, digite novamente (s/n):\n";
                 std::cin >> exit;
             }
-            if(exit == "s")
+            if (exit == "s")
             {
                 break;
             }

@@ -18,7 +18,7 @@ public:
     Bot(std::string nome, int idDupla, int idJogador);
     bool pedirTruco() override;
     bool aceitarTruco() override;
-    Carta jogarCarta();
+    Carta jogarCarta(int numAleatorio);
 };
 
 #endif

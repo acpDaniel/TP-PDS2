@@ -44,6 +44,11 @@ void Jogo::inicializaBaralho()
     baralhoDaQueda.inicializarMaoJogadores();
 }
 
+Carta Jogo::polimorfismoJogarCarta(Jogador &j, int indiceCartaEscolhida)
+{
+    return j.jogarCarta(indiceCartaEscolhida);
+}
+
 // sequencia de jogadas iniciando com o usuario
 void Jogo::sequenciaJogadasIniciandoUsuario()
 {
@@ -101,7 +106,7 @@ void Jogo::sequenciaJogadasIniciandoUsuario()
         }
     }
     // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
-    Carta cartaSelecionadaUsuario = usuario.jogarCarta(indiceCartaEscolhida);
+    Carta cartaSelecionadaUsuario = polimorfismoJogarCarta(usuario, indiceCartaEscolhida);
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaUsuario);
 
     std::cout << std::endl;
@@ -126,14 +131,14 @@ void Jogo::sequenciaJogadasIniciandoUsuario()
         }
     }
     std::cout << "Bot1 (dupla adversaria) vai jogar..." << std::endl;
-    Carta cartaSelecionadaBot1 = bot1.jogarCarta();
+    Carta cartaSelecionadaBot1 = polimorfismoJogarCarta(bot1, 0);
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
 
     std::cout << std::endl;
 
     checaPedidoTrucoBot2();
     std::cout << "Bot2 (minha dupla) vai jogar..." << std::endl;
-    Carta cartaSelecionadaBot2 = bot2.jogarCarta();
+    Carta cartaSelecionadaBot2 = polimorfismoJogarCarta(bot2, 0);
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaBot2);
 
     std::cout << std::endl;
@@ -158,7 +163,7 @@ void Jogo::sequenciaJogadasIniciandoUsuario()
         }
     }
     std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
-    Carta cartaSelecionadaBot3 = bot3.jogarCarta();
+    Carta cartaSelecionadaBot3 = polimorfismoJogarCarta(bot3, 0);
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
 
     rodadaAtual.setMaiorIdMd3(rodadaAtual.idJogadorMaiorCarta(cartaSelecionadaUsuario.getPeso(), cartaSelecionadaBot1.getPeso(), cartaSelecionadaBot2.getPeso(), cartaSelecionadaBot3.getPeso()));
@@ -195,14 +200,14 @@ void Jogo::sequenciaJogadasIniciandoBot1()
         }
     }
     std::cout << "Bot1 (dupla adversaria) vai jogar..." << std::endl;
-    Carta cartaSelecionadaBot1 = bot1.jogarCarta();
+    Carta cartaSelecionadaBot1 = polimorfismoJogarCarta(bot1, 0);
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
 
     std::cout << std::endl;
 
     checaPedidoTrucoBot2();
     std::cout << "Bot2 (minha dupla) vai jogar..." << std::endl;
-    Carta cartaSelecionadaBot2 = bot2.jogarCarta();
+    Carta cartaSelecionadaBot2 = polimorfismoJogarCarta(bot2, 0);
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaBot2);
 
     std::cout << std::endl;
@@ -227,7 +232,7 @@ void Jogo::sequenciaJogadasIniciandoBot1()
         }
     }
     std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
-    Carta cartaSelecionadaBot3 = bot3.jogarCarta();
+    Carta cartaSelecionadaBot3 = polimorfismoJogarCarta(bot3, 0);
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
 
     std::cout << std::endl;
@@ -280,7 +285,7 @@ void Jogo::sequenciaJogadasIniciandoBot1()
         }
     }
     // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
-    Carta cartaSelecionadaUsuario = usuario.jogarCarta(indiceCartaEscolhida);
+    Carta cartaSelecionadaUsuario = polimorfismoJogarCarta(usuario, indiceCartaEscolhida);
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaUsuario);
 
     rodadaAtual.setMaiorIdMd3(rodadaAtual.idJogadorMaiorCarta(cartaSelecionadaUsuario.getPeso(), cartaSelecionadaBot1.getPeso(), cartaSelecionadaBot2.getPeso(), cartaSelecionadaBot3.getPeso()));
@@ -293,7 +298,7 @@ void Jogo::sequenciaJogadasIniciandoBot2()
 {
     checaPedidoTrucoBot2();
     std::cout << "Bot2 (minha dupla) vai jogar..." << std::endl;
-    Carta cartaSelecionadaBot2 = bot2.jogarCarta();
+    Carta cartaSelecionadaBot2 = polimorfismoJogarCarta(bot2, 0);
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaBot2);
 
     std::cout << std::endl;
@@ -318,7 +323,7 @@ void Jogo::sequenciaJogadasIniciandoBot2()
         }
     }
     std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
-    Carta cartaSelecionadaBot3 = bot3.jogarCarta();
+    Carta cartaSelecionadaBot3 = polimorfismoJogarCarta(bot3, 0);
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
 
     std::cout << std::endl;
@@ -370,7 +375,7 @@ void Jogo::sequenciaJogadasIniciandoBot2()
         }
     }
     // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
-    Carta cartaSelecionadaUsuario = usuario.jogarCarta(indiceCartaEscolhida);
+    Carta cartaSelecionadaUsuario = polimorfismoJogarCarta(usuario, indiceCartaEscolhida);
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaUsuario);
 
     std::cout << std::endl;
@@ -395,7 +400,7 @@ void Jogo::sequenciaJogadasIniciandoBot2()
         }
     }
     std::cout << "Bot1 (dupla adversaria) vai jogar..." << std::endl;
-    Carta cartaSelecionadaBot1 = bot1.jogarCarta();
+    Carta cartaSelecionadaBot1 = polimorfismoJogarCarta(bot1, 0);
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
 
     rodadaAtual.setMaiorIdMd3(rodadaAtual.idJogadorMaiorCarta(cartaSelecionadaUsuario.getPeso(), cartaSelecionadaBot1.getPeso(), cartaSelecionadaBot2.getPeso(), cartaSelecionadaBot3.getPeso()));
@@ -431,7 +436,7 @@ void Jogo::sequenciaJogadasIniciandoBot3()
         }
     }
     std::cout << "Bot3 (dupla adversaria) vai jogar..." << std::endl;
-    Carta cartaSelecionadaBot3 = bot3.jogarCarta();
+    Carta cartaSelecionadaBot3 = polimorfismoJogarCarta(bot3, 0);
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot3);
 
     std::cout << std::endl;
@@ -484,7 +489,7 @@ void Jogo::sequenciaJogadasIniciandoBot3()
         }
     }
     // insere na classe rodada a carta que foi escolhida pelo jogador, tira essa carta da mao do jogador
-    Carta cartaSelecionadaUsuario = usuario.jogarCarta(indiceCartaEscolhida);
+    Carta cartaSelecionadaUsuario = polimorfismoJogarCarta(usuario, indiceCartaEscolhida);
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaUsuario);
     std::cout << std::endl;
 
@@ -508,14 +513,14 @@ void Jogo::sequenciaJogadasIniciandoBot3()
         }
     }
     std::cout << "Bot1 (minha dupla) vai jogar..." << std::endl;
-    Carta cartaSelecionadaBot1 = bot1.jogarCarta();
+    Carta cartaSelecionadaBot1 = polimorfismoJogarCarta(bot1, 0);
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
 
     std::cout << std::endl;
 
     checaPedidoTrucoBot2();
     std::cout << "Bot2 (dupla adversaria) vai jogar..." << std::endl;
-    Carta cartaSelecionadaBot2 = bot2.jogarCarta();
+    Carta cartaSelecionadaBot2 = polimorfismoJogarCarta(bot2, 0);
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaBot2);
 
     rodadaAtual.setMaiorIdMd3(rodadaAtual.idJogadorMaiorCarta(cartaSelecionadaUsuario.getPeso(), cartaSelecionadaBot1.getPeso(), cartaSelecionadaBot2.getPeso(), cartaSelecionadaBot3.getPeso()));
@@ -536,6 +541,8 @@ void Jogo::sequenciaJogadasMd3(int idMaior)
         std::cout << "-------- Nova queda esta comecando --------" << std::endl;
         // menuJogo.limparTela();
         sequenciaJogadasIniciandoUsuario();
+        // declarar que finalizou mais uma queda
+        rodadaAtual.aumentaQtdQuedasRodadaAtual();
     }
     else if (idJogadorMaiorCarta == 1)
     {
@@ -545,6 +552,8 @@ void Jogo::sequenciaJogadasMd3(int idMaior)
         std::cout << "-------- Nova queda esta comecando --------" << std::endl;
         // menuJogo.limparTela();
         sequenciaJogadasIniciandoBot1();
+        // declarar que finalizou mais uma queda
+        rodadaAtual.aumentaQtdQuedasRodadaAtual();
     }
     else if (idJogadorMaiorCarta == 2)
     {
@@ -554,6 +563,8 @@ void Jogo::sequenciaJogadasMd3(int idMaior)
         std::cout << "-------- Nova queda esta comecando --------" << std::endl;
         // menuJogo.limparTela();
         sequenciaJogadasIniciandoBot2();
+        // declarar que finalizou mais uma queda
+        rodadaAtual.aumentaQtdQuedasRodadaAtual();
     }
     else if (idJogadorMaiorCarta == 3)
     {
@@ -563,6 +574,8 @@ void Jogo::sequenciaJogadasMd3(int idMaior)
         std::cout << "-------- Nova queda esta comecando --------" << std::endl;
         // menuJogo.limparTela();
         sequenciaJogadasIniciandoBot3();
+        // declarar que finalizou mais uma queda
+        rodadaAtual.aumentaQtdQuedasRodadaAtual();
     }
 }
 
@@ -695,6 +708,8 @@ void Jogo::procedimentosFinalRodada()
     rodadaAtual.resetPontuacaoRodadaAtual();
     // reseta as vitorias parciais pois vai ter nova md3
     rodadaAtual.resetVitoriasParciaisDuplas();
+    // reseta a qunatidade de quedas da rodada
+    rodadaAtual.resetQtdQuedasRodadaAtual();
     // reseta o baralho adicionando novamente todas as cartas e prepara a mao de cada jogador
     baralhoDaQueda.resetarBaralhoEMaoJogadores();
     baralhoDaQueda.inicializarBaralhoCompleto();

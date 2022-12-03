@@ -23,6 +23,8 @@ class Rodada
     int _pontuacaoRodadaAtual = 2;
     int _maiorIdMd3;
 
+    int _qtdQuedasRodadaAtual = 0;
+
 public:
     Rodada();
     void inserirCartaDupla1(Carta carta);
@@ -38,5 +40,9 @@ public:
     void resetPontuacaoRodadaAtual();
     void resetVitoriasParciaisDuplas();
     void checagemVitoriaParcial();
+
+    int getQtdQuedasRodadaAtual();
+    void aumentaQtdQuedasRodadaAtual();
+    void resetQtdQuedasRodadaAtual();
 };
 #endif

@@ -128,3 +128,18 @@ void Rodada::resetVitoriasParciaisDuplas()
     _vitoriasParciaisDupla1 = 0;
     _vitoriasParciaisDupla2 = 0;
 }
+
+int Rodada::getQtdQuedasRodadaAtual()
+{
+    return _qtdQuedasRodadaAtual;
+}
+
+void Rodada::aumentaQtdQuedasRodadaAtual()
+{
+    _qtdQuedasRodadaAtual = _qtdQuedasRodadaAtual + 1;
+}
+
+void Rodada::resetQtdQuedasRodadaAtual()
+{
+    _qtdQuedasRodadaAtual = 0;
+}

@@ -49,5 +49,7 @@ public:
     void checaPedidoTrucoBot3(int jaPediu);
     int verificachar(int variavel);
     void procedimentosFinalRodada();
+
+    Carta polimorfismoJogarCarta(Jogador &j, int indiceCartaEscolhida = 0);
 };
 #endif
