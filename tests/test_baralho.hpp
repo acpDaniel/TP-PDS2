@@ -98,19 +98,19 @@ TEST_CASE("TESTANDO INICIALIZACAO MAO JOGADORES")
         b1.inicializarBaralhoCompleto();
         b1.inicializarMaoJogadores();
         CHECK_EQ(28, b1.getBaralhoSize());
-        CHECK_EQ(3, b1.getMaoJogador0Size());
-        CHECK_EQ(3, b1.getMaoJogador1Size());
-        CHECK_EQ(3, b1.getMaoJogador2Size());
-        CHECK_EQ(3, b1.getMaoJogador3Size());
+        CHECK_EQ(3, b1.getMaoJogador0().size());
+        CHECK_EQ(3, b1.getMaoJogador1().size());
+        CHECK_EQ(3, b1.getMaoJogador2().size());
+        CHECK_EQ(3, b1.getMaoJogador3().size());
 
         Baralho b2 = Baralho();
         b2.inicializarBaralhoCompleto();
         b2.inicializarMaoJogadores();
         CHECK_EQ(28, b2.getBaralhoSize());
-        CHECK_EQ(3, b2.getMaoJogador0Size());
-        CHECK_EQ(3, b2.getMaoJogador1Size());
-        CHECK_EQ(3, b2.getMaoJogador2Size());
-        CHECK_EQ(3, b2.getMaoJogador3Size());
+        CHECK_EQ(3, b2.getMaoJogador0().size());
+        CHECK_EQ(3, b2.getMaoJogador1().size());
+        CHECK_EQ(3, b2.getMaoJogador2().size());
+        CHECK_EQ(3, b2.getMaoJogador3().size());
     }
 
     SUBCASE("CASO NEGATIVO")
@@ -123,10 +123,10 @@ TEST_CASE("TESTANDO INICIALIZACAO MAO JOGADORES")
         Baralho b2 = Baralho();
         b2.inicializarBaralhoCompleto();
         b2.inicializarMaoJogadores();
-        CHECK(b2.getMaoJogador0Size() != 3);
-        CHECK(b2.getMaoJogador1Size() != 3);
-        CHECK(b2.getMaoJogador2Size() != 3);
-        CHECK(b2.getMaoJogador3Size() != 3);
+        CHECK(b2.getMaoJogador0().size() != 3);
+        CHECK(b2.getMaoJogador1().size() != 3);
+        CHECK(b2.getMaoJogador2().size() != 3);
+        CHECK(b2.getMaoJogador3().size() != 3);
     }
 }
 
@@ -139,10 +139,10 @@ TEST_CASE("TESTANDO RESETAR BARALHO E MAO JOGADORES")
         b1.inicializarMaoJogadores();
         b1.resetarBaralhoEMaoJogadores();
         CHECK_EQ(0, b1.getBaralhoSize());
-        CHECK_EQ(0, b1.getMaoJogador0Size());
-        CHECK_EQ(0, b1.getMaoJogador1Size());
-        CHECK_EQ(0, b1.getMaoJogador2Size());
-        CHECK_EQ(0, b1.getMaoJogador3Size());
+        CHECK_EQ(0, b1.getMaoJogador0().size());
+        CHECK_EQ(0, b1.getMaoJogador1().size());
+        CHECK_EQ(0, b1.getMaoJogador2().size());
+        CHECK_EQ(0, b1.getMaoJogador3().size());
     }
     SUBCASE("CASO NEGATIVO")
     {
@@ -151,10 +151,10 @@ TEST_CASE("TESTANDO RESETAR BARALHO E MAO JOGADORES")
         b1.inicializarMaoJogadores();
         b1.resetarBaralhoEMaoJogadores();
         CHECK(b1.getBaralhoSize() != 0);
-        CHECK(b1.getMaoJogador0Size() != 0);
-        CHECK(b1.getMaoJogador1Size() != 0);
-        CHECK(b1.getMaoJogador2Size() != 0);
-        CHECK(b1.getMaoJogador3Size() != 0);
+        CHECK(b1.getMaoJogador0().size() != 0);
+        CHECK(b1.getMaoJogador1().size() != 0);
+        CHECK(b1.getMaoJogador2().size() != 0);
+        CHECK(b1.getMaoJogador3().size() != 0);
     }
 }
 

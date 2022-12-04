@@ -167,28 +167,7 @@ std::vector<Carta> Baralho::getMaoJogador3()
     return _maoJogador3;
 }
 
-// metodos auxiliares para o teste
 int Baralho::getBaralhoSize()
 {
     return _baralho.size();
-}
-
-int Baralho::getMaoJogador0Size()
-{
-    return _maoJogador0.size();
-}
-
-int Baralho::getMaoJogador1Size()
-{
-    return _maoJogador1.size();
-}
-
-int Baralho::getMaoJogador2Size()
-{
-    return _maoJogador2.size();
-}
-
-int Baralho::getMaoJogador3Size()
-{
-    return _maoJogador3.size();
 }

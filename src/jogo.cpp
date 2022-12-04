@@ -708,7 +708,7 @@ void Jogo::procedimentosFinalRodada()
     rodadaAtual.resetPontuacaoRodadaAtual();
     // reseta as vitorias parciais pois vai ter nova md3
     rodadaAtual.resetVitoriasParciaisDuplas();
-    // reseta a qunatidade de quedas da rodada
+    // reseta a quantidade de quedas da rodada
     rodadaAtual.resetQtdQuedasRodadaAtual();
     // reseta o baralho adicionando novamente todas as cartas e prepara a mao de cada jogador
     baralhoDaQueda.resetarBaralhoEMaoJogadores();
