@@ -512,14 +512,14 @@ void Jogo::sequenciaJogadasIniciandoBot3()
             break;
         }
     }
-    std::cout << "Bot1 (minha dupla) vai jogar..." << std::endl;
+    std::cout << "Bot1 (dupla adversaria) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot1 = polimorfismoJogarCarta(bot1, 0);
     rodadaAtual.inserirCartaDupla2(cartaSelecionadaBot1);
 
     std::cout << std::endl;
 
     checaPedidoTrucoBot2();
-    std::cout << "Bot2 (dupla adversaria) vai jogar..." << std::endl;
+    std::cout << "Bot2 (minha dupla) vai jogar..." << std::endl;
     Carta cartaSelecionadaBot2 = polimorfismoJogarCarta(bot2, 0);
     rodadaAtual.inserirCartaDupla1(cartaSelecionadaBot2);
 
