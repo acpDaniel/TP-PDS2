@@ -5,8 +5,6 @@
 #include "../include/humano.hpp"
 #include "../include/rodada.hpp"
 #include "../include/menu.hpp"
-#include "../include/tpstring.hpp"
-#include "../include/arquivo.hpp"
 
 #include <iomanip>
 #include <iostream>
@@ -14,7 +12,12 @@
 #include <map>
 #include <vector>
 #include <list>
+#include <set>
+#include <cstdlib>
 #include <fstream>
+#include <cstring>
+#include <cctype>
+#include <stdlib.h>
 
 #define CLEAR "clear"
 
@@ -22,49 +25,48 @@ Menu::Menu()
 {
 }
 
+    //  função para cadastrar um usuário
+
+    //  Como o arquivo será escrito:
+    //  nome senha partidas vitorias "porcentagem de vitorias"
+    //  ------------------------------------------------------
+    //  name password games victorys pv
 void Menu::cadastroUsuario()
 {
-    // função para cadastrar um usuário
-
-    // Como o arquivo será escrito:
-    // nome senha partidas vitorias "porcentagem de vitorias"
-    // ------------------------------------------------------
-    // name password games victorys pv
-
     system("cls");
 
+    // cria a variavel name e manda inserir um nome
     std::string name;
     std::cout << "REGISTRO\n\n";
     std::cout << "Crie um nick:\n";
-    std::cin >> name;
-    std::cout << "\n";
+    std::getline(std::cin, name);
 
+    // loop para checar se o nome segue todas as restrições
     while(1) {
         if(strMaxTamChecker(name, MAXTAM_NAME)) {
-            std::cout << "Nick com mais de " << MAXTAM_NAME << " caracteres, tente outro:\n";
-            std::getline(std::cin, name);
+            std::cout << "\nNick com mais de " << MAXTAM_NAME << " caracteres, tente outro:";
         }
 
         else if(strMinTamChecker(name, MINTAM_NAME)) {
-            std::cout << "Nick com menos de " << MINTAM_NAME << " caracteres, tente outro:\n";
-            std::getline(std::cin, name);
+            std::cout << "\nNick com menos de " << MINTAM_NAME << " caracteres, tente outro:";
         }
-
+        
         else if(strSpaceChecker(name)) {
-            std::cout << "Nick com espaco, tente outro:\n";
-            std::getline(std::cin, name);
+            std::cout << "\nNick com espaco, tente outro:";
         }
 
         else if(findName(name)) {
-            std::cout << "Nick ja utilizado, tente outro:\n";
-            std::getline(std::cin, name);
+            std::cout << "\nNick ja utilizado, tente outro:\n";
         }
 
         else {
             break;
         }
+        std::cout << "\n";
+        std::getline(std::cin, name);
     }
 
+    // cria a variavel password e manda inserir uma senha
     std::string password;
     std::cout << "\n\n";
     std::cout << "Nick: " << name << "\n";
@@ -72,6 +74,7 @@ void Menu::cadastroUsuario()
     std::cin >> password;
     std::cout << "\n";
 
+    // loop para checar se a senha segue todas as restrições
     while(1) {
         if(strMaxTamChecker(password, MAXTAM_PASSWORD)) {
             std::cout << "Nick: " << name << "\n";
@@ -94,6 +97,8 @@ void Menu::cadastroUsuario()
             break;
         }
     }
+
+    // cria um jogador com o nome e a senha escolhida
     playerCreate(name, password);
     std::cout << "\n";
     std::cout << "Jogador registrado\n\n";
@@ -101,12 +106,12 @@ void Menu::cadastroUsuario()
     system("cls");
 }
 
+//  função para imprimir ranking
 void Menu::ranking()
 {
-    // função para imprimir ranking
-
     system("cls");
     
+    // verifica se existe um arquivo com jogadores cadastrados
     std::ifstream base("base.txt");
     if(!base)
     {
@@ -115,10 +120,12 @@ void Menu::ranking()
 
     else 
     {
+        //  cria um set com todas as porcentagem de vitorias (em ordem crescente)
         std::set<float> p = pvs();
         float x[int(p.size())];
-        int z = 0;
 
+        // preenche um vetor com os valores de set
+        int z = 0;
         for(auto i = p.begin(); i != p.end(); ++i) {
             x[z] = *i;
             z++;
@@ -126,13 +133,21 @@ void Menu::ranking()
 
         std::cout << "Pos.   Nick                  Pv\n";
         std::cout << "------------------------------------\n";
+        // imprime o vetor em ordem decrescente
         for(int i = int(p.size()); i >= 0; i--) {
+
+            // cria um set com todos os nomes que possuem o mesmo pv
             std::set<std::string> n = nicks(x[i]);
+            
+            // imprime os nomes
             for(auto j = n.begin(); j != n.end(); ++j) {
                 std::cout << " " << p.size() - i << "  -  " << *j;
+
+                // for para deixar os pv's alinhados
                 std::string b = *j;
                 for(int a = 0; a < 22 - int(b.size()); a++)
                     std::cout << " ";
+
                 std::cout << x[i] << "\n";
             }
         }
@@ -142,17 +157,19 @@ void Menu::ranking()
     system("cls");
 }
 
-// função retorna o nome do usuario logado para depois do jogo conseguir realizar o ranking uptade
+//  função retorna o nome do usuario logado para depois do jogo conseguir realizar o ranking uptade
 std::string Menu::loginUsuario()
 {
     system("cls");
 
+    // cria a variavel name para receber um nome
     std::string name;
     std::cout << "LOGIN\n\n";
     std::cout << "Digite o seu nick:\n";
     std::cin >> name;
     std::cout << "\n";
 
+    // checa se o nome atende as restrições
     while(1) {
         if(strMaxTamChecker(name, MAXTAM_NAME)) {
             std::cout << "Nick com mais de " << MAXTAM_NAME << ", tente outro:\n";
@@ -168,10 +185,12 @@ std::string Menu::loginUsuario()
             std::cout << "Nick com espaco, tente outro:\n";
             std::getline(std::cin, name);
         }
+
         else if(!findName(name)) {
             std::cout << "Nick nao encontrado, tente outro:\n";
             std::getline(std::cin, name);
         }
+
         else {
             break;
         }
@@ -179,6 +198,7 @@ std::string Menu::loginUsuario()
 
     system("cls");
 
+    // cria a variavel name para receber um nome
     std::string password;
     std::cout << "LOGIN\n";
     std::cout << "Nick: " << name << "\n";
@@ -186,7 +206,7 @@ std::string Menu::loginUsuario()
     std::cin >> password;
     std::cout << "\n";
 
-    std::ifstream base("base.txt", std::ios::in);
+    // checa se a senha atende as restrições
     while(1) {
         if(passwordChecker(name, password))
             break;
@@ -196,7 +216,6 @@ std::string Menu::loginUsuario()
             std::getline(std::cin, password);
         }
     }
-    base.close();
 
     std::cout << "Usuario " << name << " logado\n\n";
     system("pause");
@@ -205,7 +224,7 @@ std::string Menu::loginUsuario()
     return name;
 }
 
-// função para atualizar o ranking
+//  função para atualizar o ranking
 void Menu::uptadeRanking(std::string player, int win) {
     std::string name;
     std::string password;
@@ -213,9 +232,11 @@ void Menu::uptadeRanking(std::string player, int win) {
     float victorys;
     float pv;
 
+    // cria um arquivo para escrita e um para leitura
     std::ifstream base("base.txt", std::ios::in);
     std::ofstream aux("aux.txt", std::ios::out);
 
+    // loop para copiar o antigo em um novo, modificando apenas a linha do jogador
     while(base >> name >> password >> games >> victorys >> pv) {
         if(player == name) {
             games++;
@@ -229,10 +250,134 @@ void Menu::uptadeRanking(std::string player, int win) {
     base.close();
     aux.close();
 
+    // remove o antigo e renomeia o novo arquivo
     remove("base.txt");
     rename("aux.txt", "base.txt");
 }
 
+
+/*-------------------------string-------------------------*/
+
+// retorna 1 caso a string ultrapasse um tamanho maximo
+bool Menu::strMaxTamChecker(std::string str, int size)
+{
+    if (int(str.size()) > size)
+        return 1;
+    return 0;
+}
+
+// retorna 1 caso a string não ultrapasse um tamanho minimo
+bool Menu::strMinTamChecker(std::string str, int size)
+{
+    if (int(str.size()) < size)
+        return 1;
+    return 0;
+}
+
+// retorna 1 se a string contem espaços
+bool Menu::strSpaceChecker(std::string str)
+{
+    for (int i = 0; i < int(str.size()); i++)
+    {
+        if (int(str[i]) == 32)
+            return 1;
+    }
+    return 0;
+}
+/*--------------------------------------------------------*/
+
+/*------------------------arquivo-------------------------*/
+
+// retorna 1 se a string se encontrar como um nome no arquivo
+bool Menu::findName(std::string name) {
+    std::ifstream base("base.txt", std::ios::in);
+    std::string auxname;
+    while(base >> auxname) {
+        if(auxname == name)
+            return 1;
+    }
+    base.close();
+    return 0;
+}
+
+// retorna 1 se a senha do nome for verdadeira
+bool Menu::passwordChecker(std::string name, std::string password) {
+    std::string auxpassword;
+    std::string auxname;
+    float partidas;
+    float vitorias;
+    float pv;
+
+    std::ifstream base("base.txt", std::ios::in);
+    while(base >> auxname >> auxpassword >> partidas >> vitorias >> pv) {
+        if(password == auxpassword && auxname == name) {
+            base.close();
+            return 1;
+        }
+    }
+    base.close();
+    return 0;
+}
+
+// cria um novo jogador no final do arquivo
+void Menu::playerCreate(std::string name, std::string password) {
+
+    std::ifstream teste("base.txt");
+    int aux = 0;
+    if(teste) {
+        aux = 1;
+    }
+    teste.close();
+
+    std::ofstream base("base.txt", std::ios::app);
+    if(aux == 1){
+        base << "\n";
+    }
+    base << name << " " << password << " 0 0 0";
+    base.close();
+}
+
+// cria um set com os pv's em ordem crescente
+std::set<float> Menu::pvs() {
+    std::string name;
+    std::string password;
+    float games;
+    float victorys;
+    float pv;
+
+    std::set<float> s;
+
+    std::ifstream base("base.txt", std::ios::in);
+
+    while(base >> name >> password >> games >> victorys >> pv) {
+        s.insert(pv);
+    }
+    base.close();
+
+    return s;
+}
+
+// cria um set com todos os nomes que possuem o pv = x
+std::set<std::string> Menu::nicks(float x) {
+    std::ifstream base("base.txt", std::ios::in);
+    std::string name;
+    std::string password;
+    float games;
+    float victorys;
+    float pv;
+
+    std::set<std::string> s;
+
+    while(base >> name >> password >> games >> victorys >> pv) {
+        if(pv == x)
+            s.insert(name);
+    }
+    base.close();
+
+    return s;
+}
+
+//  limpa a tela
 void Menu::limparTela()
 {
     system("cls");

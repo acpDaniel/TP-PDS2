@@ -6,8 +6,6 @@
 #include "../include/rodada.hpp"
 #include "../include/menu.hpp"
 #include "../include/jogo.hpp"
-#include "../include/tpstring.hpp"
-#include "../include/arquivo.hpp"
 
 #include <iomanip>
 #include <iostream>

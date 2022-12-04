@@ -100,7 +100,7 @@ void Baralho::deletarCartaBaralho(int indice)
     {
         ++it;
     }
-    for (int j = indice + 1; j < _baralho.size(); j++)
+    for (int j = indice + 1; j < int(_baralho.size()); j++)
     {
         _baralho[j].setId(_baralho[j].getId() - 1);
     }
