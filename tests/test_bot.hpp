@@ -59,7 +59,7 @@ TEST_CASE("TESTANDO JOGAR CARTA BOT")
     mao.push_back(Carta("7 de copas", 13, 38));
     mao.push_back(Carta("Zap", 14, 39));
     b1.setMao(mao);
-    CHECK_EQ("Espadilha", b1.jogarCarta().getNome());
+    CHECK_EQ("Espadilha", b1.jogarCarta(0).getNome());
 
     srand(100);
     Bot b2("bot2", 2, 2);
@@ -68,5 +68,5 @@ TEST_CASE("TESTANDO JOGAR CARTA BOT")
     mao2.push_back(Carta("7 de copas", 13, 38));
     mao2.push_back(Carta("Zap", 14, 39));
     b2.setMao(mao2);
-    CHECK_EQ("7 de copas", b2.jogarCarta().getNome());
+    CHECK_EQ("7 de copas", b2.jogarCarta(0).getNome());
 }
