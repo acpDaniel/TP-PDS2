@@ -72,13 +72,60 @@ TEST_CASE("TESTANDO PEDIDO TRUCO BOT2")
 {
     srand(5);
     Jogo j1 = Jogo();
-    // caso o outro bot nao aceite o truco
+    // caso o outro bot nao aceite o truco, nao aumenta pontuacao
     j1.checaPedidoTrucoBot2();
     CHECK_EQ(2, j1.rodadaAtual.getPontuacaoRodadaAtual());
 
-    srand(55);
+    srand(40040);
     Jogo j2 = Jogo();
-    // caso usuario aceito o truco cin = 1, a pontuacao aumenta
-    j1.checaPedidoTrucoBot2();
+    // caso o outro bot aceite o truco, aumenta a pontuacao
+    j2.checaPedidoTrucoBot2();
+    CHECK_EQ(4, j2.rodadaAtual.getPontuacaoRodadaAtual());
+}
+
+TEST_CASE("TESTANDO PEDIDO TRUCO BOT3")
+{
+    srand(5);
+    Jogo j1 = Jogo();
+    // caso usuario recuse o truco cin = 2, a pontuaçao nao aumenta
+    j1.checaPedidoTrucoBot3(true);
+    CHECK_EQ(2, j1.rodadaAtual.getPontuacaoRodadaAtual());
+
+    // caso usuario aceite o truco cin = 1, a pontuacao aumenta
+    j1.checaPedidoTrucoBot3(true);
     CHECK_EQ(4, j1.rodadaAtual.getPontuacaoRodadaAtual());
+}
+
+TEST_CASE("TESTANDO PEDIDOS TRUCO JOGADOR")
+{
+    SUBCASE("USUARIO PEDE TRUCO")
+    {
+        srand(5);
+        Jogo j1 = Jogo();
+        // caso usuario peça truco cin = 1 e bot nao aceita, nao aumenta pontuacao
+        j1.checaPedidoTrucoJogador();
+        CHECK_EQ(2, j1.rodadaAtual.getPontuacaoRodadaAtual());
+
+        srand(40040);
+        // caso usuario peça truco cin = 1 e bot aceita, aumenta pontuacao
+        j1.checaPedidoTrucoJogador();
+        CHECK_EQ(4, j1.rodadaAtual.getPontuacaoRodadaAtual());
+    }
+    SUBCASE("USUARIO NAO PEDE TRUCO")
+    {
+        srand(5);
+        Jogo j1 = Jogo();
+        // caso usuario nao peça truco cin = 2 nao aumenta pontuacao
+        j1.checaPedidoTrucoJogador();
+        CHECK_EQ(2, j1.rodadaAtual.getPontuacaoRodadaAtual());
+    }
+    SUBCASE("LANCAMENTO EXECOES ENTRADAS INVALIDAS")
+    {
+        srand(5);
+        Jogo j1 = Jogo();
+        // caso usuario digite uma entrada invalida, numero diferente de 1 e 2
+        CHECK_THROWS(j1.checaPedidoTrucoJogador());
+        // caso usuario digite uma entrada invalida, letra
+        CHECK_THROWS(j1.checaPedidoTrucoJogador());
+    }
 }
