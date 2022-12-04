@@ -86,7 +86,7 @@ void Baralho::inicializarBaralhoCompleto()
 
     _baralho.push_back(Carta("Zap", 14, 39));
 
-    Carta &ultimaCarta = _baralho[39];
+    // Carta &ultimaCarta = _baralho[39];
 }
 
 void Baralho::deletarCartaBaralho(int indice)

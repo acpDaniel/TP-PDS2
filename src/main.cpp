@@ -86,7 +86,7 @@ int main()
                     jogo.rodadaAtual.aumentaQtdQuedasRodadaAtual();
 
                     // continua a rodada enquanto nenhuma dupla tiver ganhado a md3
-                    while (jogo.rodadaAtual.getQtdQuedasRodadaAtual() != 3)
+                    while (jogo.rodadaAtual.getQtdQuedasRodadaAtual() != 3 && (jogo.rodadaAtual.getVitoriasParciaisDupla1() != 2 && jogo.rodadaAtual.getVitoriasParciaisDupla2() != 2))
                     {
 
                         jogo.sequenciaJogadasMd3(idJogadorMaiorCarta);
@@ -117,7 +117,7 @@ int main()
                     jogo.rodadaAtual.aumentaQtdQuedasRodadaAtual();
 
                     // continua a rodada enquanto nenhuma dupla tiver ganhado a md3
-                    while (jogo.rodadaAtual.getQtdQuedasRodadaAtual() != 3)
+                    while (jogo.rodadaAtual.getQtdQuedasRodadaAtual() != 3 && (jogo.rodadaAtual.getVitoriasParciaisDupla1() != 2 && jogo.rodadaAtual.getVitoriasParciaisDupla2() != 2))
                     {
                         jogo.sequenciaJogadasMd3(idJogadorMaiorCarta);
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -146,7 +146,7 @@ int main()
                     jogo.rodadaAtual.aumentaQtdQuedasRodadaAtual();
 
                     // continua a rodada enquanto nenhuma dupla tiver ganhado a md3
-                    while (jogo.rodadaAtual.getQtdQuedasRodadaAtual() != 3)
+                    while (jogo.rodadaAtual.getQtdQuedasRodadaAtual() != 3 && (jogo.rodadaAtual.getVitoriasParciaisDupla1() != 2 && jogo.rodadaAtual.getVitoriasParciaisDupla2() != 2))
                     {
                         jogo.sequenciaJogadasMd3(idJogadorMaiorCarta);
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta
@@ -175,7 +175,7 @@ int main()
                     jogo.rodadaAtual.aumentaQtdQuedasRodadaAtual();
 
                     // continua a rodada enquanto nenhuma dupla tiver ganhado a md3
-                    while (jogo.rodadaAtual.getQtdQuedasRodadaAtual() != 3)
+                    while (jogo.rodadaAtual.getQtdQuedasRodadaAtual() != 3 && (jogo.rodadaAtual.getVitoriasParciaisDupla1() != 2 && jogo.rodadaAtual.getVitoriasParciaisDupla2() != 2))
                     {
                         jogo.sequenciaJogadasMd3(idJogadorMaiorCarta);
                         // fazer funcao na classe rodada para checar o id de quem tacou a maior carta

@@ -44,7 +44,7 @@ Carta Bot::jogarCarta(int numAleatorio)
 {
     // numero aleatorio entre 0 e o tamanho do vetor de cartas
     int random = rand();
-    Carta &primeiraCarta = _mao[0];
+    // Carta &primeiraCarta = _mao[0];
     numAleatorio = (random % _mao.size());
     // se o numAleatorio nao for 0, temos que diminuir 1 para ser a posiçao 0 ou 1 ou 2 do vetor de cartas
     if (numAleatorio != 0)

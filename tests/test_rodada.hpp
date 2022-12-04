@@ -124,3 +124,16 @@ TEST_CASE("TESTANDO RESET VITORIAS PARCIAIS DUPLAS")
     CHECK_EQ(0, b1.getVitoriasParciaisDupla2());
     CHECK_EQ(0, b1.getVitoriasParciaisDupla1());
 }
+
+TEST_CASE("TESTANDO QtdQuedasRodadaAtual()")
+{
+    Rodada b1 = Rodada();
+    CHECK_EQ(0, b1.getQtdQuedasRodadaAtual());
+    b1.aumentaQtdQuedasRodadaAtual();
+    CHECK_EQ(1, b1.getQtdQuedasRodadaAtual());
+    b1.aumentaQtdQuedasRodadaAtual();
+    b1.aumentaQtdQuedasRodadaAtual();
+    CHECK_EQ(3, b1.getQtdQuedasRodadaAtual());
+    b1.resetQtdQuedasRodadaAtual();
+    CHECK_EQ(0, b1.getQtdQuedasRodadaAtual());
+}

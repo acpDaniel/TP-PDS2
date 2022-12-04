@@ -96,6 +96,7 @@ int Rodada::checagemDuplaVencedora()
     {
         return 2;
     }
+    return 0;
 }
 
 int Rodada::getVitoriasParciaisDupla1()
