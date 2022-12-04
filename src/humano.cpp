@@ -22,7 +22,7 @@ Humano::Humano(std::string nome, int idDupla, int idJogador) : Jogador(nome, idD
 void Humano::imprimeCartasJogador()
 {
     std::cout << "Cartas disponiveis para escolha:" << std::endl;
-    for (int i = 0; i < _mao.size(); i++)
+    for (int i = 0; i < int(_mao.size()); i++)
     {
         std::cout << _mao[i].getNome() << " -peso:" << _mao[i].getPeso() << ", ";
     }
@@ -32,14 +32,14 @@ void Humano::checaIndice(int indice)
 {
     if (!isalpha((unsigned char)indice))
     {
-        if (indice > _mao.size() || indice < 1)
+        if (indice > int(_mao.size()) || indice < 1)
         {
             indice = 5;
             std::cin.clear();
         }
     }
 
-    if (indice > _mao.size() || indice < 1)
+    if (indice > int(_mao.size()) || indice < 1)
     {
         fflush(stdin);
         throw ErroEscolhaCartaInvalida();

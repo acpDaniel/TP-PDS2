@@ -5,8 +5,6 @@
 #include "../include/humano.hpp"
 #include "../include/rodada.hpp"
 #include "../include/menu.hpp"
-#include "../include/tpstring.hpp"
-#include "../include/arquivo.hpp"
 
 #include <iomanip>
 #include <iostream>
@@ -14,7 +12,12 @@
 #include <map>
 #include <vector>
 #include <list>
+#include <set>
+#include <cstdlib>
 #include <fstream>
+#include <cstring>
+#include <cctype>
+#include <stdlib.h>
 
 #define CLEAR "clear"
 
@@ -27,7 +30,7 @@ void Menu::cadastroUsuario()
     // função para cadastrar um usuário
 
     // Como o arquivo será escrito:
-    // nome senha partidas vitorias "porcentagem de vitorias"
+    // nome senha parti+das vitorias "porcentagem de vitorias"
     // ------------------------------------------------------
     // name password games victorys pv
 
@@ -36,33 +39,30 @@ void Menu::cadastroUsuario()
     std::string name;
     std::cout << "REGISTRO\n\n";
     std::cout << "Crie um nick:\n";
-    std::cin >> name;
-    std::cout << "\n";
+    std::getline(std::cin, name);
 
     while(1) {
         if(strMaxTamChecker(name, MAXTAM_NAME)) {
-            std::cout << "Nick com mais de " << MAXTAM_NAME << " caracteres, tente outro:\n";
-            std::getline(std::cin, name);
+            std::cout << "\nNick com mais de " << MAXTAM_NAME << " caracteres, tente outro:";
         }
 
         else if(strMinTamChecker(name, MINTAM_NAME)) {
-            std::cout << "Nick com menos de " << MINTAM_NAME << " caracteres, tente outro:\n";
-            std::getline(std::cin, name);
+            std::cout << "\nNick com menos de " << MINTAM_NAME << " caracteres, tente outro:";
         }
-
+        
         else if(strSpaceChecker(name)) {
-            std::cout << "Nick com espaco, tente outro:\n";
-            std::getline(std::cin, name);
+            std::cout << "\nNick com espaco, tente outro:";
         }
 
         else if(findName(name)) {
-            std::cout << "Nick ja utilizado, tente outro:\n";
-            std::getline(std::cin, name);
+            std::cout << "\nNick ja utilizado, tente outro:\n";
         }
 
         else {
             break;
         }
+        std::cout << "\n";
+        std::getline(std::cin, name);
     }
 
     std::string password;
@@ -168,10 +168,12 @@ std::string Menu::loginUsuario()
             std::cout << "Nick com espaco, tente outro:\n";
             std::getline(std::cin, name);
         }
+
         else if(!findName(name)) {
             std::cout << "Nick nao encontrado, tente outro:\n";
             std::getline(std::cin, name);
         }
+
         else {
             break;
         }
@@ -233,6 +235,118 @@ void Menu::uptadeRanking(std::string player, int win) {
     rename("aux.txt", "base.txt");
 }
 
+
+// string
+bool Menu::strMaxTamChecker(std::string str, int size)
+{
+    if (int(str.size()) > size)
+        return 1;
+    return 0;
+}
+
+bool Menu::strMinTamChecker(std::string str, int size)
+{
+    if (int(str.size()) < size)
+        return 1;
+    return 0;
+}
+
+bool Menu::strSpaceChecker(std::string str)
+{
+    for (int i = 0; i < int(str.size()); i++)
+    {
+        if (int(str[i]) == 32)
+            return 1;
+    }
+    return 0;
+}
+
+//arquivo
+bool Menu::findName(std::string name) {
+    std::ifstream base("base.txt", std::ios::in);
+    std::string auxname;
+    while(base >> auxname) {
+        if(auxname == name)
+            return 1;
+    }
+    base.close();
+    return 0;
+}
+
+bool Menu::passwordChecker(std::string name, std::string password) {
+    std::string auxpassword;
+    std::string auxname;
+    float partidas;
+    float vitorias;
+    float pv;
+
+    std::ifstream base("base.txt", std::ios::in);
+    while(base >> auxname >> auxpassword >> partidas >> vitorias >> pv) {
+        if(password == auxpassword && auxname == name) {
+            base.close();
+            return 1;
+        }
+    }
+    base.close();
+    return 0;
+}
+
+void Menu::playerCreate(std::string name, std::string password) {
+
+    std::ifstream teste("base.txt");
+    int aux = 0;
+    if(teste) {
+        aux = 1;
+    }
+    teste.close();
+
+    std::ofstream base("base.txt", std::ios::app);
+    if(aux == 1){
+        base << "\n";
+    }
+    base << name << " " << password << " 0 0 0";
+    base.close();
+}
+
+std::set<float> Menu::pvs() {
+    std::string name;
+    std::string password;
+    float games;
+    float victorys;
+    float pv;
+
+    std::set<float> s;
+
+    std::ifstream base("base.txt", std::ios::in);
+
+    while(base >> name >> password >> games >> victorys >> pv) {
+        s.insert(pv);
+    }
+    base.close();
+
+    return s;
+}
+
+std::set<std::string> Menu::nicks(float x) {
+    std::ifstream base("base.txt", std::ios::in);
+    std::string name;
+    std::string password;
+    float games;
+    float victorys;
+    float pv;
+
+    std::set<std::string> s;
+
+    while(base >> name >> password >> games >> victorys >> pv) {
+        if(pv == x)
+            s.insert(name);
+    }
+    base.close();
+
+    return s;
+}
+
+///
 void Menu::limparTela()
 {
     system("cls");
