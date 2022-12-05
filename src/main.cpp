@@ -188,16 +188,15 @@ int main()
                 }
             }
 
-            std::cout << jogo.usuario.getPontos() << std::endl;
-            std::cout << jogo.bot1.getPontos();
+            std::cout << "\n" << jogo.usuario.getPontos() << " x " << jogo.bot1.getPontos() << std::endl;
             if (jogo.usuario.getPontos() >= 12)
             {
-                std::cout << "usuario ganhou";
+                std::cout << "\nUsuario ganhou\n";
                 menuJogo.uptadeRanking(name, 1);
             }
             else if (jogo.bot1.getPontos() >= 12)
             {
-                std::cout << "usuario perdeu";
+                std::cout << "\nUsuario perdeu\n";
                 menuJogo.uptadeRanking(name, 0);
             }
         }
