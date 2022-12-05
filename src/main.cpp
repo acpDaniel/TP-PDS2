@@ -201,6 +201,8 @@ int main()
                 std::cout << "Usuario perdeu\n";
                 menuJogo.uptadeRanking(name, 0);
             }
+            system("pause");
+            system("cls");
             goto inicio;
         }
 
