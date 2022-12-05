@@ -13,9 +13,11 @@
 #include <map>
 #include <vector>
 #include <list>
+#include <stdio.h>
 
 int main()
 {
+    inicio:
     srand(time(NULL));
     Jogo jogo;
     Menu menuJogo;
@@ -191,14 +193,15 @@ int main()
             std::cout << "\n" << jogo.usuario.getPontos() << " x " << jogo.bot1.getPontos() << std::endl;
             if (jogo.usuario.getPontos() >= 12)
             {
-                std::cout << "\nUsuario ganhou\n";
+                std::cout << "Usuario ganhou\n";
                 menuJogo.uptadeRanking(name, 1);
             }
             else if (jogo.bot1.getPontos() >= 12)
             {
-                std::cout << "\nUsuario perdeu\n";
+                std::cout << "Usuario perdeu\n";
                 menuJogo.uptadeRanking(name, 0);
             }
+            goto inicio;
         }
 
         if (proxPasso == "3")
