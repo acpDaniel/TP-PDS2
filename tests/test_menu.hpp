@@ -1,4 +1,3 @@
-//#include "catch.hpp"
 #include "doctest.hpp"
 
 #include "../include/carta.hpp"
@@ -99,7 +98,7 @@ TEST_CASE("TESTANDO SE SENHA CONDIZ COM A CADASTRADA")
     CHECK_EQ(0, m1.passwordChecker("nomeinvalido", "senhainvalida"));
 }
 
-TEST_CASE("TESTANDO CADASTRO DO USUARIO")
+TEST_CASE("TESTANDO CRIACAO DO USUARIO")
 {
     // cadastra e procura pelo cadastro no arquivo que salva informacoes
     Menu m1 = Menu();

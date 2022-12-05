@@ -25,12 +25,12 @@ Menu::Menu()
 {
 }
 
-    //  função para cadastrar um usuário
+//  função para cadastrar um usuário
 
-    //  Como o arquivo será escrito:
-    //  nome senha partidas vitorias "porcentagem de vitorias"
-    //  ------------------------------------------------------
-    //  name password games victorys pv
+//  Como o arquivo será escrito:
+//  nome senha partidas vitorias "porcentagem de vitorias"
+//  ------------------------------------------------------
+//  name password games victorys pv
 void Menu::cadastroUsuario()
 {
     system("cls");
@@ -42,24 +42,30 @@ void Menu::cadastroUsuario()
     std::getline(std::cin, name);
 
     // loop para checar se o nome segue todas as restrições
-    while(1) {
-        if(strMaxTamChecker(name, MAXTAM_NAME)) {
+    while (1)
+    {
+        if (strMaxTamChecker(name, MAXTAM_NAME))
+        {
             std::cout << "\nNick com mais de " << MAXTAM_NAME << " caracteres, tente outro:";
         }
 
-        else if(strMinTamChecker(name, MINTAM_NAME)) {
+        else if (strMinTamChecker(name, MINTAM_NAME))
+        {
             std::cout << "\nNick com menos de " << MINTAM_NAME << " caracteres, tente outro:";
         }
-        
-        else if(strSpaceChecker(name)) {
+
+        else if (strSpaceChecker(name))
+        {
             std::cout << "\nNick com espaco, tente outro:";
         }
 
-        else if(findName(name)) {
+        else if (findName(name))
+        {
             std::cout << "\nNick ja utilizado, tente outro:\n";
         }
 
-        else {
+        else
+        {
             break;
         }
         std::cout << "\n";
@@ -75,25 +81,30 @@ void Menu::cadastroUsuario()
     std::cout << "\n";
 
     // loop para checar se a senha segue todas as restrições
-    while(1) {
-        if(strMaxTamChecker(password, MAXTAM_PASSWORD)) {
+    while (1)
+    {
+        if (strMaxTamChecker(password, MAXTAM_PASSWORD))
+        {
             std::cout << "Nick: " << name << "\n";
             std::cout << "Senha com mais de " << MAXTAM_PASSWORD << " caracteres, tente outra:\n";
             std::getline(std::cin, password);
         }
 
-        else if(strMinTamChecker(password, MINTAM_PASSWORD)) {
+        else if (strMinTamChecker(password, MINTAM_PASSWORD))
+        {
             std::cout << "Senha com menos de " << MINTAM_PASSWORD << " caracteres, tente outra:\n";
             std::getline(std::cin, password);
         }
 
-        else if(strSpaceChecker(password)) {
+        else if (strSpaceChecker(password))
+        {
             std::cout << "Nick: " << name << "\n";
             std::cout << "Senha com espaco, tente outra:\n";
             std::getline(std::cin, password);
         }
 
-        else {
+        else
+        {
             break;
         }
     }
@@ -110,15 +121,15 @@ void Menu::cadastroUsuario()
 void Menu::ranking()
 {
     system("cls");
-    
+
     // verifica se existe um arquivo com jogadores cadastrados
     std::ifstream base("base.txt");
-    if(!base)
+    if (!base)
     {
         std::cout << "Nao ha jogadores cadastrados, impossivel exibir ranking";
     }
 
-    else 
+    else
     {
         //  cria um set com todas as porcentagem de vitorias (em ordem crescente)
         std::set<float> p = pvs();
@@ -126,7 +137,8 @@ void Menu::ranking()
 
         // preenche um vetor com os valores de set
         int z = 0;
-        for(auto i = p.begin(); i != p.end(); ++i) {
+        for (auto i = p.begin(); i != p.end(); ++i)
+        {
             x[z] = *i;
             z++;
         }
@@ -134,18 +146,20 @@ void Menu::ranking()
         std::cout << "Pos.   Nick                  Pv\n";
         std::cout << "------------------------------------\n";
         // imprime o vetor em ordem decrescente
-        for(int i = int(p.size()); i >= 0; i--) {
+        for (int i = int(p.size()); i >= 0; i--)
+        {
 
             // cria um set com todos os nomes que possuem o mesmo pv
             std::set<std::string> n = nicks(x[i]);
-            
+
             // imprime os nomes
-            for(auto j = n.begin(); j != n.end(); ++j) {
+            for (auto j = n.begin(); j != n.end(); ++j)
+            {
                 std::cout << " " << p.size() - i << "  -  " << *j;
 
                 // for para deixar os pv's alinhados
                 std::string b = *j;
-                for(int a = 0; a < 22 - int(b.size()); a++)
+                for (int a = 0; a < 22 - int(b.size()); a++)
                     std::cout << " ";
 
                 std::cout << x[i] << "\n";
@@ -170,28 +184,34 @@ std::string Menu::loginUsuario()
     std::cout << "\n";
 
     // checa se o nome atende as restrições
-    while(1) {
-        if(strMaxTamChecker(name, MAXTAM_NAME)) {
+    while (1)
+    {
+        if (strMaxTamChecker(name, MAXTAM_NAME))
+        {
             std::cout << "Nick com mais de " << MAXTAM_NAME << ", tente outro:\n";
             std::getline(std::cin, name);
         }
 
-        else if(strMinTamChecker(name, MINTAM_NAME)) {
+        else if (strMinTamChecker(name, MINTAM_NAME))
+        {
             std::cout << "Nick com menos de " << MINTAM_NAME << " caracteres, tente outro:\n";
             std::getline(std::cin, name);
         }
 
-        else if(strSpaceChecker(name)) {
+        else if (strSpaceChecker(name))
+        {
             std::cout << "Nick com espaco, tente outro:\n";
             std::getline(std::cin, name);
         }
 
-        else if(!findName(name)) {
+        else if (!findName(name))
+        {
             std::cout << "Nick nao encontrado, tente outro:\n";
             std::getline(std::cin, name);
         }
 
-        else {
+        else
+        {
             break;
         }
     }
@@ -207,10 +227,12 @@ std::string Menu::loginUsuario()
     std::cout << "\n";
 
     // checa se a senha atende as restrições
-    while(1) {
-        if(passwordChecker(name, password))
+    while (1)
+    {
+        if (passwordChecker(name, password))
             break;
-        else {
+        else
+        {
             std::cout << "Nick: " << name << "\n";
             std::cout << "Senha incorreta, tente outra:\n";
             std::getline(std::cin, password);
@@ -225,7 +247,8 @@ std::string Menu::loginUsuario()
 }
 
 //  função para atualizar o ranking
-void Menu::uptadeRanking(std::string player, int win) {
+void Menu::uptadeRanking(std::string player, int win)
+{
     std::string name;
     std::string password;
     float games;
@@ -237,14 +260,16 @@ void Menu::uptadeRanking(std::string player, int win) {
     std::ofstream aux("aux.txt", std::ios::out);
 
     // loop para copiar o antigo em um novo, modificando apenas a linha do jogador
-    while(base >> name >> password >> games >> victorys >> pv) {
-        if(player == name) {
+    while (base >> name >> password >> games >> victorys >> pv)
+    {
+        if (player == name)
+        {
             games++;
-            if(win)
+            if (win)
                 victorys++;
             pv = victorys / games;
         }
-        aux << name << " " << password << " " << games << " "  << victorys << " "  << pv << "\n";
+        aux << name << " " << password << " " << games << " " << victorys << " " << pv << "\n";
     }
 
     base.close();
@@ -254,7 +279,6 @@ void Menu::uptadeRanking(std::string player, int win) {
     remove("base.txt");
     rename("aux.txt", "base.txt");
 }
-
 
 /*-------------------------string-------------------------*/
 
@@ -289,11 +313,13 @@ bool Menu::strSpaceChecker(std::string str)
 /*------------------------arquivo-------------------------*/
 
 // retorna 1 se a string se encontrar como um nome no arquivo
-bool Menu::findName(std::string name) {
+bool Menu::findName(std::string name)
+{
     std::ifstream base("base.txt", std::ios::in);
     std::string auxname;
-    while(base >> auxname) {
-        if(auxname == name)
+    while (base >> auxname)
+    {
+        if (auxname == name)
             return 1;
     }
     base.close();
@@ -301,7 +327,8 @@ bool Menu::findName(std::string name) {
 }
 
 // retorna 1 se a senha do nome for verdadeira
-bool Menu::passwordChecker(std::string name, std::string password) {
+bool Menu::passwordChecker(std::string name, std::string password)
+{
     std::string auxpassword;
     std::string auxname;
     float partidas;
@@ -309,8 +336,10 @@ bool Menu::passwordChecker(std::string name, std::string password) {
     float pv;
 
     std::ifstream base("base.txt", std::ios::in);
-    while(base >> auxname >> auxpassword >> partidas >> vitorias >> pv) {
-        if(password == auxpassword && auxname == name) {
+    while (base >> auxname >> auxpassword >> partidas >> vitorias >> pv)
+    {
+        if (password == auxpassword && auxname == name)
+        {
             base.close();
             return 1;
         }
@@ -320,17 +349,20 @@ bool Menu::passwordChecker(std::string name, std::string password) {
 }
 
 // cria um novo jogador no final do arquivo
-void Menu::playerCreate(std::string name, std::string password) {
+void Menu::playerCreate(std::string name, std::string password)
+{
 
     std::ifstream teste("base.txt");
     int aux = 0;
-    if(teste) {
+    if (teste)
+    {
         aux = 1;
     }
     teste.close();
 
     std::ofstream base("base.txt", std::ios::app);
-    if(aux == 1){
+    if (aux == 1)
+    {
         base << "\n";
     }
     base << name << " " << password << " 0 0 0";
@@ -338,7 +370,8 @@ void Menu::playerCreate(std::string name, std::string password) {
 }
 
 // cria um set com os pv's em ordem crescente
-std::set<float> Menu::pvs() {
+std::set<float> Menu::pvs()
+{
     std::string name;
     std::string password;
     float games;
@@ -349,7 +382,8 @@ std::set<float> Menu::pvs() {
 
     std::ifstream base("base.txt", std::ios::in);
 
-    while(base >> name >> password >> games >> victorys >> pv) {
+    while (base >> name >> password >> games >> victorys >> pv)
+    {
         s.insert(pv);
     }
     base.close();
@@ -358,7 +392,8 @@ std::set<float> Menu::pvs() {
 }
 
 // cria um set com todos os nomes que possuem o pv = x
-std::set<std::string> Menu::nicks(float x) {
+std::set<std::string> Menu::nicks(float x)
+{
     std::ifstream base("base.txt", std::ios::in);
     std::string name;
     std::string password;
@@ -368,8 +403,9 @@ std::set<std::string> Menu::nicks(float x) {
 
     std::set<std::string> s;
 
-    while(base >> name >> password >> games >> victorys >> pv) {
-        if(pv == x)
+    while (base >> name >> password >> games >> victorys >> pv)
+    {
+        if (pv == x)
             s.insert(name);
     }
     base.close();
