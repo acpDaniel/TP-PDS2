@@ -5,7 +5,7 @@
 • Leonardo D'avila <p>
 • Leonardo Fernandes <p>
 
-### Funcionamento do projeto: <p>
+### Funcionamento do Projeto: <p>
 Nosso grupo decidiu realizar para trabalho final um jogo de cartas, o Truco Mineiro. O truco é composto por duas
 duplas onde cada integrante possui três cartas por rodada e jogam uma melhor de três. O objetivo do jogo é vencer duas quedas
 “matando” as cartas do seu oponente, ou seja, jogando uma carta mais forte. Nosso trabalho consiste em um jogo single player
