@@ -27,7 +27,7 @@ no arquivo que salva os históricos, e novamente o menu de opções será exibid
 
 ### Diagrama de Classe
 
-<img src="https://github.com/acpDaniel/TP-PDS2/blob/main/Modelagem%20do%20Sistema.png" width="1000" height="750" title="TESTE DE IMAGEM">
+<img src="https://github.com/acpDaniel/TP-PDS2/blob/main/Modelagem%20do%20Sistema.png" width="1000" height="750" title="DIAGRAMA DE CLASSES">
 
 ### User Stories 
 
