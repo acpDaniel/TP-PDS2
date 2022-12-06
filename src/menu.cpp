@@ -279,11 +279,11 @@ void Menu::uptadeRanking(std::string player, int win)
 
     std::ofstream aux("base.txt", std::ios::out);
     for(int n = 0; n < i; n++) {
-        aux << escrita[n] << "\n";
+        aux << escrita[n];
+        if(n < i)
+            aux << "\n";
     }
     aux.close();
-
-    // remove o antigo e renomeia o novo arquivo
 }
 
 /*-------------------------string-------------------------*/
