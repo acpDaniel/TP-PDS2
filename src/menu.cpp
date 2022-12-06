@@ -254,13 +254,14 @@ void Menu::uptadeRanking(std::string player, int win)
     float games;
     float victorys;
     float pv;
+    std::vector<std::string> escrita;
+    std::string linha;
 
     // cria um arquivo para escrita e um para leitura
     std::ifstream base("base.txt", std::ios::in);
-    std::ofstream aux("aux.txt", std::ios::out);
 
-    // loop para copiar o antigo em um novo, modificando apenas a linha do jogador    
-    int i = 0;
+    // loop para copiar o antigo em um novo, modificando apenas a linha do jogador
+    int i = 0;   
     while (base >> name >> password >> games >> victorys >> pv)
     {
         if (player == name)
@@ -270,19 +271,19 @@ void Menu::uptadeRanking(std::string player, int win)
                 victorys++;
             pv = victorys / games;
         }
-        if (i == 0)
-            aux << name << " " << password << " " << games << " " << victorys << " " << pv;
-        else
-            aux << "\n" << name << " " << password << " " << games << " " << victorys << " " << pv;
+        linha = name + " " + password + " " + std::to_string(games) + " " + std::to_string(victorys) + " " + std::to_string(pv);
+        escrita.push_back(linha);
         i++;
     }
-
     base.close();
+
+    std::ofstream aux("base.txt", std::ios::out);
+    for(int n = 0; n < i; n++) {
+        aux << escrita[n] << "\n";
+    }
     aux.close();
 
     // remove o antigo e renomeia o novo arquivo
-    remove("base.txt");
-    rename("aux.txt", "base.txt");
 }
 
 /*-------------------------string-------------------------*/
