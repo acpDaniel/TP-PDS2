@@ -655,7 +655,7 @@ void Jogo::checaPedidoTrucoBot2()
         if (resposta == true)
         {
             rodadaAtual.aumentaPontuacaoRodadaAtual();
-            std::cout << "Pedido de truco foi aceito" << std::endl;
+            std::cout << "Pedido de truco foi aceito pelos bots" << std::endl;
         }
     }
 }
