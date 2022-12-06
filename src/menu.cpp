@@ -259,7 +259,8 @@ void Menu::uptadeRanking(std::string player, int win)
     std::ifstream base("base.txt", std::ios::in);
     std::ofstream aux("aux.txt", std::ios::out);
 
-    // loop para copiar o antigo em um novo, modificando apenas a linha do jogador
+    // loop para copiar o antigo em um novo, modificando apenas a linha do jogador    
+    int i = 0;
     while (base >> name >> password >> games >> victorys >> pv)
     {
         if (player == name)
@@ -269,7 +270,11 @@ void Menu::uptadeRanking(std::string player, int win)
                 victorys++;
             pv = victorys / games;
         }
-        aux << name << " " << password << " " << games << " " << victorys << " " << pv << "\n";
+        if (i == 0)
+            aux << name << " " << password << " " << games << " " << victorys << " " << pv;
+        else
+            aux << "\n" << name << " " << password << " " << games << " " << victorys << " " << pv;
+        i++;
     }
 
     base.close();
