@@ -37,7 +37,7 @@ public:
     void uptadeRanking(std::string player, int win);
     void limparTela();
 
-    //Strings
+    // Strings
     bool strMaxTamChecker(std::string str, int size);
     bool strMinTamChecker(std::string str, int size);
     bool strSpaceChecker(std::string str);
