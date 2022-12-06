@@ -280,7 +280,7 @@ void Menu::uptadeRanking(std::string player, int win)
     std::ofstream aux("base.txt", std::ios::out);
     for(int n = 0; n < i; n++) {
         aux << escrita[n];
-        if(n < i)
+        if(n < i - 1)
             aux << "\n";
     }
     aux.close();
