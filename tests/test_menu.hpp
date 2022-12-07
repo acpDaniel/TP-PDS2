@@ -22,61 +22,37 @@
 TEST_CASE("TESTANDO VERIFCACAO TAM MAX STRING")
 {
     // retorna 1 caso ultrapasse o tam max
-    SUBCASE("CASO POSITIVO")
-    {
-        Menu m1 = Menu();
-        CHECK_EQ(1, m1.strMaxTamChecker("teste", 2));
-        CHECK_EQ(1, m1.strMaxTamChecker("dan", 1));
-        CHECK_EQ(1, m1.strMaxTamChecker("paralelepipedo", 7));
-    }
-    // deveria retornar 0 pois nao vai ultrapassar
-    SUBCASE("CASO NEGATIVO")
-    {
-        Menu m1 = Menu();
-        CHECK_EQ(1, m1.strMaxTamChecker("teste", 5));
-        CHECK_EQ(1, m1.strMaxTamChecker("dan", 4));
-        CHECK_EQ(1, m1.strMaxTamChecker("paralelepipedo", 33));
-    }
+    Menu m1 = Menu();
+    CHECK_EQ(1, m1.strMaxTamChecker("teste", 2));
+    CHECK_EQ(1, m1.strMaxTamChecker("dan", 1));
+    CHECK_EQ(1, m1.strMaxTamChecker("paralelepipedo", 7));
+    CHECK_EQ(0, m1.strMaxTamChecker("teste", 21));
+    CHECK_EQ(0, m1.strMaxTamChecker("dan", 3));
+    CHECK_EQ(0, m1.strMaxTamChecker("paralelepipedo", 14));
 }
 
 TEST_CASE("TESTANDO VERIFCACAO TAM MIN STRING")
 {
     // retorna 1 caso nao ultrapasse o tamanho minimo
-    SUBCASE("CASO POSITIVO")
-    {
-        Menu m1 = Menu();
-        CHECK_EQ(0, m1.strMinTamChecker("teste", 2));
-        CHECK_EQ(0, m1.strMinTamChecker("dan", 1));
-        CHECK_EQ(0, m1.strMinTamChecker("paralelepipedo", 7));
-    }
-    // deveria retornar 0 pois vai ultrapassar tamanho minimo
-    SUBCASE("CASO NEGATIVO")
-    {
-        Menu m1 = Menu();
-        CHECK_EQ(1, m1.strMinTamChecker("teste", 4));
-        CHECK_EQ(1, m1.strMinTamChecker("dan", 2));
-        CHECK_EQ(1, m1.strMinTamChecker("paralelepipedo", 5));
-    }
+    Menu m1 = Menu();
+    CHECK_EQ(0, m1.strMinTamChecker("teste", 2));
+    CHECK_EQ(0, m1.strMinTamChecker("dan", 1));
+    CHECK_EQ(0, m1.strMinTamChecker("paralelepipedo", 7));
+    CHECK_EQ(1, m1.strMinTamChecker("teste", 6));
+    CHECK_EQ(1, m1.strMinTamChecker("dan", 4));
+    CHECK_EQ(1, m1.strMinTamChecker("paralelepipedo", 16));
 }
 
 TEST_CASE("TESTANDO VERIFCACAO CONTEM ESPAÇO STRING")
 {
     // retorna 1 caso tenha espaco na string
-    SUBCASE("CASO POSITIVO")
-    {
-        Menu m1 = Menu();
-        CHECK_EQ(0, m1.strSpaceChecker("teste"));
-        CHECK_EQ(0, m1.strSpaceChecker("dan"));
-        CHECK_EQ(0, m1.strSpaceChecker("paralelepipedo"));
-    }
-    // deveria retornar 1 pois tem espaco
-    SUBCASE("CASO NEGATIVO")
-    {
-        Menu m1 = Menu();
-        CHECK_EQ(0, m1.strSpaceChecker("tes te"));
-        CHECK_EQ(0, m1.strSpaceChecker("d an"));
-        CHECK_EQ(0, m1.strSpaceChecker("para lelepipedo"));
-    }
+    Menu m1 = Menu();
+    CHECK_EQ(0, m1.strSpaceChecker("teste"));
+    CHECK_EQ(0, m1.strSpaceChecker("dan"));
+    CHECK_EQ(0, m1.strSpaceChecker("paralelepipedo"));
+    CHECK_EQ(1, m1.strSpaceChecker("tes te"));
+    CHECK_EQ(1, m1.strSpaceChecker("d an"));
+    CHECK_EQ(1, m1.strSpaceChecker("para lelepipedo"));
 }
 
 TEST_CASE("TESTANDO SE ACHA O USARNAME NO ARQUIVO TXT")

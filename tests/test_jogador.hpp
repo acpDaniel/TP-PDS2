@@ -21,42 +21,21 @@
 
 TEST_CASE("TESTANDO PEDIR TRUCO")
 {
-    SUBCASE("CASO POSITIVO")
-    {
-        Jogador j1("daniel", 1, 1);
-        CHECK_EQ(true, j1.pedirTruco());
 
-        Jogador j2("leo", 0, 0);
-        CHECK_EQ(true, j2.pedirTruco());
-    }
-    SUBCASE("CASO NEGATIVO")
-    {
-        Jogador j1("daniel", 1, 1);
-        CHECK_EQ(false, j1.pedirTruco());
+    Jogador j1("daniel", 1, 1);
+    CHECK_EQ(true, j1.pedirTruco());
 
-        Jogador j2("leo", 0, 0);
-        CHECK_EQ(false, j2.pedirTruco());
-    }
+    Jogador j2("leo", 0, 0);
+    CHECK_EQ(true, j2.pedirTruco());
 }
 
 TEST_CASE("TESTANDO ACEITAR TRUCO")
 {
-    SUBCASE("CASO POSITIVO")
-    {
-        Jogador j1("daniel", 1, 1);
-        CHECK_EQ(true, j1.aceitarTruco());
+    Jogador j1("daniel", 1, 1);
+    CHECK_EQ(true, j1.aceitarTruco());
 
-        Jogador j2("leo", 0, 0);
-        CHECK_EQ(true, j2.aceitarTruco());
-    }
-    SUBCASE("CASO NEGATIVO")
-    {
-        Jogador j1("daniel", 1, 1);
-        CHECK_EQ(false, j1.aceitarTruco());
-
-        Jogador j2("leo", 0, 0);
-        CHECK_EQ(false, j2.aceitarTruco());
-    }
+    Jogador j2("leo", 0, 0);
+    CHECK_EQ(true, j2.aceitarTruco());
 }
 
 TEST_CASE("TESTANDO PEGAR PONTOS")
