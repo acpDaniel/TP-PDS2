@@ -8,14 +8,12 @@
 ### Funcionamento do Projeto: <p>
 Nosso grupo decidiu realizar para trabalho final um jogo de cartas, o Truco Mineiro. O truco é composto por duas
 duplas onde cada integrante possui três cartas por rodada e jogam uma melhor de três. O objetivo do jogo é vencer duas quedas
-“matando” as cartas do seu oponente, ou seja, jogando uma carta mais forte. Nosso trabalho consiste em um jogo single player
-no qual o jogador terá um bot aliado e 2 bots inimigos, formando assim as duas duplas. <p>
+“matando” as cartas do seu oponente, ou seja, jogando uma carta mais forte. Dessa meneira, caso uma dupla ganhe a primeira queda, 
+a dupla oponente ganhe a outra queda e durante a terceira queda ocorra um empate devido ao lançamento de cartas do mesmo peso,
+ninguém ganha a pontuação da rodada. <p>
 
-Vale ressaltar que a principal diferença em relação ao projeto implementado e o Truco Mineiro é o momento para pedir truco. O primeiro implementa a lógica de
-forma que quando algum jogador pede truco os demais conseguem aceitar ou recusar, se aceitarem aumenta o valor da aposta, caso contrário o jogo continua. 
-Porém, para o outro tipo, caso o pedido de truco seja realizado, os jogadores poderão aceitar ou aumentar a aposta, se recussarem perderão a rodada. Além disso,
-no nosso projeto não existe a "mão de ferro". A função da "mão de ferro" no Truco Mineiro é, em caso de empate em 10 a 10, as duas duplas disputam a mão as cegas. 
-As cartas permanecem viradas de cabeça para baixo, ninguém pode ver suas próprias cartas. Quem vencer a mão ganha o jogo.<p>
+Nosso trabalho consiste em um jogo single player no qual o jogador terá um bot aliado e 2 bots
+inimigos, formando assim as duas duplas. Vale ressaltar que a principal diferença em relação ao projeto implementado e o Truco Mineiro é o momento para pedir truco. O primeiro implementa a lógica de forma que quando algum jogador pede truco os demais conseguem aceitar ou recusar, se aceitarem aumenta o valor da aposta, caso contrário o jogo continua. Porém, para o outro tipo, caso o pedido de truco seja realizado, os jogadores poderão aceitar ou aumentar a aposta, se recussarem perderão a rodada. Além disso, no nosso projeto não existe a "mão de ferro". A função da "mão de ferro" no Truco Mineiro é, em caso de empate em 10 a 10, as duas duplas disputam a mão as cegas. As cartas permanecem viradas de cabeça para baixo, ninguém pode ver suas próprias cartas. Quem vencer a mão ganha o jogo.<p>
 
 Dentro do sistema o truco terá a implementação de um sistema de login de usuários, por meio da checagem do nome de usuário 
 e da senha cadastrada em um arquivo txt, que servirá para controlar a quantidade de partidas jogadas, vitórias e derrotas
