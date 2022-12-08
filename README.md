@@ -6,9 +6,9 @@
 • Leonardo Fernandes <p>
 
 ### Funcionamento do Projeto: <p>
-Nosso grupo decidiu realizar para trabalho final um jogo de cartas, o Truco Mineiro. O truco é composto por duas
+Nosso grupo decidiu realizar para o trabalho final um jogo de cartas, o Truco Mineiro. O truco é composto por duas
 duplas onde cada integrante possui três cartas por rodada e jogam uma melhor de três. O objetivo do jogo é vencer duas quedas
-“matando” as cartas do seu oponente, ou seja, jogando uma carta mais forte. Dessa meneira, caso uma dupla ganhe a primeira queda, 
+“matando” as cartas do seu oponente, ou seja, jogando uma carta mais forte. Dessa maneira, caso uma dupla ganhe a primeira queda, 
 a dupla oponente ganhe a outra queda e durante a terceira queda ocorra um empate devido ao lançamento de cartas do mesmo peso,
 ninguém ganha a pontuação da rodada. <p>
 
